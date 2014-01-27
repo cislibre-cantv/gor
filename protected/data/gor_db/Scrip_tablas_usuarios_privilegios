@@ -1,0 +1,256 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+CREATE SCHEMA IF NOT EXISTS `gor_db` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `gor_db` ;
+
+-- -----------------------------------------------------
+-- Table `gor_db`.`cnx_usuarios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `gor_db`.`cnx_usuarios` (
+  `id_usuario` INT(11) NOT NULL AUTO_INCREMENT,
+  `nu_docm_idnt` INT(10) NOT NULL,
+  `nu_docm_idnt_supv` INT(10) NULL,
+  `username` VARCHAR(128) NOT NULL,
+  `password` VARCHAR(128) NOT NULL,
+  `nb_pers` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(50) NULL,
+  `ldap_login` BIT NOT NULL DEFAULT 0,
+  `fe_crea` DATETIME NULL,
+  `fe_modf` DATETIME NULL,
+  `usr_crea` VARCHAR(10) NULL,
+  `usr_modf` VARCHAR(10) NULL,
+  `in_stat` CHAR NOT NULL DEFAULT 'A',
+  `tx_desc` VARCHAR(100) NULL,
+  UNIQUE INDEX `uk_id_usuario` (`id_usuario` ASC),
+  PRIMARY KEY (`nu_docm_idnt`),
+  INDEX `idx_nu_docm_idnt_supv` (`nu_docm_idnt_supv` ASC),
+  CONSTRAINT `fk_nu_docm_idnt`
+    FOREIGN KEY (`nu_docm_idnt_supv`)
+    REFERENCES `gor_db`.`cnx_usuarios` (`nu_docm_idnt`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+COMMENT = 'Tabla de asignacion de usuarios a organizacion';
+
+
+-- -----------------------------------------------------
+-- Table `gor_db`.`cnx_org`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `gor_db`.`cnx_org` (
+  `id_org` INT(11) NOT NULL AUTO_INCREMENT,
+  `co_org` INT(10) NOT NULL,
+  `co_org_dpnd` INT(10) NULL,
+  `nb_org` VARCHAR(128) NOT NULL,
+  `tx_descripcion` VARCHAR(250) NOT NULL,
+  `abv_org` VARCHAR(6) NULL,
+  `fe_crea` DATETIME NULL,
+  `fe_modf` DATETIME NULL,
+  `usr_crea` VARCHAR(10) NULL,
+  `usr_modf` VARCHAR(10) NULL,
+  `in_stat` CHAR NOT NULL DEFAULT 'A',
+  `tx_desc` VARCHAR(100) NULL,
+  UNIQUE INDEX `uk_id_org` (`id_org` ASC),
+  PRIMARY KEY (`co_org`),
+  INDEX `idx_co_org_dpnd` (`co_org_dpnd` ASC),
+  CONSTRAINT `fk_co_org`
+    FOREIGN KEY (`co_org_dpnd`)
+    REFERENCES `gor_db`.`cnx_org` (`co_org`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+COMMENT = 'Tabla de estrutura organizativa';
+
+
+-- -----------------------------------------------------
+-- Table `gor_db`.`cnx_asig_org`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `gor_db`.`cnx_asig_org` (
+  `id_asig_org` INT(11) NOT NULL AUTO_INCREMENT,
+  `co_asig_org` INT(10) NOT NULL,
+  `nu_docm_idnt` INT(10) NOT NULL,
+  `co_org` INT(10) NOT NULL,
+  `fe_crea` DATETIME NULL,
+  `fe_modf` DATETIME NULL,
+  `usr_crea` VARCHAR(10) NULL,
+  `usr_modf` VARCHAR(10) NULL,
+  `in_stat` CHAR NOT NULL DEFAULT 'A',
+  `tx_desc` VARCHAR(100) NULL,
+  UNIQUE INDEX `uk_id_asig_org` (`id_asig_org` ASC),
+  INDEX `idx_asig_org_nu_docm_idnt` (`nu_docm_idnt` ASC),
+  INDEX `idx_asig_org_co_org` (`co_org` ASC),
+  PRIMARY KEY (`co_asig_org`),
+  CONSTRAINT `fk_asig_org_nu_doc`
+    FOREIGN KEY (`nu_docm_idnt`)
+    REFERENCES `gor_db`.`cnx_usuarios` (`nu_docm_idnt`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_asig_org_co_org`
+    FOREIGN KEY (`co_org`)
+    REFERENCES `gor_db`.`cnx_org` (`co_org`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+COMMENT = 'Tabla de usuarios del sistema';
+
+
+-- -----------------------------------------------------
+-- Table `gor_db`.`cnx_permisologia`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `gor_db`.`cnx_permisologia` (
+  `id_permisologia` INT(11) NOT NULL AUTO_INCREMENT,
+  `co_permisologia` INT(10) NOT NULL,
+  `nb_permiso` VARCHAR(10) NOT NULL,
+  `abv_permiso` VARCHAR(5) NULL,
+  `fe_crea` DATETIME NULL,
+  `fe_modf` DATETIME NULL,
+  `usr_crea` VARCHAR(10) NULL,
+  `usr_modf` VARCHAR(10) NULL,
+  `in_stat` CHAR NOT NULL DEFAULT 'A',
+  `tx_desc` VARCHAR(100) NULL,
+  UNIQUE INDEX `uk_id_permisologia` (`id_permisologia` ASC),
+  PRIMARY KEY (`co_permisologia`))
+ENGINE = InnoDB
+COMMENT = 'Tabla de permisos generales del sistema';
+
+
+-- -----------------------------------------------------
+-- Table `gor_db`.`cnx_roles`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `gor_db`.`cnx_roles` (
+  `id_rol` INT(11) NOT NULL AUTO_INCREMENT,
+  `co_rol` INT(10) NOT NULL,
+  `tx_rol` VARCHAR(50) NOT NULL,
+  `tx_descripcion` VARCHAR(250) NOT NULL,
+  `fe_crea` DATETIME NULL,
+  `fe_modf` DATETIME NULL,
+  `usr_crea` VARCHAR(10) NULL,
+  `usr_modf` VARCHAR(10) NULL,
+  `in_stat` CHAR NOT NULL DEFAULT 'A',
+  `tx_desc` VARCHAR(100) NULL,
+  UNIQUE INDEX `uk_id_rol` (`id_rol` ASC),
+  PRIMARY KEY (`co_rol`))
+ENGINE = InnoDB
+COMMENT = 'Tabla de roles del sistema';
+
+
+-- -----------------------------------------------------
+-- Table `gor_db`.`cnx_asig_perm`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `gor_db`.`cnx_asig_perm` (
+  `id_asig_perm` INT(11) NOT NULL AUTO_INCREMENT,
+  `co_asig_perm` INT(10) NOT NULL,
+  `co_permisologia` INT(10) NOT NULL,
+  `co_rol` INT(10) NOT NULL,
+  `fe_crea` DATETIME NULL,
+  `fe_modf` DATETIME NULL,
+  `usr_crea` VARCHAR(10) NULL,
+  `usr_modf` VARCHAR(10) NULL,
+  `in_stat` CHAR NOT NULL DEFAULT 'A',
+  `tx_desc` VARCHAR(100) NULL,
+  UNIQUE INDEX `uk_asig_perm` (`id_asig_perm` ASC),
+  PRIMARY KEY (`co_asig_perm`),
+  INDEX `idx_cnx_asig_perm_co_perm` (`co_permisologia` ASC),
+  INDEX `idx_cnx_asig_perm_co_rol` (`co_rol` ASC),
+  CONSTRAINT `fk_asig_perm_co_perm`
+    FOREIGN KEY (`co_permisologia`)
+    REFERENCES `gor_db`.`cnx_permisologia` (`co_permisologia`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_asig_perm_co_rol`
+    FOREIGN KEY (`co_rol`)
+    REFERENCES `gor_db`.`cnx_roles` (`co_rol`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+COMMENT = 'Tabla de asignacion de permisos a los roles';
+
+
+-- -----------------------------------------------------
+-- Table `gor_db`.`cnx_user_roles`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `gor_db`.`cnx_user_roles` (
+  `id_user_rol` INT(11) NOT NULL AUTO_INCREMENT,
+  `co_user_rol` INT(10) NOT NULL,
+  `nu_docm_idnt` INT(10) NOT NULL,
+  `co_rol` INT(10) NOT NULL,
+  `fe_crea` DATETIME NULL,
+  `fe_modf` DATETIME NULL,
+  `usr_crea` VARCHAR(10) NULL,
+  `usr_modf` VARCHAR(10) NULL,
+  `in_stat` CHAR NOT NULL DEFAULT 'A',
+  `tx_desc` VARCHAR(100) NULL,
+  UNIQUE INDEX `uk_id_user_rol` (`id_user_rol` ASC),
+  PRIMARY KEY (`co_user_rol`),
+  INDEX `idx_user_roles_cedula` (`nu_docm_idnt` ASC),
+  INDEX `idx_user_roles_co_rol` (`co_rol` ASC),
+  CONSTRAINT `fk_user_roles_cedula`
+    FOREIGN KEY (`nu_docm_idnt`)
+    REFERENCES `gor_db`.`cnx_usuarios` (`nu_docm_idnt`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_user_roles_co_rol`
+    FOREIGN KEY (`co_rol`)
+    REFERENCES `gor_db`.`cnx_roles` (`co_rol`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+COMMENT = 'Tabla de asignacion de roles a usuarios';
+
+
+-- -----------------------------------------------------
+-- Table `gor_db`.`cnx_modulos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `gor_db`.`cnx_modulos` (
+  `id_modulo` INT(11) NOT NULL AUTO_INCREMENT,
+  `co_modulo` INT(10) NOT NULL,
+  `tx_modulo` VARCHAR(50) NOT NULL,
+  `tx_descripcion` VARCHAR(250) NOT NULL,
+  `fe_crea` DATETIME NULL,
+  `fe_modf` DATETIME NULL,
+  `usr_crea` VARCHAR(10) NULL,
+  `usr_modf` VARCHAR(10) NULL,
+  `in_stat` CHAR NOT NULL DEFAULT 'A',
+  `tx_desc` VARCHAR(100) NULL,
+  UNIQUE INDEX `uk_id_modulo` (`id_modulo` ASC),
+  PRIMARY KEY (`co_modulo`))
+ENGINE = InnoDB
+COMMENT = 'Tabla de modulos del sistema';
+
+
+-- -----------------------------------------------------
+-- Table `gor_db`.`cnx_asig_modulo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `gor_db`.`cnx_asig_modulo` (
+  `id_asig_modulo` INT(11) NOT NULL AUTO_INCREMENT,
+  `co_asig_modulo` INT(10) NOT NULL,
+  `co_modulo` INT(10) NOT NULL,
+  `co_rol` INT(10) NOT NULL,
+  `fe_crea` DATETIME NULL,
+  `fe_modf` DATETIME NULL,
+  `usr_crea` VARCHAR(10) NULL,
+  `usr_modf` VARCHAR(10) NULL,
+  `in_stat` CHAR NOT NULL DEFAULT 'A',
+  `tx_desc` VARCHAR(100) NULL,
+  UNIQUE INDEX `uk_id_asig_modulo` (`id_asig_modulo` ASC),
+  PRIMARY KEY (`co_asig_modulo`),
+  INDEX `idx_asig_modulo_co_modulo` (`co_modulo` ASC),
+  INDEX `idx_asig_modulo_co_rol` (`co_rol` ASC),
+  CONSTRAINT `fk_asig_mod_co_mod`
+    FOREIGN KEY (`co_modulo`)
+    REFERENCES `gor_db`.`cnx_modulos` (`co_modulo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_asig_mod_co_rol`
+    FOREIGN KEY (`co_rol`)
+    REFERENCES `gor_db`.`cnx_roles` (`co_rol`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+COMMENT = 'Tabla de asignacion de modulos a los roles';
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
