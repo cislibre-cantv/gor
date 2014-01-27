@@ -89,4 +89,12 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
 	),
+    
+        
+        'language'=>'es', // Este es el lenguaje en el que quieres que muestre las cosas
+	'sourceLanguage'=>'en', // Este es el lenguaje por defecto de los archivos
+	'defaultController'=>'site/index', // Vista por defecto
+    
+    
+    
 );
