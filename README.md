@@ -1,3 +1,65 @@
+# _GOR_
+
+_Descripcion: Sistema de Gestion Operativa Regional_
+
+## Configuración del proyecto
+
+_¿Cómo puedo, como desarrollador, empezar a trabajar en el proyecto?_ 
+
+1. Realice un Fork al proyecto desde su cuenta en guthub.
+2. Haga un clon del proyecto que se ha copiado en su cuenta
+    ej. git clone git@github.com:tu_cuenta_de_github/gor.git
+
+
+## Testing
+
+_How do I run the project's automated tests?_
+
+### Unit Tests
+
+1. `rake spec`
+
+### Integration Tests
+
+1. _Run other local services / provide credentials for external services._
+2. `rake spec:integration`
+
+## Deploying
+
+### _How to setup the deployment environment_
+
+- _Required heroku addons, packages, or chef recipes._
+- _Required environment variables or credentials not included in git._
+- _Monitoring services and logging._
+
+### _How to deploy_
+
+## Troubleshooting & Useful Tools
+
+_Examples of common tasks_
+
+> e.g.
+> 
+> - How to make curl requests while authenticated via oauth.
+> - How to monitor background jobs.
+> - How to run the app through a proxy.
+
+## Contributing changes
+
+- _Internal git workflow_
+- _Pull request guidelines_
+- _Tracker project_
+- _Google group_
+- _irc channel_
+- _"Please open github issues"_
+
+## License
+
+
+
+
+
+
 GOR
 ===
 
@@ -9,8 +71,6 @@ Se inicio el proyecto de migracion del Gor 26-01-2014
 ##############################################
 ###         BASE DE DATOS 
 ##############################################
- Creado 26-01-2014 averen01@cantv.com.ve
- Actualizado 27-01-2014 averen01@cantv.com.ve
 
 -TABLAS DE USUARIOS Y PERMISOLOGIAS:
     Se Crea la base de datos para manejo de usuarios ver archivo:
@@ -24,7 +84,6 @@ Se inicio el proyecto de migracion del Gor 26-01-2014
 ##############################################
 ###         AUDITORIA EN TABLAS
 ##############################################
-Creado 26-01-2014 averen01@cantv.com.ve
 
     Si ha creado los campos de autoria (fe_crea, fe_modf, usr_crea, usr_modf), 
     agregue la siguiente funcion en el modelo de la tabla en cuestion, para que
