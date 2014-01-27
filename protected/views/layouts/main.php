@@ -49,9 +49,9 @@
 	<div class="clear"></div>
 
 	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
+		Copyright &copy; <?php echo date('Y'); ?> by CANTV.<br/>
+		Compañia Anónima Nacional Teléfonos de Venezuela. RIF: J-00124134-5.- Todos los derechos reservados.<br/>
+		
 	</div><!-- footer -->
 
 </div><!-- page -->

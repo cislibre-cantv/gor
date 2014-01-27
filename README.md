@@ -1,26 +1,61 @@
-GOR
-===
+# _GOR_
 
-Sistema de Gestión Operativa Regional
+_Descripcion: Sistema de Gestion Operativa Regional_
 
-Se inicio el proyecto de migracion del gro 26-01-2014
+## Configuración del proyecto
+
+_¿Cómo puedo, como desarrollador, empezar a trabajar en el proyecto?_ 
+
+1. Realice un Fork al proyecto desde su cuenta en guthub.
+2. Haga un clon del proyecto que se ha copiado en su cuenta.
+     
+        ej. git clone git@github.com:tu_cuenta_de_github/gor.git
+
+3. Copie la carpeta gor en su servidor web
+4. Istale la base de datos, ubucada en  
+
+        ../protected/data/gor_db/Scrip_tablas_usuarios_privilegios.sql
+
+5. Cree un usuario admin desde su administrador de base de datos.
+6. Ingrese a la aplicación desde httt://localhost/gor
 
 
-##############################################
-###         BASE DE DATOS
-##############################################
--TABLAS DE USUARIOS Y PERMISOLOGIAS:
-    Se Crea la base de datos para manejo de usuarios ver archivo:
+## Pruebas
+
+_¿Cómo puedo ejecutar pruebas automatizadas del proyecto?_
+
+### Pruebas Unitarias
+
+1. No definidas
+
+### Pruebas Integrales
+
+1. No definidas
+
+## Implementación
+
+### _¿Cómo configurar el ambiente de implementación?_
+
+- _No requiere configuración especial._
+
+### _Cómo implementar_
+
+## Solución de problemas y herramientas útiles
+
+_Ejemplos de tareas comunes_
+
+> e.g.
+> 
+> - No definidas.
+
+## Cambios y Contribuciones
+
+- _CRUD Usuarios_
+    Se crea el crud de usuarios y se establece la autenticación con 
+    la base de datos a través del componente UserIdentity.php, función authenticate()
     
-    ../protected/data/Scrip_tablas_usuarios_privilegios.sql
 
-    Crear el usuario admin una vez que se cree la BD.
-
-
-
-##############################################
-###         AUDITORIA EN TABLAS
-##############################################
+- _Integracion con behaviors_
     Si ha creado los campos de autoria (fe_crea, fe_modf, usr_crea, usr_modf), 
     agregue la siguiente funcion en el modelo de la tabla en cuestion, para que
     se guarde automaticamente la fecha y id de usuario que intereactua con esta.
@@ -43,4 +78,12 @@ Se inicio el proyecto de migracion del gro 26-01-2014
                     );
             }
 
+- _Tracker project_
+- _Google group_
+- _irc channel_
+- _"Please open github issues"_
 
+## Licencia
+
+    Copyright 2014
+    Compañia Anónima Nacional Teléfonos de Venezuela. RIF: J-00124134-5.- Todos los derechos reservados.
