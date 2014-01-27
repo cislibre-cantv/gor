@@ -9,7 +9,7 @@ _¿Cómo puedo, como desarrollador, empezar a trabajar en el proyecto?_
 1. Realice un Fork al proyecto desde su cuenta en guthub.
 2. Haga un clon del proyecto que se ha copiado en su cuenta.
      
-        ej. git clone git@github.com:tu_cuenta_de_github/gor.git
+        git clone git@github.com:tu_cuenta_de_github/gor.git
 
 3. Copie la carpeta gor en su servidor web
 4. Istale la base de datos, ubucada en  
