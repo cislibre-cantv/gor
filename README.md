@@ -51,8 +51,11 @@ _Ejemplos de tareas comunes_
 ## Cambios y Contribuciones
 
 - _CRUD Usuarios_
-- _Integracion con behaviors_
+    Se crea el crud de usuarios y se establece la autenticación con 
+    la base de datos a través del componente UserIdentity.php, función authenticate()
     
+
+- _Integracion con behaviors_
     Si ha creado los campos de autoria (fe_crea, fe_modf, usr_crea, usr_modf), 
     agregue la siguiente funcion en el modelo de la tabla en cuestion, para que
     se guarde automaticamente la fecha y id de usuario que intereactua con esta.
@@ -82,5 +85,5 @@ _Ejemplos de tareas comunes_
 
 ## Licencia
 
-    Copyright &copy; 2014
+    Copyright 2014
     Compañia Anónima Nacional Teléfonos de Venezuela. RIF: J-00124134-5.- Todos los derechos reservados.
