@@ -50,12 +50,12 @@ _Ejemplos de tareas comunes_
 
 ## Cambios y Contribuciones
 
-- _CRUD Usuarios_
+- _CRUD Usuarios:_
     Se crea el crud de usuarios y se establece la autenticación con 
     la base de datos a través del componente UserIdentity.php, función authenticate()
     
 
-- _Integracion con behaviors_
+- _Integracion con behaviors:_
     Si ha creado los campos de autoria (fe_crea, fe_modf, usr_crea, usr_modf), 
     agregue la siguiente funcion en el modelo de la tabla en cuestion, para que
     se guarde automaticamente la fecha y id de usuario que intereactua con esta.
@@ -78,10 +78,7 @@ _Ejemplos de tareas comunes_
                     );
             }
 
-- _Tracker project_
-- _Google group_
-- _irc channel_
-- _"Please open github issues"_
+
 
 ## Licencia
 
