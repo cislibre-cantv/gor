@@ -54,7 +54,6 @@ _Ejemplos de tareas comunes_
     Se crea el crud de usuarios y se establece la autenticación con 
     la base de datos a través del componente UserIdentity.php, función authenticate()
     
-
 - _Integracion con behaviors:_
     Si ha creado los campos de autoria (fe_crea, fe_modf, usr_crea, usr_modf), 
     agregue la siguiente funcion en el modelo de la tabla en cuestion, para que
@@ -78,7 +77,8 @@ _Ejemplos de tareas comunes_
                     );
             }
 
-
+- _CRUD Organización:_
+    Se crea el crud de organizacion.
 
 ## Licencia
 
