@@ -7,84 +7,52 @@ _Descripcion: Sistema de Gestion Operativa Regional_
 _¿Cómo puedo, como desarrollador, empezar a trabajar en el proyecto?_ 
 
 1. Realice un Fork al proyecto desde su cuenta en guthub.
-2. Haga un clon del proyecto que se ha copiado en su cuenta. <br/>
-    ej. git clone git@github.com:tu_cuenta_de_github/gor.git
+2. Haga un clon del proyecto que se ha copiado en su cuenta.
+     
+        ej. git clone git@github.com:tu_cuenta_de_github/gor.git
+
+3. Copie la carpeta gor en su servidor web
+4. Istale la base de datos, ubucada en  
+
+        ../protected/data/gor_db/Scrip_tablas_usuarios_privilegios.sql
+
+5. Cree un usuario admin desde su administrador de base de datos.
+6. Ingrese a la aplicación desde httt://localhost/gor
 
 
-## Testing
+## Pruebas
 
-_How do I run the project's automated tests?_
+_¿Cómo puedo ejecutar pruebas automatizadas del proyecto?_
 
-### Unit Tests
+### Pruebas Unitarias
 
-1. `rake spec`
+1. No definidas
 
-### Integration Tests
+### Pruebas Integrales
 
-1. _Run other local services / provide credentials for external services._
-2. `rake spec:integration`
+1. No definidas
 
-## Deploying
+## Implementación
 
-### _How to setup the deployment environment_
+### _¿Cómo configurar el ambiente de implementación?_
 
-- _Required heroku addons, packages, or chef recipes._
-- _Required environment variables or credentials not included in git._
-- _Monitoring services and logging._
+- _No requiere configuración especial._
 
-### _How to deploy_
+### _Cómo implementar_
 
-## Troubleshooting & Useful Tools
+## Solución de problemas y herramientas útiles
 
-_Examples of common tasks_
+_Ejemplos de tareas comunes_
 
 > e.g.
 > 
-> - How to make curl requests while authenticated via oauth.
-> - How to monitor background jobs.
-> - How to run the app through a proxy.
+> - No definidas.
 
-## Contributing changes
+## Cambios y Contribuciones
 
-- _Internal git workflow_
-- _Pull request guidelines_
-- _Tracker project_
-- _Google group_
-- _irc channel_
-- _"Please open github issues"_
-
-## License
-
-
-
-
-
-
-GOR
-===
-
-Sistema de Gestión Operativa Regional
-
-Se inicio el proyecto de migracion del Gor 26-01-2014
-
-
-##############################################
-###         BASE DE DATOS 
-##############################################
-
--TABLAS DE USUARIOS Y PERMISOLOGIAS:
-    Se Crea la base de datos para manejo de usuarios ver archivo:
+- _CRUD Usuarios_
+- _Integracion con behaviors_
     
-    ../protected/data/gor_db/Scrip_tablas_usuarios_privilegios.sql
-
-    Crear el usuario admin una vez que se cree la BD.
-
-
-
-##############################################
-###         AUDITORIA EN TABLAS
-##############################################
-
     Si ha creado los campos de autoria (fe_crea, fe_modf, usr_crea, usr_modf), 
     agregue la siguiente funcion en el modelo de la tabla en cuestion, para que
     se guarde automaticamente la fecha y id de usuario que intereactua con esta.
@@ -107,4 +75,12 @@ Se inicio el proyecto de migracion del Gor 26-01-2014
                     );
             }
 
+- _Tracker project_
+- _Google group_
+- _irc channel_
+- _"Please open github issues"_
 
+## Licencia
+
+    Copyright &copy; 2014
+    Compañia Anónima Nacional Teléfonos de Venezuela. RIF: J-00124134-5.- Todos los derechos reservados.
