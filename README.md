@@ -7,7 +7,7 @@ _Descripcion: Sistema de Gestion Operativa Regional_
 _¿Cómo puedo, como desarrollador, empezar a trabajar en el proyecto?_ 
 
 1. Realice un Fork al proyecto desde su cuenta en guthub.
-2. Haga un clon del proyecto que se ha copiado en su cuenta
+2. Haga un clon del proyecto que se ha copiado en su cuenta.
     ej. git clone git@github.com:tu_cuenta_de_github/gor.git
 
 
