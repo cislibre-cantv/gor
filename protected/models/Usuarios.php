@@ -51,6 +51,11 @@ class Usuarios extends CActiveRecord
 			array('usr_crea, usr_modf', 'length', 'max'=>10),
 			array('in_stat', 'length', 'max'=>1),
 			array('fe_crea, fe_modf', 'safe'),
+                    
+                        array('email', 'email'),
+			array('nu_docm_idnt', 'unique', 'attributeName'=>'nu_docm_idnt'),
+                    
+                    
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id_usuario, nu_docm_idnt, nu_docm_idnt_supv, username, password, nb_pers, email, ldap_login, fe_crea, fe_modf, usr_crea, usr_modf, in_stat, tx_desc', 'safe', 'on'=>'search'),
@@ -155,5 +160,21 @@ class Usuarios extends CActiveRecord
             return md5($password);
         }
 
-        
+        public function behaviors()
+	{
+		return array(
+			'CTimestampBehavior' => array(
+                            'class' => 'zii.behaviors.CTimestampBehavior',
+                            'createAttribute' => 'fe_crea',
+                            'updateAttribute' => 'fe_modf',
+                            'setUpdateOnCreate' => true,
+			),
+
+			'BlameableBehavior' => array(
+                            'class' => 'application.components.BlameableBehavior',
+                            'createdByColumn' => 'usr_crea',
+                            'updatedByColumn' => 'usr_modf',
+			),
+		);
+	}
 }
