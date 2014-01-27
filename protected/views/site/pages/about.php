@@ -1,12 +1,17 @@
 <?php
 /* @var $this SiteController */
 
-$this->pageTitle=Yii::app()->name . ' - About';
+$this->pageTitle=Yii::app()->name . ' - Acerca de';
 $this->breadcrumbs=array(
 	'About',
 );
 ?>
-<h1>About</h1>
+<h1>Acerca de</h1>
 
-<p>This is a "static" page. You may change the content of this page
-by updating the file <code><?php echo __FILE__; ?></code>.</p>
+
+<p>Sistema de Gestión Operativa Regional</p>
+
+</br></br>
+
+
+<p>Compañia Anónima Nacional Teléfonos de Venezuela. RIF: J-00124134-5.- Todos los derechos reservados.</p>
