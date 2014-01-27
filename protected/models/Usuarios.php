@@ -143,4 +143,17 @@ class Usuarios extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        
+        public function validatePassword($password)
+        {
+            return $this->hashPassword($password)===$this->password;
+        }
+        
+        public function hashPassword($password)
+        {
+            return md5($password);
+        }
+
+        
 }
