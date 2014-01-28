@@ -13,7 +13,12 @@
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
-)); ?>
+       )); 
+
+       //Arreglo para campo ldap_login
+       $options = array(array('ldap_login'=>0, 'descripcion'=>'Autenticacion por BD'), array('ldap_login'=>1, 'descripcion'=>'Autenticacion por LDAP'),);
+
+?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
@@ -57,20 +62,8 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'ldap_login'); ?>
-		<?php echo $form->textField($model,'ldap_login'); ?>
-		<?php echo $form->error($model,'ldap_login'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'fe_crea'); ?>
-		<?php echo $form->textField($model,'fe_crea'); ?>
-		<?php echo $form->error($model,'fe_crea'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'fe_modf'); ?>
-		<?php echo $form->textField($model,'fe_modf'); ?>
-		<?php echo $form->error($model,'fe_modf'); ?>
+		<?php echo $form->dropDownList($model,'ldap_login', CHtml::listData($options, 'ldap_login', 'descripcion') ); ?>
+                <?php echo $form->error($model,'ldap_login'); ?>
 	</div>
 
 	<div class="row">
@@ -83,12 +76,6 @@
 		<?php echo $form->labelEx($model,'usr_modf'); ?>
 		<?php echo $form->textField($model,'usr_modf',array('size'=>10,'maxlength'=>10)); ?>
 		<?php echo $form->error($model,'usr_modf'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'in_stat'); ?>
-		<?php echo $form->textField($model,'in_stat',array('size'=>1,'maxlength'=>1)); ?>
-		<?php echo $form->error($model,'in_stat'); ?>
 	</div>
 
 	<div class="row">
