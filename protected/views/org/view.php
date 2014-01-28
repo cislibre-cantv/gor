@@ -37,6 +37,4 @@ $this->menu=array(
 	),
 )); 
 
-print_r ($model);
-
 ?>
