@@ -85,6 +85,9 @@ class Usuarios extends CActiveRecord
 			'userRoles' => array(self::HAS_MANY, 'UserRoles', 'nu_docm_idnt'),
 			'nuDocmIdntSupv' => array(self::BELONGS_TO, 'Usuarios', 'nu_docm_idnt_supv'),
 			'usuarioses' => array(self::HAS_MANY, 'Usuarios', 'nu_docm_idnt_supv'),
+                        
+                       
+                    
 		);
 	}
 
