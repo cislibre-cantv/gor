@@ -52,9 +52,20 @@ class Usuarios extends CActiveRecord
 			array('in_stat', 'length', 'max'=>1),
 			array('fe_crea, fe_modf', 'safe'),
                     
+                        //valida formato de email
                         array('email', 'email'),
-			array('nu_docm_idnt', 'unique', 'attributeName'=>'nu_docm_idnt'),
+			
+                        //valiida unique key
+                        array('nu_docm_idnt', 'unique', 'attributeName'=>'nu_docm_idnt'),
                     
+                        //Valida foreing key
+                        array('nu_docm_idnt_supv', 'exist',
+                                'allowEmpty' => true,
+                                'attributeName' => 'nu_docm_idnt',
+                                'className' => 'Usuarios',
+                                'message' => 'El número de cédula no existe',
+                                'skipOnError'=>true
+                                ),
                     
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -84,19 +95,19 @@ class Usuarios extends CActiveRecord
 	{
 		return array(
 			'id_usuario' => 'Id Usuario',
-			'nu_docm_idnt' => 'Nu Docm Idnt',
-			'nu_docm_idnt_supv' => 'Nu Docm Idnt Supv',
-			'username' => 'Username',
-			'password' => 'Password',
-			'nb_pers' => 'Nb Pers',
-			'email' => 'Email',
-			'ldap_login' => 'Ldap Login',
-			'fe_crea' => 'Fe Crea',
-			'fe_modf' => 'Fe Modf',
-			'usr_crea' => 'Usr Crea',
-			'usr_modf' => 'Usr Modf',
-			'in_stat' => 'In Stat',
-			'tx_desc' => 'Tx Desc',
+			'nu_docm_idnt' => 'Cédula',
+			'nu_docm_idnt_supv' => 'Cédula Supervisor',
+			'username' => 'Usuario',
+			'password' => 'Clave',
+			'nb_pers' => 'Apellidos, Nombres',
+			'email' => 'Correo',
+			'ldap_login' => 'Tipo de Autenticación',
+			'fe_crea' => 'Creado el',
+			'fe_modf' => 'Modificado el',
+			'usr_crea' => 'Creado por',
+			'usr_modf' => 'MOdificado por',
+			'in_stat' => 'Estatus',
+			'tx_desc' => 'Observaciones',
 		);
 	}
 
