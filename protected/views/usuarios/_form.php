@@ -35,7 +35,7 @@
 		<?php echo $form->textField($model,'nu_docm_idnt_supv'); ?>
 		<?php echo $form->error($model,'nu_docm_idnt_supv'); ?>
 	</div>
-
+        
 	<div class="row">
 		<?php echo $form->labelEx($model,'username'); ?>
 		<?php echo $form->textField($model,'username',array('size'=>60,'maxlength'=>128)); ?>
@@ -65,7 +65,7 @@
 		<?php echo $form->dropDownList($model,'ldap_login', CHtml::listData($options, 'ldap_login', 'descripcion') ); ?>
                 <?php echo $form->error($model,'ldap_login'); ?>
 	</div>
-
+              
 	<div class="row">
 		<?php echo $form->labelEx($model,'usr_crea'); ?>
 		<?php echo $form->textField($model,'usr_crea',array('size'=>10,'maxlength'=>10)); ?>
