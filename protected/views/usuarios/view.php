@@ -7,12 +7,27 @@ $this->breadcrumbs=array(
 	$model->nu_docm_idnt,
 );
 
+
+if ( !is_array($model->asigOrgs) || empty($model->asigOrgs) ) {
+    $sumintEstOrg = array (
+       '/asigOrg/create','nu_docm_idnt'=>$model->nu_docm_idnt
+    );
+}else{
+    $sumintEstOrg = array (
+       '/asigOrg/view','id'=>$model->asigOrgs[0]->co_asig_org
+    );
+}
+
+
 $this->menu=array(
 	array('label'=>'List Usuarios', 'url'=>array('index')),
 	array('label'=>'Create Usuarios', 'url'=>array('create')),
 	array('label'=>'Update Usuarios', 'url'=>array('update', 'id'=>$model->nu_docm_idnt)),
 	array('label'=>'Delete Usuarios', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->nu_docm_idnt),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage Usuarios', 'url'=>array('admin')),
+        
+        array('label'=>'Ubicación Organizativa', 'url'=>'#', 'linkOptions'=>array('submit'=>$sumintEstOrg)),
+        
 );
 ?>
 
