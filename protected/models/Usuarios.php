@@ -105,7 +105,7 @@ class Usuarios extends CActiveRecord
 			'fe_crea' => 'Creado el',
 			'fe_modf' => 'Modificado el',
 			'usr_crea' => 'Creado por',
-			'usr_modf' => 'MOdificado por',
+			'usr_modf' => 'Modificado por',
 			'in_stat' => 'Estatus',
 			'tx_desc' => 'Observaciones',
 		);
