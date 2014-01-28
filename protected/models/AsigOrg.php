@@ -43,6 +43,25 @@ class AsigOrg extends CActiveRecord
 			array('in_stat', 'length', 'max'=>1),
 			array('tx_desc', 'length', 'max'=>100),
 			array('fe_crea, fe_modf', 'safe'),
+                    
+                        //Valida foreing key
+                        array('nu_docm_idnt', 'exist',
+                                'allowEmpty' => true,
+                                'attributeName' => 'nu_docm_idnt',
+                                'className' => 'Usuarios',
+                                'message' => 'El número de cédula no existe',
+                                'skipOnError'=>true
+                                ),
+                        //Valida foreing key
+                        array('co_org', 'exist',
+                                'allowEmpty' => true,
+                                'attributeName' => 'co_org',
+                                'className' => 'Org',
+                                'message' => 'La Organización no existe',
+                                'skipOnError'=>true
+                                ),
+                    
+                    
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id_asig_org, co_asig_org, nu_docm_idnt, co_org, fe_crea, fe_modf, usr_crea, usr_modf, in_stat, tx_desc', 'safe', 'on'=>'search'),
@@ -69,9 +88,9 @@ class AsigOrg extends CActiveRecord
 	{
 		return array(
 			'id_asig_org' => 'Id Asig Org',
-			'co_asig_org' => 'Co Asig Org',
-			'nu_docm_idnt' => 'Nu Docm Idnt',
-			'co_org' => 'Co Org',
+			'co_asig_org' => 'Codigo de registro',
+			'nu_docm_idnt' => 'Cédula',
+			'co_org' => 'Organización',
 			'fe_crea' => 'Fe Crea',
 			'fe_modf' => 'Fe Modf',
 			'usr_crea' => 'Usr Crea',
@@ -124,5 +143,24 @@ class AsigOrg extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+        
+        
+        public function behaviors()
+	{
+		return array(
+			'CTimestampBehavior' => array(
+                            'class' => 'zii.behaviors.CTimestampBehavior',
+                            'createAttribute' => 'fe_crea',
+                            'updateAttribute' => 'fe_modf',
+                            'setUpdateOnCreate' => true,
+			),
+
+			'BlameableBehavior' => array(
+                            'class' => 'application.components.BlameableBehavior',
+                            'createdByColumn' => 'usr_crea',
+                            'updatedByColumn' => 'usr_modf',
+			),
+		);
 	}
 }
