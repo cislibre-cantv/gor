@@ -161,6 +161,8 @@ class AsigOrg extends CActiveRecord
                             'createdByColumn' => 'usr_crea',
                             'updatedByColumn' => 'usr_modf',
 			),
+                    
+                        'ActiveRecordLogableBehavior' => 'application.components.ActiveRecordLogableBehavior',
 		);
 	}
 }
