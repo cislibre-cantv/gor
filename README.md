@@ -58,6 +58,7 @@ _Ejemplos de tareas comunes_
     Si ha creado los campos de autoria (fe_crea, fe_modf, usr_crea, usr_modf), 
     agregue la siguiente funcion en el modelo de la tabla en cuestion, para que
     se guarde automaticamente la fecha y id de usuario que intereactua con esta.
+    Almacena logs en la tabla cnx_active_record_log.
 
         public function behaviors()
             {
@@ -74,11 +75,16 @@ _Ejemplos de tareas comunes_
                                 'createdByColumn' => 'usr_crea',
                                 'updatedByColumn' => 'usr_modf',
                             ),
+
+                            'ActiveRecordLogableBehavior' => 'application.components.ActiveRecordLogableBehavior',
                     );
             }
 
 - _CRUD Organización:_
     Se crea el crud de organizacion.
+
+- _CRUD Asignacion de Organización:_
+    Se crea el asignacion de usuarios a una estructura organizativa.
 
 ## Licencia
 
