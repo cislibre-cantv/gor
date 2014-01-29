@@ -9,9 +9,11 @@
 	<?php echo CHtml::link(CHtml::encode($data->nu_docm_idnt), array('view', 'id'=>$data->nu_docm_idnt)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id_usuario')); ?>:</b>
+<?php /*	
+ *      <b><?php echo CHtml::encode($data->getAttributeLabel('id_usuario')); ?>:</b>
 	<?php echo CHtml::encode($data->id_usuario); ?>
 	<br />
+*/ ?> 
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('nu_docm_idnt_supv')); ?>:</b>
 	<?php echo CHtml::encode($data->nu_docm_idnt_supv); ?>

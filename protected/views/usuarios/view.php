@@ -36,7 +36,7 @@ $this->menu=array(
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'id_usuario',
+		//'id_usuario',
 		'nu_docm_idnt',
 		'nu_docm_idnt_supv',
 		'username',
