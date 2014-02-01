@@ -11,13 +11,18 @@ class AsigOrgController extends Controller
 	/**
 	 * @return array action filters
 	 */
-	public function filters()
+	/*public function filters()
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
 			'postOnly + delete', // we only allow deletion via POST request
 		);
-	}
+	}*/
+        
+        public function filters()
+        {
+           return array(array('CrugeAccessControlFilter'));
+        }
 
 	/**
 	 * Specifies the access control rules.
@@ -114,7 +119,7 @@ class AsigOrgController extends Controller
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('empleados/admin'));
 	}
 
 	/**

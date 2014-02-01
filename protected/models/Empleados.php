@@ -56,6 +56,7 @@ class Empleados extends CActiveRecord
 			
                         //valiida unique key
                         array('nu_docm_idnt', 'unique', 'attributeName'=>'nu_docm_idnt'),
+                        array('username', 'unique', 'attributeName'=>'username'),
                     
                         //Valida foreing key
                         array('nu_docm_idnt_supv', 'exist',
@@ -65,17 +66,14 @@ class Empleados extends CActiveRecord
                                 'message' => 'El número de cédula no existe',
                                 'skipOnError'=>true
                                 ),
-                       
-                        //Valida foreing key
-                        array('username', 'exist',
+                       array('username', 'exist',
                                 'allowEmpty' => true,
                                 'attributeName' => 'username',
                                 'className' => 'TablaCrugeUser',
                                 'message' => 'El username aun no se ha creado en el sistema',
                                 'skipOnError'=>true
                                 ),
-                    
-                    
+                        
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id_usuario, nu_docm_idnt, nu_docm_idnt_supv, username, nb_pers, email, ldap_login, fe_crea, fe_modf, usr_crea, usr_modf, in_stat, tx_desc', 'safe', 'on'=>'search'),
