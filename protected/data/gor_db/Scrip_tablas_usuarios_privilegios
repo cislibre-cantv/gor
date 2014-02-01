@@ -22,6 +22,46 @@ CREATE TABLE IF NOT EXISTS `cnx_active_record_log` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=43 ;
 
 --
+-- Dumping data for table `cnx_active_record_log`
+--
+
+INSERT INTO `cnx_active_record_log` (`id`, `description`, `action`, `model`, `idModel`, `field`, `creationdate`, `userid`) VALUES
+(11, 'User admin deleted Org[33].', 'DELETE', 'Org', 33, '', '2014-02-01 03:13:52', '1'),
+(12, 'User goradmin changed co_asig_org for AsigOrg[3].', 'CHANGE', 'AsigOrg', 3, 'co_asig_org', '2014-02-01 15:23:03', '1'),
+(13, 'User goradmin changed co_org for AsigOrg[3].', 'CHANGE', 'AsigOrg', 3, 'co_org', '2014-02-01 15:23:03', '1'),
+(14, 'User goradmin changed fe_modf for AsigOrg[3].', 'CHANGE', 'AsigOrg', 3, 'fe_modf', '2014-02-01 15:23:03', '1'),
+(15, 'User goradmin deleted Org[4444].', 'DELETE', 'Org', 4444, '', '2014-02-01 15:25:14', '1'),
+(16, 'User goradmin created Org[11111].', 'CREATE', 'Org', 11111, '', '2014-02-01 16:25:13', '1'),
+(17, 'User goradmin changed nb_org for Org[11111].', 'CHANGE', 'Org', 11111, 'nb_org', '2014-02-01 16:25:22', '1'),
+(18, 'User goradmin changed fe_modf for Org[11111].', 'CHANGE', 'Org', 11111, 'fe_modf', '2014-02-01 16:25:22', '1'),
+(19, 'User goradmin deleted Org[11111].', 'DELETE', 'Org', 11111, '', '2014-02-01 16:25:30', '1'),
+(20, 'User goradmin created Empleados[15481004].', 'CREATE', 'Empleados', 15481004, '', '2014-02-01 16:36:12', '1'),
+(21, 'User goradmin created AsigOrg[1].', 'CREATE', 'AsigOrg', 1, '', '2014-02-01 16:37:17', '1'),
+(22, 'User goradmin changed email for Empleados[15481004].', 'CHANGE', 'Empleados', 15481004, 'email', '2014-02-01 16:40:28', '1'),
+(23, 'User goradmin changed fe_modf for Empleados[15481004].', 'CHANGE', 'Empleados', 15481004, 'fe_modf', '2014-02-01 16:40:28', '1'),
+(24, 'User averen01 changed fe_modf for Empleados[15481004].', 'CHANGE', 'Empleados', 15481004, 'fe_modf', '2014-02-01 16:50:30', '11'),
+(25, 'User averen01 created Org[33333].', 'CREATE', 'Org', 33333, '', '2014-02-01 16:52:15', '11'),
+(26, 'User averen01 changed co_org for Org[33333333].', 'CHANGE', 'Org', 33333333, 'co_org', '2014-02-01 16:52:19', '11'),
+(27, 'User averen01 changed fe_modf for Org[33333333].', 'CHANGE', 'Org', 33333333, 'fe_modf', '2014-02-01 16:52:19', '11'),
+(28, 'User averen01 deleted Org[33333333].', 'DELETE', 'Org', 33333333, '', '2014-02-01 16:52:23', '11'),
+(29, 'User averen01 created Empleados[33333].', 'CREATE', 'Empleados', 33333, '', '2014-02-01 16:55:11', '11'),
+(30, 'User averen01 changed fe_modf for Empleados[33333].', 'CHANGE', 'Empleados', 33333, 'fe_modf', '2014-02-01 16:55:16', '11'),
+(31, 'User averen01 created AsigOrg[2].', 'CREATE', 'AsigOrg', 2, '', '2014-02-01 16:55:58', '11'),
+(32, 'User averen01 changed fe_modf for AsigOrg[2].', 'CHANGE', 'AsigOrg', 2, 'fe_modf', '2014-02-01 16:56:02', '11'),
+(33, 'User averen01 changed fe_modf for AsigOrg[2].', 'CHANGE', 'AsigOrg', 2, 'fe_modf', '2014-02-01 16:56:43', '11'),
+(34, 'User averen01 changed co_asig_org for AsigOrg[3].', 'CHANGE', 'AsigOrg', 3, 'co_asig_org', '2014-02-01 16:57:03', '11'),
+(35, 'User averen01 changed fe_modf for AsigOrg[3].', 'CHANGE', 'AsigOrg', 3, 'fe_modf', '2014-02-01 16:57:03', '11'),
+(36, 'User averen01 deleted Empleados[33333].', 'DELETE', 'Empleados', 33333, '', '2014-02-01 17:11:35', '11'),
+(37, 'User averen01 created Empleados[3333].', 'CREATE', 'Empleados', 3333, '', '2014-02-01 17:13:09', '11'),
+(38, 'User averen01 created AsigOrg[2].', 'CREATE', 'AsigOrg', 2, '', '2014-02-01 17:14:02', '11'),
+(39, 'User goradmin deleted AsigOrg[2].', 'DELETE', 'AsigOrg', 2, '', '2014-02-01 17:36:10', '1'),
+(40, 'User goradmin created AsigOrg[2].', 'CREATE', 'AsigOrg', 2, '', '2014-02-01 17:39:31', '1'),
+(41, 'User goradmin deleted AsigOrg[2].', 'DELETE', 'AsigOrg', 2, '', '2014-02-01 17:39:52', '1'),
+(42, 'User goradmin deleted Empleados[3333].', 'DELETE', 'Empleados', 3333, '', '2014-02-01 17:40:14', '1');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cnx_asig_org`
 --
 
@@ -41,6 +81,15 @@ CREATE TABLE IF NOT EXISTS `cnx_asig_org` (
   KEY `idx_asig_org_nu_docm_idnt` (`nu_docm_idnt`),
   KEY `idx_asig_org_co_org` (`co_org`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Tabla de usuarios del sistema' AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `cnx_asig_org`
+--
+
+INSERT INTO `cnx_asig_org` (`id_asig_org`, `co_asig_org`, `nu_docm_idnt`, `co_org`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`, `tx_desc`) VALUES
+(5, 1, 15481004, 1005, '2014-02-01 12:07:17', '2014-02-01 12:07:17', '1', '1', 'A', NULL);
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `cnx_empleados`
@@ -67,6 +116,15 @@ CREATE TABLE IF NOT EXISTS `cnx_empleados` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Tabla de asignacion de usuarios a organizacion' AUTO_INCREMENT=11 ;
 
 --
+-- Dumping data for table `cnx_empleados`
+--
+
+INSERT INTO `cnx_empleados` (`id_usuario`, `nu_docm_idnt`, `nu_docm_idnt_supv`, `username`, `nb_pers`, `email`, `ldap_login`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`, `tx_desc`) VALUES
+(7, 15481004, NULL, 'averen01', 'VERENZUELA ANDRES', 'averen01@cantv.com.ve', b'0', '2014-02-01 12:06:11', '2014-02-01 12:20:30', '1', '1', 'A', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cnx_org`
 --
 
@@ -89,165 +147,6 @@ CREATE TABLE IF NOT EXISTS `cnx_org` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Tabla de estrutura organizativa' AUTO_INCREMENT=18 ;
 
 --
--- Table structure for table `cruge_authassignment`
---
-
-CREATE TABLE IF NOT EXISTS `cruge_authassignment` (
-  `userid` int(11) NOT NULL,
-  `bizrule` text,
-  `data` text,
-  `itemname` varchar(64) NOT NULL,
-  PRIMARY KEY (`userid`,`itemname`),
-  KEY `fk_cruge_authassignment_cruge_authitem1` (`itemname`),
-  KEY `fk_cruge_authassignment_user` (`userid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Table structure for table `cruge_authitem`
---
-
-CREATE TABLE IF NOT EXISTS `cruge_authitem` (
-  `name` varchar(64) NOT NULL,
-  `type` int(11) NOT NULL,
-  `description` text,
-  `bizrule` text,
-  `data` text,
-  PRIMARY KEY (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Table structure for table `cruge_authitemchild`
---
-
-CREATE TABLE IF NOT EXISTS `cruge_authitemchild` (
-  `parent` varchar(64) NOT NULL,
-  `child` varchar(64) NOT NULL,
-  PRIMARY KEY (`parent`,`child`),
-  KEY `child` (`child`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Table structure for table `cruge_field`
---
-
-CREATE TABLE IF NOT EXISTS `cruge_field` (
-  `idfield` int(11) NOT NULL AUTO_INCREMENT,
-  `fieldname` varchar(20) NOT NULL,
-  `longname` varchar(50) DEFAULT NULL,
-  `position` int(11) DEFAULT '0',
-  `required` int(11) DEFAULT '0',
-  `fieldtype` int(11) DEFAULT '0',
-  `fieldsize` int(11) DEFAULT '20',
-  `maxlength` int(11) DEFAULT '45',
-  `showinreports` int(11) DEFAULT '0',
-  `useregexp` varchar(512) DEFAULT NULL,
-  `useregexpmsg` varchar(512) DEFAULT NULL,
-  `predetvalue` mediumblob,
-  PRIMARY KEY (`idfield`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cruge_fieldvalue`
---
-
-CREATE TABLE IF NOT EXISTS `cruge_fieldvalue` (
-  `idfieldvalue` int(11) NOT NULL AUTO_INCREMENT,
-  `iduser` int(11) NOT NULL,
-  `idfield` int(11) NOT NULL,
-  `value` blob,
-  PRIMARY KEY (`idfieldvalue`),
-  KEY `fk_cruge_fieldvalue_cruge_user1` (`iduser`),
-  KEY `fk_cruge_fieldvalue_cruge_field1` (`idfield`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cruge_session`
---
-
-CREATE TABLE IF NOT EXISTS `cruge_session` (
-  `idsession` int(11) NOT NULL AUTO_INCREMENT,
-  `iduser` int(11) NOT NULL,
-  `created` bigint(30) DEFAULT NULL,
-  `expire` bigint(30) DEFAULT NULL,
-  `status` int(11) DEFAULT '0',
-  `ipaddress` varchar(45) DEFAULT NULL,
-  `usagecount` int(11) DEFAULT '0',
-  `lastusage` bigint(30) DEFAULT NULL,
-  `logoutdate` bigint(30) DEFAULT NULL,
-  `ipaddressout` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idsession`),
-  KEY `crugesession_iduser` (`iduser`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=55 ;
-
---
--- Table structure for table `cruge_system`
---
-
-CREATE TABLE IF NOT EXISTS `cruge_system` (
-  `idsystem` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
-  `largename` varchar(45) DEFAULT NULL,
-  `sessionmaxdurationmins` int(11) DEFAULT '30',
-  `sessionmaxsameipconnections` int(11) DEFAULT '10',
-  `sessionreusesessions` int(11) DEFAULT '1' COMMENT '1yes 0no',
-  `sessionmaxsessionsperday` int(11) DEFAULT '-1',
-  `sessionmaxsessionsperuser` int(11) DEFAULT '-1',
-  `systemnonewsessions` int(11) DEFAULT '0' COMMENT '1yes 0no',
-  `systemdown` int(11) DEFAULT '0',
-  `registerusingcaptcha` int(11) DEFAULT '0',
-  `registerusingterms` int(11) DEFAULT '0',
-  `terms` blob,
-  `registerusingactivation` int(11) DEFAULT '1',
-  `defaultroleforregistration` varchar(64) DEFAULT NULL,
-  `registerusingtermslabel` varchar(100) DEFAULT NULL,
-  `registrationonlogin` int(11) DEFAULT '1',
-  PRIMARY KEY (`idsystem`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Table structure for table `cruge_user`
---
-
-CREATE TABLE IF NOT EXISTS `cruge_user` (
-  `iduser` int(11) NOT NULL AUTO_INCREMENT,
-  `regdate` bigint(30) DEFAULT NULL,
-  `actdate` bigint(30) DEFAULT NULL,
-  `logondate` bigint(30) DEFAULT NULL,
-  `username` varchar(64) DEFAULT NULL,
-  `email` varchar(45) DEFAULT NULL,
-  `password` varchar(64) DEFAULT NULL COMMENT 'Hashed password',
-  `authkey` varchar(100) DEFAULT NULL COMMENT 'llave de autentificacion',
-  `state` int(11) DEFAULT '0',
-  `totalsessioncounter` int(11) DEFAULT '0',
-  `currentsessioncounter` int(11) DEFAULT '0',
-  PRIMARY KEY (`iduser`),
-  UNIQUE KEY `idx_cruge_username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
-
-
-
---
--- Dumping data for table `cruge_user`
---
-
-INSERT INTO `cruge_user` (`iduser`, `regdate`, `actdate`, `logondate`, `username`, `email`, `password`, `authkey`, `state`, `totalsessioncounter`, `currentsessioncounter`) VALUES
-(1, NULL, NULL, 1391275782, 'goradmin', 'cislibre@cantv.com.ve', '370ed327c72dab929be5330ba89e20f8', NULL, 1, 0, 0),
-(2, 1391219995, NULL, 1391228201, 'invitado', 'invitado@cantv.com.ve', 'a6ae8a143d440ab8c006d799f682d48d', 'a2302625999b85435b84ef447e4a05b7', 1, 0, 0),
-
---
--- Dumping data for table `cnx_empleados`
---
-
-INSERT INTO `cnx_empleados` (`id_usuario`, `nu_docm_idnt`, `nu_docm_idnt_supv`, `username`, `nb_pers`, `email`, `ldap_login`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`, `tx_desc`) VALUES
-(7, NULL, NULL, 'goradmin', 'ADMINISTRADOR', 'cislibre@cantv.com.ve', b'0', sysdate(), sysdate(), '1', '1', 'A', '');
-
--- --------------------------------------------------------
-
---
 -- Dumping data for table `cnx_org`
 --
 
@@ -265,6 +164,44 @@ INSERT INTO `cnx_org` (`id_org`, `co_org`, `co_org_dpnd`, `nb_org`, `tx_descripc
 (13, 1011, 1005, 'Gcia. Des.Mantto.Calidad de Aplicaciones', 'Gcia. Des.Mantto.Calidad de Aplicaciones', 'GDMCA', '2014-01-27 15:53:35', '2014-01-27 15:53:35', '1', '1', 'A', '');
 
 -- --------------------------------------------------------
+
+--
+-- Table structure for table `cruge_authassignment`
+--
+
+CREATE TABLE IF NOT EXISTS `cruge_authassignment` (
+  `userid` int(11) NOT NULL,
+  `bizrule` text,
+  `data` text,
+  `itemname` varchar(64) NOT NULL,
+  PRIMARY KEY (`userid`,`itemname`),
+  KEY `fk_cruge_authassignment_cruge_authitem1` (`itemname`),
+  KEY `fk_cruge_authassignment_user` (`userid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `cruge_authassignment`
+--
+
+INSERT INTO `cruge_authassignment` (`userid`, `bizrule`, `data`, `itemname`) VALUES
+(11, NULL, 'N;', 'Empleados_CONSULTAR'),
+(11, NULL, 'N;', 'Organizaciones_CONSULTAR'),
+(11, NULL, 'N;', 'Usuarios_CONSULTAR');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cruge_authitem`
+--
+
+CREATE TABLE IF NOT EXISTS `cruge_authitem` (
+  `name` varchar(64) NOT NULL,
+  `type` int(11) NOT NULL,
+  `description` text,
+  `bizrule` text,
+  `data` text,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `cruge_authitem`
@@ -348,6 +285,17 @@ INSERT INTO `cruge_authitem` (`name`, `type`, `description`, `bizrule`, `data`) 
 ('usuarios_super_admin', 1, '', '', 'N;');
 
 -- --------------------------------------------------------
+
+--
+-- Table structure for table `cruge_authitemchild`
+--
+
+CREATE TABLE IF NOT EXISTS `cruge_authitemchild` (
+  `parent` varchar(64) NOT NULL,
+  `child` varchar(64) NOT NULL,
+  PRIMARY KEY (`parent`,`child`),
+  KEY `child` (`child`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `cruge_authitemchild`
@@ -441,6 +389,127 @@ INSERT INTO `cruge_authitemchild` (`parent`, `child`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cruge_field`
+--
+
+CREATE TABLE IF NOT EXISTS `cruge_field` (
+  `idfield` int(11) NOT NULL AUTO_INCREMENT,
+  `fieldname` varchar(20) NOT NULL,
+  `longname` varchar(50) DEFAULT NULL,
+  `position` int(11) DEFAULT '0',
+  `required` int(11) DEFAULT '0',
+  `fieldtype` int(11) DEFAULT '0',
+  `fieldsize` int(11) DEFAULT '20',
+  `maxlength` int(11) DEFAULT '45',
+  `showinreports` int(11) DEFAULT '0',
+  `useregexp` varchar(512) DEFAULT NULL,
+  `useregexpmsg` varchar(512) DEFAULT NULL,
+  `predetvalue` mediumblob,
+  PRIMARY KEY (`idfield`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cruge_fieldvalue`
+--
+
+CREATE TABLE IF NOT EXISTS `cruge_fieldvalue` (
+  `idfieldvalue` int(11) NOT NULL AUTO_INCREMENT,
+  `iduser` int(11) NOT NULL,
+  `idfield` int(11) NOT NULL,
+  `value` blob,
+  PRIMARY KEY (`idfieldvalue`),
+  KEY `fk_cruge_fieldvalue_cruge_user1` (`iduser`),
+  KEY `fk_cruge_fieldvalue_cruge_field1` (`idfield`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cruge_session`
+--
+
+CREATE TABLE IF NOT EXISTS `cruge_session` (
+  `idsession` int(11) NOT NULL AUTO_INCREMENT,
+  `iduser` int(11) NOT NULL,
+  `created` bigint(30) DEFAULT NULL,
+  `expire` bigint(30) DEFAULT NULL,
+  `status` int(11) DEFAULT '0',
+  `ipaddress` varchar(45) DEFAULT NULL,
+  `usagecount` int(11) DEFAULT '0',
+  `lastusage` bigint(30) DEFAULT NULL,
+  `logoutdate` bigint(30) DEFAULT NULL,
+  `ipaddressout` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idsession`),
+  KEY `crugesession_iduser` (`iduser`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=68 ;
+
+--
+-- Dumping data for table `cruge_session`
+--
+
+INSERT INTO `cruge_session` (`idsession`, `iduser`, `created`, `expire`, `status`, `ipaddress`, `usagecount`, `lastusage`, `logoutdate`, `ipaddressout`) VALUES
+(37, 11, 1391224015, 1391225815, 0, '127.0.0.1', 1, 1391224015, NULL, NULL),
+(38, 1, 1391224422, 1391226222, 0, '127.0.0.1', 1, 1391224422, NULL, NULL),
+(39, 11, 1391226960, 1391228760, 0, '127.0.0.1', 1, 1391226960, 1391228187, '127.0.0.1'),
+(40, 1, 1391227592, 1391229392, 0, '127.0.0.1', 1, 1391227592, 1391227601, '127.0.0.1'),
+(41, 1, 1391227613, 1391229413, 0, '127.0.0.1', 1, 1391227613, 1391227641, '127.0.0.1'),
+(42, 1, 1391227645, 1391229445, 0, '127.0.0.1', 1, 1391227645, 1391227648, '127.0.0.1'),
+(43, 1, 1391227683, 1391229483, 0, '127.0.0.1', 1, 1391227683, NULL, NULL),
+(44, 2, 1391228190, 1391229990, 1, '127.0.0.1', 2, 1391228201, NULL, NULL),
+(45, 11, 1391228371, 1391230171, 0, '127.0.0.1', 1, 1391228371, 1391228372, '127.0.0.1'),
+(46, 1, 1391267136, 1391268936, 0, '127.0.0.1', 1, 1391267136, 1391268464, '127.0.0.1'),
+(47, 1, 1391268825, 1391270625, 0, '127.0.0.1', 1, 1391268825, 1391269527, '127.0.0.1'),
+(48, 1, 1391269540, 1391271340, 0, '127.0.0.1', 1, 1391269540, 1391269547, '127.0.0.1'),
+(49, 1, 1391271397, 1391273197, 0, '127.0.0.1', 1, 1391271397, NULL, NULL),
+(50, 11, 1391273397, 1391275197, 0, '127.0.0.1', 1, 1391273397, 1391273552, '127.0.0.1'),
+(51, 1, 1391273558, 1391275358, 0, '127.0.0.1', 1, 1391273558, 1391273653, '127.0.0.1'),
+(52, 11, 1391273691, 1391275491, 0, '127.0.0.1', 1, 1391273691, NULL, NULL),
+(53, 11, 1391275518, 1391277318, 0, '127.0.0.1', 1, 1391275518, 1391275769, '127.0.0.1'),
+(54, 1, 1391275782, 1391277582, 0, '127.0.0.1', 1, 1391275782, NULL, NULL),
+(55, 1, 1391280319, 1391282119, 0, '127.0.0.1', 1, 1391280319, NULL, NULL),
+(56, 1, 1391282138, 1391283938, 0, '127.0.0.1', 1, 1391282138, NULL, NULL),
+(57, 11, 1391284334, 1391286134, 0, '127.0.0.1', 1, 1391284334, 1391284366, '127.0.0.1'),
+(58, 11, 1391284373, 1391286173, 0, '127.0.0.1', 1, 1391284373, 1391284381, '127.0.0.1'),
+(59, 1, 1391284388, 1391286188, 0, '127.0.0.1', 1, 1391284388, 1391284410, '127.0.0.1'),
+(60, 11, 1391284417, 1391286217, 0, '127.0.0.1', 1, 1391284417, 1391284437, '127.0.0.1'),
+(61, 1, 1391284446, 1391286246, 0, '127.0.0.1', 1, 1391284446, 1391284593, '127.0.0.1'),
+(62, 11, 1391284600, 1391286400, 0, '127.0.0.1', 1, 1391284600, 1391284843, '127.0.0.1'),
+(63, 1, 1391284850, 1391286650, 0, '127.0.0.1', 1, 1391284850, 1391284935, '127.0.0.1'),
+(64, 1, 1391284974, 1391286774, 0, '127.0.0.1', 1, 1391284974, 1391284977, '127.0.0.1'),
+(65, 1, 1391284992, 1391286792, 0, '127.0.0.1', 1, 1391284992, 1391285001, '127.0.0.1'),
+(66, 1, 1391285161, 1391286961, 0, '127.0.0.1', 1, 1391285161, NULL, NULL),
+(67, 1, 1391287022, 1391288822, 1, '127.0.0.1', 1, 1391287022, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cruge_system`
+--
+
+CREATE TABLE IF NOT EXISTS `cruge_system` (
+  `idsystem` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `largename` varchar(45) DEFAULT NULL,
+  `sessionmaxdurationmins` int(11) DEFAULT '30',
+  `sessionmaxsameipconnections` int(11) DEFAULT '10',
+  `sessionreusesessions` int(11) DEFAULT '1' COMMENT '1yes 0no',
+  `sessionmaxsessionsperday` int(11) DEFAULT '-1',
+  `sessionmaxsessionsperuser` int(11) DEFAULT '-1',
+  `systemnonewsessions` int(11) DEFAULT '0' COMMENT '1yes 0no',
+  `systemdown` int(11) DEFAULT '0',
+  `registerusingcaptcha` int(11) DEFAULT '0',
+  `registerusingterms` int(11) DEFAULT '0',
+  `terms` blob,
+  `registerusingactivation` int(11) DEFAULT '1',
+  `defaultroleforregistration` varchar(64) DEFAULT NULL,
+  `registerusingtermslabel` varchar(100) DEFAULT NULL,
+  `registrationonlogin` int(11) DEFAULT '1',
+  PRIMARY KEY (`idsystem`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
 -- Dumping data for table `cruge_system`
 --
 
@@ -449,6 +518,34 @@ INSERT INTO `cruge_system` (`idsystem`, `name`, `largename`, `sessionmaxduration
 
 -- --------------------------------------------------------
 
+--
+-- Table structure for table `cruge_user`
+--
+
+CREATE TABLE IF NOT EXISTS `cruge_user` (
+  `iduser` int(11) NOT NULL AUTO_INCREMENT,
+  `regdate` bigint(30) DEFAULT NULL,
+  `actdate` bigint(30) DEFAULT NULL,
+  `logondate` bigint(30) DEFAULT NULL,
+  `username` varchar(64) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `password` varchar(64) DEFAULT NULL COMMENT 'Hashed password',
+  `authkey` varchar(100) DEFAULT NULL COMMENT 'llave de autentificacion',
+  `state` int(11) DEFAULT '0',
+  `totalsessioncounter` int(11) DEFAULT '0',
+  `currentsessioncounter` int(11) DEFAULT '0',
+  PRIMARY KEY (`iduser`),
+  UNIQUE KEY `idx_cruge_username` (`username`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+
+--
+-- Dumping data for table `cruge_user`
+--
+
+INSERT INTO `cruge_user` (`iduser`, `regdate`, `actdate`, `logondate`, `username`, `email`, `password`, `authkey`, `state`, `totalsessioncounter`, `currentsessioncounter`) VALUES
+(1, NULL, NULL, 1391287023, 'goradmin', 'cislibre@cantv.com.ve', '370ed327c72dab929be5330ba89e20f8', NULL, 1, 0, 0),
+(2, 1391219995, NULL, 1391228201, 'invitado', 'invitado@cantv.com.ve', 'a6ae8a143d440ab8c006d799f682d48d', 'a2302625999b85435b84ef447e4a05b7', 1, 0, 0),
+(11, 1391213516, NULL, 1391284600, 'averen01', 'averen01@cantv.com.ve', 'b08266fc0ed42d7b0f3f238ebba13882', '6e5b1874637eb1e622f5671f1288733b', 1, 0, 0);
 
 --
 -- Constraints for dumped tables
