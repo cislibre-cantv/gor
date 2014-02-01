@@ -52,7 +52,7 @@ _Ejemplos de tareas comunes_
 
 - _CRUD Usuarios:_
     Se crea el crud de usuarios y se establece la autenticación con 
-    la base de datos a través del componente UserIdentity.php, función authenticate()
+    la base de datos a través del modulo cruge
     
 - _Integracion con behaviors:_
     Si ha creado los campos de autoria (fe_crea, fe_modf, usr_crea, usr_modf), 
