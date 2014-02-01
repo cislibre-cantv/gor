@@ -9,10 +9,12 @@
 	<?php echo CHtml::link(CHtml::encode($data->co_org), array('view', 'id'=>$data->co_org)); ?>
 	<br />
 
+        <?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id_org')); ?>:</b>
 	<?php echo CHtml::encode($data->id_org); ?>
 	<br />
-
+        */ ?>
+        
 	<b><?php echo CHtml::encode($data->getAttributeLabel('co_org_dpnd')); ?>:</b>
 	<?php echo CHtml::encode($data->co_org_dpnd); ?>
         <?php //echo CHtml::encode($data->orgs->nb_org); ?>

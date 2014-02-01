@@ -21,9 +21,9 @@ $this->menu=array(
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'id_org',
+		//'id_org',
 		'co_org',
-		'coOrgDpnd.nb_org',
+		'coOrgDpnd.nb_org:text:Organización padre',
                 //array ('name'=>'co_org_dpnd','value'=>'$data->coOrgDpnd.nb_org','type'=>'text'),
 		'nb_org',
 		'tx_descripcion',
