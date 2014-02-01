@@ -3,16 +3,16 @@
 /* @var $model Empleados */
 
 $this->breadcrumbs=array(
-	'Empleadoses'=>array('index'),
-	'Create',
+	'Empleados'=>array('index'),
+	'Crear',
 );
 
 $this->menu=array(
-	array('label'=>'List Empleados', 'url'=>array('index')),
-	array('label'=>'Manage Empleados', 'url'=>array('admin')),
+	array('label'=>'Listado', 'url'=>array('index')),
+	array('label'=>'Gestionar', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Empleados</h1>
+<h1>Crear Empleado</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

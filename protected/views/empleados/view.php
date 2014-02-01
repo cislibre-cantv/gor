@@ -3,7 +3,7 @@
 /* @var $model Empleados */
 
 $this->breadcrumbs=array(
-	'Empleadoses'=>array('index'),
+	'Empleados'=>array('index'),
 	$model->nu_docm_idnt,
 );
 
@@ -19,18 +19,18 @@ if ( !is_array($model->asigOrgs) || empty($model->asigOrgs) ) {
 
 
 $this->menu=array(
-	array('label'=>'List Empleados', 'url'=>array('index')),
-	array('label'=>'Create Empleados', 'url'=>array('create')),
-	array('label'=>'Update Empleados', 'url'=>array('update', 'id'=>$model->nu_docm_idnt)),
-	array('label'=>'Delete Empleados', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->nu_docm_idnt),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Empleados', 'url'=>array('admin')),
+	array('label'=>'Listado', 'url'=>array('index')),
+	array('label'=>'Crear', 'url'=>array('create')),
+	array('label'=>'Actualizar', 'url'=>array('update', 'id'=>$model->nu_docm_idnt)),
+	array('label'=>'Eliminar', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->nu_docm_idnt),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Gestionar', 'url'=>array('admin')),
         
         array('label'=>'Ubicación Organizativa', 'url'=>'#', 'linkOptions'=>array('submit'=>$sumintEstOrg)),
         
 );
 ?>
 
-<h1>View Empleados #<?php echo $model->nu_docm_idnt; ?></h1>
+<h1>Empleado #<?php echo $model->nu_docm_idnt; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

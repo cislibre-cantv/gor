@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Orgs',
+	'Organizacion',
 );
 
 $this->menu=array(
-	array('label'=>'Create Org', 'url'=>array('create')),
-	array('label'=>'Manage Org', 'url'=>array('admin')),
+	array('label'=>'Crear', 'url'=>array('create')),
+	array('label'=>'Gestionar', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Orgs</h1>
+<h1>Listado de Organizaciones</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

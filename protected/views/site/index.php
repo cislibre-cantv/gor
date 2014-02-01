@@ -4,9 +4,5 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 
-<h1>Bienvenido</h1>
-
-</br></br>
-
-
-<p>Seleccione una opción de la barra de menú</p>
+<img src="http://localhost/gor/images/cantv_roja-full.jpg" width="910px" height="450px" 
+             style="border-color: #ffffff" alt="CANTV Socialista" title="Wifi para todos" />
