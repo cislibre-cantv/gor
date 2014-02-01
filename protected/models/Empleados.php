@@ -1,14 +1,13 @@
 <?php
 
 /**
- * This is the model class for table "cnx_usuarios".
+ * This is the model class for table "cnx_empleados".
  *
- * The followings are the available columns in table 'cnx_usuarios':
+ * The followings are the available columns in table 'cnx_empleados':
  * @property integer $id_usuario
  * @property integer $nu_docm_idnt
  * @property integer $nu_docm_idnt_supv
  * @property string $username
- * @property string $password
  * @property string $nb_pers
  * @property string $email
  * @property integer $ldap_login
@@ -21,18 +20,18 @@
  *
  * The followings are the available model relations:
  * @property AsigOrg[] $asigOrgs
- * @property UserRoles[] $userRoles
- * @property Usuarios $nuDocmIdntSupv
- * @property Usuarios[] $usuarioses
+ * @property CrugeUser $username0
+ * @property Empleados $nuDocmIdntSupv
+ * @property Empleados[] $empleadoses
  */
-class Usuarios extends CActiveRecord
+class Empleados extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'cnx_usuarios';
+		return 'cnx_empleados';
 	}
 
 	/**
@@ -43,9 +42,9 @@ class Usuarios extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nu_docm_idnt, username, password, nb_pers', 'required'),
+			array('nu_docm_idnt, username, nb_pers', 'required'),
 			array('nu_docm_idnt, nu_docm_idnt_supv, ldap_login', 'numerical', 'integerOnly'=>true),
-			array('username, password', 'length', 'max'=>128),
+			array('username', 'length', 'max'=>128),
 			array('nb_pers, tx_desc', 'length', 'max'=>100),
 			array('email', 'length', 'max'=>50),
 			array('usr_crea, usr_modf', 'length', 'max'=>10),
@@ -66,10 +65,20 @@ class Usuarios extends CActiveRecord
                                 'message' => 'El número de cédula no existe',
                                 'skipOnError'=>true
                                 ),
+                       
+                        //Valida foreing key
+                        array('username', 'exist',
+                                'allowEmpty' => true,
+                                'attributeName' => 'username',
+                                'className' => 'TablaCrugeUser',
+                                'message' => 'El username aun no se ha creado en el sistema',
+                                'skipOnError'=>true
+                                ),
+                    
                     
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_usuario, nu_docm_idnt, nu_docm_idnt_supv, username, password, nb_pers, email, ldap_login, fe_crea, fe_modf, usr_crea, usr_modf, in_stat, tx_desc', 'safe', 'on'=>'search'),
+			array('id_usuario, nu_docm_idnt, nu_docm_idnt_supv, username, nb_pers, email, ldap_login, fe_crea, fe_modf, usr_crea, usr_modf, in_stat, tx_desc', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -82,12 +91,9 @@ class Usuarios extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'asigOrgs' => array(self::HAS_MANY, 'AsigOrg', 'nu_docm_idnt'),
-			'userRoles' => array(self::HAS_MANY, 'UserRoles', 'nu_docm_idnt'),
-			'nuDocmIdntSupv' => array(self::BELONGS_TO, 'Usuarios', 'nu_docm_idnt_supv'),
-			'usuarioses' => array(self::HAS_MANY, 'Usuarios', 'nu_docm_idnt_supv'),
-                        
-                       
-                    
+			'username0' => array(self::BELONGS_TO, 'TablaCrugeUser', 'username'),
+			'nuDocmIdntSupv' => array(self::BELONGS_TO, 'Empleados', 'nu_docm_idnt_supv'),
+			'empleadoses' => array(self::HAS_MANY, 'Empleados', 'nu_docm_idnt_supv'),
 		);
 	}
 
@@ -98,19 +104,18 @@ class Usuarios extends CActiveRecord
 	{
 		return array(
 			'id_usuario' => 'Id Usuario',
-			'nu_docm_idnt' => 'Cédula',
-			'nu_docm_idnt_supv' => 'Cédula Supervisor',
-			'username' => 'Usuario',
-			'password' => 'Clave',
-			'nb_pers' => 'Apellidos, Nombres',
-			'email' => 'Correo',
-			'ldap_login' => 'Tipo de Autenticación',
-			'fe_crea' => 'Creado el',
-			'fe_modf' => 'Modificado el',
-			'usr_crea' => 'Creado por',
-			'usr_modf' => 'Modificado por',
-			'in_stat' => 'Estatus',
-			'tx_desc' => 'Observaciones',
+			'nu_docm_idnt' => 'Nu Docm Idnt',
+			'nu_docm_idnt_supv' => 'Nu Docm Idnt Supv',
+			'username' => 'Username',
+			'nb_pers' => 'Nb Pers',
+			'email' => 'Email',
+			'ldap_login' => 'Ldap Login',
+			'fe_crea' => 'Fe Crea',
+			'fe_modf' => 'Fe Modf',
+			'usr_crea' => 'Usr Crea',
+			'usr_modf' => 'Usr Modf',
+			'in_stat' => 'In Stat',
+			'tx_desc' => 'Tx Desc',
 		);
 	}
 
@@ -136,7 +141,6 @@ class Usuarios extends CActiveRecord
 		$criteria->compare('nu_docm_idnt',$this->nu_docm_idnt);
 		$criteria->compare('nu_docm_idnt_supv',$this->nu_docm_idnt_supv);
 		$criteria->compare('username',$this->username,true);
-		$criteria->compare('password',$this->password,true);
 		$criteria->compare('nb_pers',$this->nb_pers,true);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('ldap_login',$this->ldap_login);
@@ -156,7 +160,7 @@ class Usuarios extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Usuarios the static model class
+	 * @return Empleados the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -164,16 +168,6 @@ class Usuarios extends CActiveRecord
 	}
         
         
-        public function validatePassword($password)
-        {
-            return $this->hashPassword($password)===$this->password;
-        }
-        
-        public function hashPassword($password)
-        {
-            return md5($password);
-        }
-
         public function behaviors()
 	{
 		return array(
@@ -189,6 +183,10 @@ class Usuarios extends CActiveRecord
                             'createdByColumn' => 'usr_crea',
                             'updatedByColumn' => 'usr_modf',
 			),
+                    
+                        'ActiveRecordLogableBehavior' => 'application.components.ActiveRecordLogableBehavior',
 		);
+               
 	}
+        
 }

@@ -1,6 +1,6 @@
 <?php
-/* @var $this UsuariosController */
-/* @var $data Usuarios */
+/* @var $this EmpleadosController */
+/* @var $data Empleados */
 ?>
 
 <div class="view">
@@ -9,9 +9,11 @@
 	<?php echo CHtml::link(CHtml::encode($data->nu_docm_idnt), array('view', 'id'=>$data->nu_docm_idnt)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id_usuario')); ?>:</b>
+<?php /*	
+ *      <b><?php echo CHtml::encode($data->getAttributeLabel('id_usuario')); ?>:</b>
 	<?php echo CHtml::encode($data->id_usuario); ?>
 	<br />
+*/ ?> 
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('nu_docm_idnt_supv')); ?>:</b>
 	<?php echo CHtml::encode($data->nu_docm_idnt_supv); ?>
@@ -19,10 +21,6 @@
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('username')); ?>:</b>
 	<?php echo CHtml::encode($data->username); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('password')); ?>:</b>
-	<?php echo CHtml::encode($data->password); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('nb_pers')); ?>:</b>

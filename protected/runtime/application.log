@@ -1,0 +1,34 @@
+2014/02/01 17:36:33 [error] [php] include(Usuarios.php): failed to open stream: No existe el archivo o el directorio (/opt/lampp/htdocs/yii/framework/YiiBase.php:427)
+Stack trace:
+#0 /opt/lampp/htdocs/yii/framework/db/ar/CActiveRecord.php(395): spl_autoload_call()
+#1 /opt/lampp/htdocs/yii/framework/validators/CExistValidator.php(117): model()
+#2 /opt/lampp/htdocs/yii/framework/validators/CExistValidator.php(85): CExistValidator->getModel()
+#3 /opt/lampp/htdocs/yii/framework/validators/CValidator.php(213): CExistValidator->validateAttribute()
+#4 /opt/lampp/htdocs/yii/framework/base/CModel.php(159): CExistValidator->validate()
+#5 /opt/lampp/htdocs/yii/framework/db/ar/CActiveRecord.php(805): AsigOrg->validate()
+#6 /opt/lampp/htdocs/gor/protected/controllers/AsigOrgController.php(73): AsigOrg->save()
+#7 /opt/lampp/htdocs/yii/framework/web/actions/CInlineAction.php(49): AsigOrgController->actionCreate()
+#8 /opt/lampp/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#9 /opt/lampp/htdocs/yii/framework/web/filters/CFilterChain.php(133): AsigOrgController->runAction()
+#10 /opt/lampp/htdocs/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /opt/lampp/htdocs/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#12 /opt/lampp/htdocs/yii/framework/web/filters/CInlineFilter.php(58): AsigOrgController->filterAccessControl()
+#13 /opt/lampp/htdocs/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#14 /opt/lampp/htdocs/yii/framework/web/CController.php(291): CFilterChain->run()
+#15 /opt/lampp/htdocs/yii/framework/web/CController.php(265): AsigOrgController->runActionWithFilters()
+#16 /opt/lampp/htdocs/yii/framework/web/CWebApplication.php(282): AsigOrgController->run()
+#17 /opt/lampp/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#18 /opt/lampp/htdocs/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#19 /opt/lampp/htdocs/gor/index.php(13): CWebApplication->run()
+REQUEST_URI=/gor/index.php?r=asigOrg/create&nu_docm_idnt=15481004
+in /opt/lampp/htdocs/gor/protected/controllers/AsigOrgController.php (73)
+in /opt/lampp/htdocs/gor/index.php (13)
+2014/02/01 17:37:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "usuarios/view"' in /opt/lampp/htdocs/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /opt/lampp/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('usuarios/view')
+#1 /opt/lampp/htdocs/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /opt/lampp/htdocs/gor/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gor/index.php?r=usuarios/view&id=15481004
+HTTP_REFERER=http://localhost/gor/index.php?r=asigOrg/view&id=1
+---

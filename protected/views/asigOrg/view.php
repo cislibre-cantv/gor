@@ -13,7 +13,7 @@ $this->menu=array(
 	array('label'=>'Update AsigOrg', 'url'=>array('update', 'id'=>$model->co_asig_org)),
 	//array('label'=>'Delete AsigOrg', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->co_asig_org),'confirm'=>'Are you sure you want to delete this item?')),
 	//array('label'=>'Manage AsigOrg', 'url'=>array('admin')),
-        array('label'=>'Detalle Usuario', 'url'=>array('/usuarios/view&id='.$model->nuDocmIdnt->nu_docm_idnt)),
+        array('label'=>'Detalle Empleado', 'url'=>array('/empleados/view&id='.$model->nuDocmIdnt->nu_docm_idnt)),
 );
 ?>
 

@@ -1,21 +1,22 @@
 <?php
-/* @var $this UsuariosController */
-/* @var $model Usuarios */
+/* @var $this EmpleadosController */
+/* @var $model Empleados */
 /* @var $form CActiveForm */
 ?>
 
 <div class="form">
 
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'usuarios-form',
+<?php  $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'empleados-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
-       )); 
+       ));
 
-       //Arreglo para campo ldap_login
+       
+        //Arreglo para campo ldap_login
        $options = array(array('ldap_login'=>0, 'descripcion'=>'Autenticacion por BD'), array('ldap_login'=>1, 'descripcion'=>'Autenticacion por LDAP'),);
 
 ?>
@@ -41,13 +42,7 @@
 		<?php echo $form->textField($model,'username',array('size'=>60,'maxlength'=>128)); ?>
 		<?php echo $form->error($model,'username'); ?>
 	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'password'); ?>
-		<?php echo $form->passwordField($model,'password',array('size'=>60,'maxlength'=>128)); ?>
-		<?php echo $form->error($model,'password'); ?>
-	</div>
-
+        
 	<div class="row">
 		<?php echo $form->labelEx($model,'nb_pers'); ?>
 		<?php echo $form->textField($model,'nb_pers',array('size'=>60,'maxlength'=>100)); ?>

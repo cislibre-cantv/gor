@@ -52,12 +52,13 @@ _Ejemplos de tareas comunes_
 
 - _CRUD Usuarios:_
     Se crea el crud de usuarios y se establece la autenticación con 
-    la base de datos a través del componente UserIdentity.php, función authenticate()
+    la base de datos a través del modulo cruge
     
 - _Integracion con behaviors:_
     Si ha creado los campos de autoria (fe_crea, fe_modf, usr_crea, usr_modf), 
     agregue la siguiente funcion en el modelo de la tabla en cuestion, para que
     se guarde automaticamente la fecha y id de usuario que intereactua con esta.
+    Almacena logs en la tabla cnx_active_record_log.
 
         public function behaviors()
             {
@@ -74,11 +75,16 @@ _Ejemplos de tareas comunes_
                                 'createdByColumn' => 'usr_crea',
                                 'updatedByColumn' => 'usr_modf',
                             ),
+
+                            'ActiveRecordLogableBehavior' => 'application.components.ActiveRecordLogableBehavior',
                     );
             }
 
 - _CRUD Organización:_
     Se crea el crud de organizacion.
+
+- _CRUD Asignacion de Organización:_
+    Se crea el asignacion de usuarios a una estructura organizativa.
 
 ## Licencia
 

@@ -48,7 +48,7 @@ class AsigOrg extends CActiveRecord
                         array('nu_docm_idnt', 'exist',
                                 'allowEmpty' => true,
                                 'attributeName' => 'nu_docm_idnt',
-                                'className' => 'Usuarios',
+                                'className' => 'Empleados',
                                 'message' => 'El número de cédula no existe',
                                 'skipOnError'=>true
                                 ),
@@ -77,7 +77,7 @@ class AsigOrg extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'coOrg' => array(self::BELONGS_TO, 'Org', 'co_org'),
-			'nuDocmIdnt' => array(self::BELONGS_TO, 'Usuarios', 'nu_docm_idnt'),
+			'nuDocmIdnt' => array(self::BELONGS_TO, 'Empleados', 'nu_docm_idnt'),
 		);
 	}
 
@@ -161,6 +161,8 @@ class AsigOrg extends CActiveRecord
                             'createdByColumn' => 'usr_crea',
                             'updatedByColumn' => 'usr_modf',
 			),
+                    
+                        'ActiveRecordLogableBehavior' => 'application.components.ActiveRecordLogableBehavior',
 		);
 	}
 }
