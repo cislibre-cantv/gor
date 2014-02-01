@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Empleadoses',
+	'Empleados',
 );
 
 $this->menu=array(
-	array('label'=>'Create Empleados', 'url'=>array('create')),
-	array('label'=>'Manage Empleados', 'url'=>array('admin')),
+	array('label'=>'Crear', 'url'=>array('create')),
+	array('label'=>'Gestionar', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Empleadoses</h1>
+<h1>Listado de Empleados</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

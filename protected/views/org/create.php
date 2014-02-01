@@ -3,16 +3,16 @@
 /* @var $model Org */
 
 $this->breadcrumbs=array(
-	'Orgs'=>array('index'),
-	'Create',
+	'Oganizacion'=>array('index'),
+	'Crear',
 );
 
 $this->menu=array(
-	array('label'=>'List Org', 'url'=>array('index')),
-	array('label'=>'Manage Org', 'url'=>array('admin')),
+	array('label'=>'Listado', 'url'=>array('index')),
+	array('label'=>'Gestionar', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Org</h1>
+<h1>Crear Organizacion</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>
