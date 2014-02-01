@@ -1,18 +1,18 @@
 <?php
-/* @var $this UsuariosController */
+/* @var $this EmpleadosController */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Usuarioses',
+	'Empleadoses',
 );
 
 $this->menu=array(
-	array('label'=>'Create Usuarios', 'url'=>array('create')),
-	array('label'=>'Manage Usuarios', 'url'=>array('admin')),
+	array('label'=>'Create Empleados', 'url'=>array('create')),
+	array('label'=>'Manage Empleados', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Usuarioses</h1>
+<h1>Empleadoses</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
