@@ -5,252 +5,484 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 CREATE SCHEMA IF NOT EXISTS `gor_db` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 USE `gor_db` ;
 
--- -----------------------------------------------------
--- Table `gor_db`.`cnx_usuarios`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `gor_db`.`cnx_usuarios` (
-  `id_usuario` INT(11) NOT NULL AUTO_INCREMENT,
-  `nu_docm_idnt` INT(10) NOT NULL,
-  `nu_docm_idnt_supv` INT(10) NULL,
-  `username` VARCHAR(128) NOT NULL,
-  `password` VARCHAR(128) NOT NULL,
-  `nb_pers` VARCHAR(100) NOT NULL,
-  `email` VARCHAR(50) NULL,
-  `ldap_login` BIT NOT NULL DEFAULT 0,
-  `fe_crea` DATETIME NULL,
-  `fe_modf` DATETIME NULL,
-  `usr_crea` VARCHAR(10) NULL,
-  `usr_modf` VARCHAR(10) NULL,
-  `in_stat` CHAR NOT NULL DEFAULT 'A',
-  `tx_desc` VARCHAR(100) NULL,
-  UNIQUE INDEX `uk_id_usuario` (`id_usuario` ASC),
-  PRIMARY KEY (`nu_docm_idnt`),
-  INDEX `idx_nu_docm_idnt_supv` (`nu_docm_idnt_supv` ASC),
-  CONSTRAINT `fk_nu_docm_idnt`
-    FOREIGN KEY (`nu_docm_idnt_supv`)
-    REFERENCES `gor_db`.`cnx_usuarios` (`nu_docm_idnt`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-COMMENT = 'Tabla de asignacion de usuarios a organizacion';
+--
+-- Table structure for table `cnx_active_record_log`
+--
 
+CREATE TABLE IF NOT EXISTS `cnx_active_record_log` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `description` varchar(255) DEFAULT NULL,
+  `action` varchar(20) DEFAULT NULL,
+  `model` varchar(45) DEFAULT NULL,
+  `idModel` int(10) unsigned DEFAULT NULL,
+  `field` varchar(45) DEFAULT NULL,
+  `creationdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `userid` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=43 ;
 
--- -----------------------------------------------------
--- Table `gor_db`.`cnx_org`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `gor_db`.`cnx_org` (
-  `id_org` INT(11) NOT NULL AUTO_INCREMENT,
-  `co_org` INT(10) NOT NULL,
-  `co_org_dpnd` INT(10) NULL,
-  `nb_org` VARCHAR(128) NOT NULL,
-  `tx_descripcion` VARCHAR(250) NOT NULL,
-  `abv_org` VARCHAR(6) NULL,
-  `fe_crea` DATETIME NULL,
-  `fe_modf` DATETIME NULL,
-  `usr_crea` VARCHAR(10) NULL,
-  `usr_modf` VARCHAR(10) NULL,
-  `in_stat` CHAR NOT NULL DEFAULT 'A',
-  `tx_desc` VARCHAR(100) NULL,
-  UNIQUE INDEX `uk_id_org` (`id_org` ASC),
-  PRIMARY KEY (`co_org`),
-  INDEX `idx_co_org_dpnd` (`co_org_dpnd` ASC),
-  CONSTRAINT `fk_co_org`
-    FOREIGN KEY (`co_org_dpnd`)
-    REFERENCES `gor_db`.`cnx_org` (`co_org`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-COMMENT = 'Tabla de estrutura organizativa';
+--
+-- Table structure for table `cnx_asig_org`
+--
 
-
--- -----------------------------------------------------
--- Table `gor_db`.`cnx_asig_org`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `gor_db`.`cnx_asig_org` (
-  `id_asig_org` INT(11) NOT NULL AUTO_INCREMENT,
-  `co_asig_org` INT(10) NOT NULL,
-  `nu_docm_idnt` INT(10) NOT NULL,
-  `co_org` INT(10) NOT NULL,
-  `fe_crea` DATETIME NULL,
-  `fe_modf` DATETIME NULL,
-  `usr_crea` VARCHAR(10) NULL,
-  `usr_modf` VARCHAR(10) NULL,
-  `in_stat` CHAR NOT NULL DEFAULT 'A',
-  `tx_desc` VARCHAR(100) NULL,
-  UNIQUE INDEX `uk_id_asig_org` (`id_asig_org` ASC),
-  INDEX `idx_asig_org_nu_docm_idnt` (`nu_docm_idnt` ASC),
-  INDEX `idx_asig_org_co_org` (`co_org` ASC),
+CREATE TABLE IF NOT EXISTS `cnx_asig_org` (
+  `id_asig_org` int(11) NOT NULL AUTO_INCREMENT,
+  `co_asig_org` int(10) NOT NULL,
+  `nu_docm_idnt` int(10) NOT NULL,
+  `co_org` int(10) NOT NULL,
+  `fe_crea` datetime DEFAULT NULL,
+  `fe_modf` datetime DEFAULT NULL,
+  `usr_crea` varchar(10) DEFAULT NULL,
+  `usr_modf` varchar(10) DEFAULT NULL,
+  `in_stat` char(1) NOT NULL DEFAULT 'A',
+  `tx_desc` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`co_asig_org`),
-  CONSTRAINT `fk_asig_org_nu_doc`
-    FOREIGN KEY (`nu_docm_idnt`)
-    REFERENCES `gor_db`.`cnx_usuarios` (`nu_docm_idnt`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_asig_org_co_org`
-    FOREIGN KEY (`co_org`)
-    REFERENCES `gor_db`.`cnx_org` (`co_org`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-COMMENT = 'Tabla de usuarios del sistema';
+  UNIQUE KEY `uk_id_asig_org` (`id_asig_org`),
+  KEY `idx_asig_org_nu_docm_idnt` (`nu_docm_idnt`),
+  KEY `idx_asig_org_co_org` (`co_org`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Tabla de usuarios del sistema' AUTO_INCREMENT=9 ;
+
+--
+-- Table structure for table `cnx_empleados`
+--
+
+CREATE TABLE IF NOT EXISTS `cnx_empleados` (
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+  `nu_docm_idnt` int(10) NOT NULL,
+  `nu_docm_idnt_supv` int(10) DEFAULT NULL,
+  `username` varchar(128) NOT NULL,
+  `nb_pers` varchar(100) NOT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `ldap_login` bit(1) NOT NULL DEFAULT b'0',
+  `fe_crea` datetime DEFAULT NULL,
+  `fe_modf` datetime DEFAULT NULL,
+  `usr_crea` varchar(10) DEFAULT NULL,
+  `usr_modf` varchar(10) DEFAULT NULL,
+  `in_stat` char(1) NOT NULL DEFAULT 'A',
+  `tx_desc` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`nu_docm_idnt`),
+  UNIQUE KEY `uk_id_usuario` (`id_usuario`),
+  UNIQUE KEY `idx_username` (`username`),
+  KEY `idx_nu_docm_idnt_supv` (`nu_docm_idnt_supv`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Tabla de asignacion de usuarios a organizacion' AUTO_INCREMENT=11 ;
+
+--
+-- Table structure for table `cnx_org`
+--
+
+CREATE TABLE IF NOT EXISTS `cnx_org` (
+  `id_org` int(11) NOT NULL AUTO_INCREMENT,
+  `co_org` int(10) NOT NULL,
+  `co_org_dpnd` int(10) DEFAULT NULL,
+  `nb_org` varchar(128) NOT NULL,
+  `tx_descripcion` varchar(250) NOT NULL,
+  `abv_org` varchar(10) DEFAULT NULL,
+  `fe_crea` datetime DEFAULT NULL,
+  `fe_modf` datetime DEFAULT NULL,
+  `usr_crea` varchar(10) DEFAULT NULL,
+  `usr_modf` varchar(10) DEFAULT NULL,
+  `in_stat` char(1) NOT NULL DEFAULT 'A',
+  `tx_desc` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`co_org`),
+  UNIQUE KEY `uk_id_org` (`id_org`),
+  KEY `idx_co_org_dpnd` (`co_org_dpnd`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Tabla de estrutura organizativa' AUTO_INCREMENT=18 ;
+
+--
+-- Table structure for table `cruge_authassignment`
+--
+
+CREATE TABLE IF NOT EXISTS `cruge_authassignment` (
+  `userid` int(11) NOT NULL,
+  `bizrule` text,
+  `data` text,
+  `itemname` varchar(64) NOT NULL,
+  PRIMARY KEY (`userid`,`itemname`),
+  KEY `fk_cruge_authassignment_cruge_authitem1` (`itemname`),
+  KEY `fk_cruge_authassignment_user` (`userid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `cruge_authitem`
+--
+
+CREATE TABLE IF NOT EXISTS `cruge_authitem` (
+  `name` varchar(64) NOT NULL,
+  `type` int(11) NOT NULL,
+  `description` text,
+  `bizrule` text,
+  `data` text,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `cruge_authitemchild`
+--
+
+CREATE TABLE IF NOT EXISTS `cruge_authitemchild` (
+  `parent` varchar(64) NOT NULL,
+  `child` varchar(64) NOT NULL,
+  PRIMARY KEY (`parent`,`child`),
+  KEY `child` (`child`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `cruge_field`
+--
+
+CREATE TABLE IF NOT EXISTS `cruge_field` (
+  `idfield` int(11) NOT NULL AUTO_INCREMENT,
+  `fieldname` varchar(20) NOT NULL,
+  `longname` varchar(50) DEFAULT NULL,
+  `position` int(11) DEFAULT '0',
+  `required` int(11) DEFAULT '0',
+  `fieldtype` int(11) DEFAULT '0',
+  `fieldsize` int(11) DEFAULT '20',
+  `maxlength` int(11) DEFAULT '45',
+  `showinreports` int(11) DEFAULT '0',
+  `useregexp` varchar(512) DEFAULT NULL,
+  `useregexpmsg` varchar(512) DEFAULT NULL,
+  `predetvalue` mediumblob,
+  PRIMARY KEY (`idfield`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cruge_fieldvalue`
+--
+
+CREATE TABLE IF NOT EXISTS `cruge_fieldvalue` (
+  `idfieldvalue` int(11) NOT NULL AUTO_INCREMENT,
+  `iduser` int(11) NOT NULL,
+  `idfield` int(11) NOT NULL,
+  `value` blob,
+  PRIMARY KEY (`idfieldvalue`),
+  KEY `fk_cruge_fieldvalue_cruge_user1` (`iduser`),
+  KEY `fk_cruge_fieldvalue_cruge_field1` (`idfield`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cruge_session`
+--
+
+CREATE TABLE IF NOT EXISTS `cruge_session` (
+  `idsession` int(11) NOT NULL AUTO_INCREMENT,
+  `iduser` int(11) NOT NULL,
+  `created` bigint(30) DEFAULT NULL,
+  `expire` bigint(30) DEFAULT NULL,
+  `status` int(11) DEFAULT '0',
+  `ipaddress` varchar(45) DEFAULT NULL,
+  `usagecount` int(11) DEFAULT '0',
+  `lastusage` bigint(30) DEFAULT NULL,
+  `logoutdate` bigint(30) DEFAULT NULL,
+  `ipaddressout` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idsession`),
+  KEY `crugesession_iduser` (`iduser`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=55 ;
+
+--
+-- Table structure for table `cruge_system`
+--
+
+CREATE TABLE IF NOT EXISTS `cruge_system` (
+  `idsystem` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `largename` varchar(45) DEFAULT NULL,
+  `sessionmaxdurationmins` int(11) DEFAULT '30',
+  `sessionmaxsameipconnections` int(11) DEFAULT '10',
+  `sessionreusesessions` int(11) DEFAULT '1' COMMENT '1yes 0no',
+  `sessionmaxsessionsperday` int(11) DEFAULT '-1',
+  `sessionmaxsessionsperuser` int(11) DEFAULT '-1',
+  `systemnonewsessions` int(11) DEFAULT '0' COMMENT '1yes 0no',
+  `systemdown` int(11) DEFAULT '0',
+  `registerusingcaptcha` int(11) DEFAULT '0',
+  `registerusingterms` int(11) DEFAULT '0',
+  `terms` blob,
+  `registerusingactivation` int(11) DEFAULT '1',
+  `defaultroleforregistration` varchar(64) DEFAULT NULL,
+  `registerusingtermslabel` varchar(100) DEFAULT NULL,
+  `registrationonlogin` int(11) DEFAULT '1',
+  PRIMARY KEY (`idsystem`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Table structure for table `cruge_user`
+--
+
+CREATE TABLE IF NOT EXISTS `cruge_user` (
+  `iduser` int(11) NOT NULL AUTO_INCREMENT,
+  `regdate` bigint(30) DEFAULT NULL,
+  `actdate` bigint(30) DEFAULT NULL,
+  `logondate` bigint(30) DEFAULT NULL,
+  `username` varchar(64) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `password` varchar(64) DEFAULT NULL COMMENT 'Hashed password',
+  `authkey` varchar(100) DEFAULT NULL COMMENT 'llave de autentificacion',
+  `state` int(11) DEFAULT '0',
+  `totalsessioncounter` int(11) DEFAULT '0',
+  `currentsessioncounter` int(11) DEFAULT '0',
+  PRIMARY KEY (`iduser`),
+  UNIQUE KEY `idx_cruge_username` (`username`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 
--- -----------------------------------------------------
--- Table `gor_db`.`cnx_permisologia`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `gor_db`.`cnx_permisologia` (
-  `id_permisologia` INT(11) NOT NULL AUTO_INCREMENT,
-  `co_permisologia` INT(10) NOT NULL,
-  `nb_permiso` VARCHAR(10) NOT NULL,
-  `abv_permiso` VARCHAR(5) NULL,
-  `fe_crea` DATETIME NULL,
-  `fe_modf` DATETIME NULL,
-  `usr_crea` VARCHAR(10) NULL,
-  `usr_modf` VARCHAR(10) NULL,
-  `in_stat` CHAR NOT NULL DEFAULT 'A',
-  `tx_desc` VARCHAR(100) NULL,
-  UNIQUE INDEX `uk_id_permisologia` (`id_permisologia` ASC),
-  PRIMARY KEY (`co_permisologia`))
-ENGINE = InnoDB
-COMMENT = 'Tabla de permisos generales del sistema';
+
+--
+-- Dumping data for table `cruge_user`
+--
+
+INSERT INTO `cruge_user` (`iduser`, `regdate`, `actdate`, `logondate`, `username`, `email`, `password`, `authkey`, `state`, `totalsessioncounter`, `currentsessioncounter`) VALUES
+(1, NULL, NULL, 1391275782, 'goradmin', 'cislibre@cantv.com.ve', '370ed327c72dab929be5330ba89e20f8', NULL, 1, 0, 0),
+(2, 1391219995, NULL, 1391228201, 'invitado', 'invitado@cantv.com.ve', 'a6ae8a143d440ab8c006d799f682d48d', 'a2302625999b85435b84ef447e4a05b7', 1, 0, 0),
+
+--
+-- Dumping data for table `cnx_empleados`
+--
+
+INSERT INTO `cnx_empleados` (`id_usuario`, `nu_docm_idnt`, `nu_docm_idnt_supv`, `username`, `nb_pers`, `email`, `ldap_login`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`, `tx_desc`) VALUES
+(7, NULL, NULL, 'goradmin', 'ADMINISTRADOR', 'cislibre@cantv.com.ve', b'0', sysdate(), sysdate(), '1', '1', 'A', '');
+
+-- --------------------------------------------------------
+
+--
+-- Dumping data for table `cnx_org`
+--
+
+INSERT INTO `cnx_org` (`id_org`, `co_org`, `co_org_dpnd`, `nb_org`, `tx_descripcion`, `abv_org`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`, `tx_desc`) VALUES
+(2, 1001, NULL, 'CANTV', 'Compañia Anónima Nacional Teléfonos de Venezuela', 'CANTV', '2014-01-27 15:10:21', '2014-01-27 15:10:28', '1', '1', 'A', ''),
+(3, 1002, 1001, 'Presidencia', 'Presidencia Cantv', '', '2014-01-27 15:24:45', '2014-01-27 15:24:45', '1', '1', 'A', ''),
+(4, 1003, 1002, 'Vicepresidencia Ejecutiva', 'Vicepresidencia Ejecutiva', 'VPE', '2014-01-27 15:25:27', '2014-01-27 15:25:41', '1', '1', 'A', ''),
+(5, 1004, 1003, 'Gcia. Gral.Tecnología y Operaciones', 'Gcia. Gral.Tecnología y Operaciones', 'GGTO', '2014-01-27 15:26:25', '2014-01-27 15:26:40', '1', '1', 'A', ''),
+(7, 1005, 1004, 'Gcia. Ing. Desarrollo y Const. IT/IS', 'Gcia. Ing. Desarrollo y Const. IT/IS', 'GIDC IT/IS', '2014-01-27 15:36:56', '2014-01-27 15:47:32', '1', '1', 'A', ''),
+(8, 1006, 1005, 'Gcia. Atención al Cliente', 'Gcia. Atención al Cliente', 'GAC', '2014-01-27 15:37:59', '2014-01-27 15:39:26', '1', '1', 'A', ''),
+(9, 1007, 1005, 'Gcia. Ingeniería de Soluciones', 'Gcia. Ingeniería de Soluciones', 'GIS', '2014-01-27 15:50:44', '2014-01-27 15:50:44', '1', '1', 'A', ''),
+(10, 1008, 1005, 'Gcia. Entrega de Soluciones', 'Gcia. Entrega de Soluciones', 'GES', '2014-01-27 15:51:27', '2014-01-27 15:51:27', '1', '1', 'A', ''),
+(11, 1009, 1005, 'Gcia. Centro Transacciones Corporativas', 'Gcia. Centro Transacciones Corporativas', 'GCTC', '2014-01-27 15:52:05', '2014-01-27 15:52:05', '1', '1', 'A', ''),
+(12, 1010, 1005, 'Gcia. Facturación', 'Gcia. Facturación', 'GF', '2014-01-27 15:52:51', '2014-01-27 16:19:03', '1', '1', 'A', ''),
+(13, 1011, 1005, 'Gcia. Des.Mantto.Calidad de Aplicaciones', 'Gcia. Des.Mantto.Calidad de Aplicaciones', 'GDMCA', '2014-01-27 15:53:35', '2014-01-27 15:53:35', '1', '1', 'A', '');
+
+-- --------------------------------------------------------
+
+--
+-- Dumping data for table `cruge_authitem`
+--
+
+INSERT INTO `cruge_authitem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
+('action_asigorg_admin', 0, '', NULL, 'N;'),
+('action_asigorg_create', 0, '', NULL, 'N;'),
+('action_asigorg_delete', 0, '', NULL, 'N;'),
+('action_asigorg_index', 0, '', NULL, 'N;'),
+('action_asigorg_update', 0, '', NULL, 'N;'),
+('action_asigorg_view', 0, '', NULL, 'N;'),
+('action_empleados_admin', 0, '', NULL, 'N;'),
+('action_empleados_create', 0, '', NULL, 'N;'),
+('action_empleados_delete', 0, '', NULL, 'N;'),
+('action_empleados_index', 0, '', NULL, 'N;'),
+('action_empleados_update', 0, '', NULL, 'N;'),
+('action_empleados_view', 0, '', NULL, 'N;'),
+('action_org_admin', 0, '', NULL, 'N;'),
+('action_org_create', 0, '', NULL, 'N;'),
+('action_org_delete', 0, '', NULL, 'N;'),
+('action_org_index', 0, '', NULL, 'N;'),
+('action_org_update', 0, '', NULL, 'N;'),
+('action_org_view', 0, '', NULL, 'N;'),
+('action_site_captcha', 0, '', NULL, 'N;'),
+('action_site_contact', 0, '', NULL, 'N;'),
+('action_site_error', 0, '', NULL, 'N;'),
+('action_site_index', 0, '', NULL, 'N;'),
+('action_site_login', 0, '', NULL, 'N;'),
+('action_site_logout', 0, '', NULL, 'N;'),
+('action_site_page', 0, '', NULL, 'N;'),
+('action_ui_editprofile', 0, '', '', 'N;'),
+('action_ui_fieldsadmincreate', 0, '', NULL, 'N;'),
+('action_ui_fieldsadmindelete', 0, '', NULL, 'N;'),
+('action_ui_fieldsadminlist', 0, '', NULL, 'N;'),
+('action_ui_fieldsadminupdate', 0, '', NULL, 'N;'),
+('action_ui_rbacajaxassignment', 0, '', NULL, 'N;'),
+('action_ui_rbacajaxsetchilditem', 0, '', NULL, 'N;'),
+('action_ui_rbacauthitemchilditems', 0, '', NULL, 'N;'),
+('action_ui_rbacauthitemcreate', 0, '', NULL, 'N;'),
+('action_ui_rbacauthitemdelete', 0, '', NULL, 'N;'),
+('action_ui_rbacauthitemupdate', 0, '', NULL, 'N;'),
+('action_ui_rbaclistops', 0, '', NULL, 'N;'),
+('action_ui_rbaclistroles', 0, '', NULL, 'N;'),
+('action_ui_rbaclisttasks', 0, '', NULL, 'N;'),
+('action_ui_rbacusersassignments', 0, '', NULL, 'N;'),
+('action_ui_sessionadmin', 0, '', NULL, 'N;'),
+('action_ui_sessionadmindelete', 0, '', '', 'N;'),
+('action_ui_systemupdate', 0, '', NULL, 'N;'),
+('action_ui_usermanagementadmin', 0, '', NULL, 'N;'),
+('action_ui_usermanagementcreate', 0, '', NULL, 'N;'),
+('action_ui_usermanagementdelete', 0, '', NULL, 'N;'),
+('action_ui_usermanagementupdate', 0, '', NULL, 'N;'),
+('action_ui_usersaved', 0, '', NULL, 'N;'),
+('admin', 0, '', NULL, 'N;'),
+('controller_asigorg', 0, '', NULL, 'N;'),
+('controller_empleados', 0, '', NULL, 'N;'),
+('controller_org', 0, '', NULL, 'N;'),
+('controller_site', 0, '', NULL, 'N;'),
+('controller_usuarios', 0, '', NULL, 'N;'),
+('edit-advanced-profile-features', 0, '/opt/lampp/htdocs/gor/protected/modules/cruge/views/ui/usermanagementupdate.php linea 114', NULL, 'N;'),
+('empleados_actualizar', 1, '', '', 'N;'),
+('Empleados_ADMINISTRAR', 2, '', '', 'N;'),
+('empleados_agregar', 1, '', '', 'N;'),
+('Empleados_CONSULTAR', 2, '', '', 'N;'),
+('empleados_eliminar', 1, '', '', 'N;'),
+('empleados_listar', 1, '', '', 'N;'),
+('organizaciones_actualizar', 1, '', '', 'N;'),
+('Organizaciones_ADMINISTRAR', 2, '', '', 'N;'),
+('organizaciones_agregar', 1, '', '', 'N;'),
+('Organizaciones_CONSULTAR', 2, '', '', 'N;'),
+('organizaciones_eliminar', 1, '', '', 'N;'),
+('organizaciones_listar', 1, '', '', 'N;'),
+('usuarios_actualizar', 1, '', '', 'N;'),
+('Usuarios_ADMINISTRAR', 2, '', '', 'N;'),
+('usuarios_agregar', 1, '', '', 'N;'),
+('Usuarios_CONSULTAR', 2, '', '', 'N;'),
+('usuarios_eliminar', 1, '', '', 'N;'),
+('usuarios_listar', 1, '', '', 'N;'),
+('usuarios_super_admin', 1, '', '', 'N;');
+
+-- --------------------------------------------------------
+
+--
+-- Dumping data for table `cruge_authitemchild`
+--
+
+INSERT INTO `cruge_authitemchild` (`parent`, `child`) VALUES
+('empleados_actualizar', 'action_empleados_admin'),
+('empleados_agregar', 'action_empleados_admin'),
+('empleados_eliminar', 'action_empleados_admin'),
+('empleados_listar', 'action_empleados_admin'),
+('empleados_agregar', 'action_empleados_create'),
+('empleados_eliminar', 'action_empleados_delete'),
+('empleados_actualizar', 'action_empleados_index'),
+('empleados_agregar', 'action_empleados_index'),
+('empleados_eliminar', 'action_empleados_index'),
+('empleados_listar', 'action_empleados_index'),
+('empleados_actualizar', 'action_empleados_update'),
+('empleados_actualizar', 'action_empleados_view'),
+('empleados_agregar', 'action_empleados_view'),
+('empleados_eliminar', 'action_empleados_view'),
+('empleados_listar', 'action_empleados_view'),
+('organizaciones_actualizar', 'action_org_admin'),
+('organizaciones_agregar', 'action_org_admin'),
+('organizaciones_eliminar', 'action_org_admin'),
+('organizaciones_listar', 'action_org_admin'),
+('organizaciones_agregar', 'action_org_create'),
+('organizaciones_eliminar', 'action_org_delete'),
+('organizaciones_actualizar', 'action_org_index'),
+('organizaciones_agregar', 'action_org_index'),
+('organizaciones_eliminar', 'action_org_index'),
+('organizaciones_listar', 'action_org_index'),
+('organizaciones_actualizar', 'action_org_update'),
+('organizaciones_actualizar', 'action_org_view'),
+('organizaciones_agregar', 'action_org_view'),
+('organizaciones_eliminar', 'action_org_view'),
+('organizaciones_listar', 'action_org_view'),
+('usuarios_super_admin', 'action_ui_editprofile'),
+('usuarios_super_admin', 'action_ui_fieldsadmincreate'),
+('usuarios_super_admin', 'action_ui_fieldsadmindelete'),
+('usuarios_super_admin', 'action_ui_fieldsadminlist'),
+('usuarios_super_admin', 'action_ui_fieldsadminupdate'),
+('usuarios_super_admin', 'action_ui_rbacajaxassignment'),
+('usuarios_super_admin', 'action_ui_rbacajaxsetchilditem'),
+('usuarios_super_admin', 'action_ui_rbacauthitemchilditems'),
+('usuarios_super_admin', 'action_ui_rbacauthitemcreate'),
+('usuarios_super_admin', 'action_ui_rbacauthitemdelete'),
+('usuarios_super_admin', 'action_ui_rbacauthitemupdate'),
+('usuarios_super_admin', 'action_ui_rbaclistops'),
+('usuarios_super_admin', 'action_ui_rbaclistroles'),
+('usuarios_super_admin', 'action_ui_rbaclisttasks'),
+('usuarios_super_admin', 'action_ui_rbacusersassignments'),
+('usuarios_super_admin', 'action_ui_sessionadmin'),
+('usuarios_super_admin', 'action_ui_sessionadmindelete'),
+('usuarios_super_admin', 'action_ui_systemupdate'),
+('Usuarios_CONSULTAR', 'action_ui_usermanagementadmin'),
+('usuarios_listar', 'action_ui_usermanagementadmin'),
+('usuarios_agregar', 'action_ui_usermanagementcreate'),
+('usuarios_eliminar', 'action_ui_usermanagementdelete'),
+('usuarios_actualizar', 'action_ui_usermanagementupdate'),
+('usuarios_super_admin', 'admin'),
+('organizaciones_actualizar', 'controller_org'),
+('organizaciones_agregar', 'controller_org'),
+('organizaciones_eliminar', 'controller_org'),
+('organizaciones_listar', 'controller_org'),
+('usuarios_super_admin', 'edit-advanced-profile-features'),
+('Empleados_ADMINISTRAR', 'empleados_actualizar'),
+('Empleados_ADMINISTRAR', 'empleados_agregar'),
+('Empleados_ADMINISTRAR', 'empleados_listar'),
+('Empleados_CONSULTAR', 'empleados_listar'),
+('Organizaciones_ADMINISTRAR', 'organizaciones_actualizar'),
+('Organizaciones_ADMINISTRAR', 'organizaciones_agregar'),
+('Organizaciones_ADMINISTRAR', 'organizaciones_listar'),
+('Organizaciones_CONSULTAR', 'organizaciones_listar'),
+('Usuarios_ADMINISTRAR', 'usuarios_actualizar'),
+('Usuarios_ADMINISTRAR', 'usuarios_agregar'),
+('Usuarios_ADMINISTRAR', 'usuarios_eliminar'),
+('Usuarios_ADMINISTRAR', 'usuarios_listar'),
+('Usuarios_ADMINISTRAR', 'usuarios_super_admin');
+
+-- --------------------------------------------------------
+
+--
+-- Dumping data for table `cruge_system`
+--
+
+INSERT INTO `cruge_system` (`idsystem`, `name`, `largename`, `sessionmaxdurationmins`, `sessionmaxsameipconnections`, `sessionreusesessions`, `sessionmaxsessionsperday`, `sessionmaxsessionsperuser`, `systemnonewsessions`, `systemdown`, `registerusingcaptcha`, `registerusingterms`, `terms`, `registerusingactivation`, `defaultroleforregistration`, `registerusingtermslabel`, `registrationonlogin`) VALUES
+(1, 'default', NULL, 30, 10, 1, -1, -1, 0, 0, 0, 0, '', 0, '', '', 0);
+
+-- --------------------------------------------------------
 
 
--- -----------------------------------------------------
--- Table `gor_db`.`cnx_roles`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `gor_db`.`cnx_roles` (
-  `id_rol` INT(11) NOT NULL AUTO_INCREMENT,
-  `co_rol` INT(10) NOT NULL,
-  `tx_rol` VARCHAR(50) NOT NULL,
-  `tx_descripcion` VARCHAR(250) NOT NULL,
-  `fe_crea` DATETIME NULL,
-  `fe_modf` DATETIME NULL,
-  `usr_crea` VARCHAR(10) NULL,
-  `usr_modf` VARCHAR(10) NULL,
-  `in_stat` CHAR NOT NULL DEFAULT 'A',
-  `tx_desc` VARCHAR(100) NULL,
-  UNIQUE INDEX `uk_id_rol` (`id_rol` ASC),
-  PRIMARY KEY (`co_rol`))
-ENGINE = InnoDB
-COMMENT = 'Tabla de roles del sistema';
+--
+-- Constraints for dumped tables
+--
 
+--
+-- Constraints for table `cnx_asig_org`
+--
+ALTER TABLE `cnx_asig_org`
+  ADD CONSTRAINT `fk_asig_org_nu_doc` FOREIGN KEY (`nu_docm_idnt`) REFERENCES `cnx_empleados` (`nu_docm_idnt`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_asig_org_co_org` FOREIGN KEY (`co_org`) REFERENCES `cnx_org` (`co_org`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- -----------------------------------------------------
--- Table `gor_db`.`cnx_asig_perm`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `gor_db`.`cnx_asig_perm` (
-  `id_asig_perm` INT(11) NOT NULL AUTO_INCREMENT,
-  `co_asig_perm` INT(10) NOT NULL,
-  `co_permisologia` INT(10) NOT NULL,
-  `co_rol` INT(10) NOT NULL,
-  `fe_crea` DATETIME NULL,
-  `fe_modf` DATETIME NULL,
-  `usr_crea` VARCHAR(10) NULL,
-  `usr_modf` VARCHAR(10) NULL,
-  `in_stat` CHAR NOT NULL DEFAULT 'A',
-  `tx_desc` VARCHAR(100) NULL,
-  UNIQUE INDEX `uk_asig_perm` (`id_asig_perm` ASC),
-  PRIMARY KEY (`co_asig_perm`),
-  INDEX `idx_cnx_asig_perm_co_perm` (`co_permisologia` ASC),
-  INDEX `idx_cnx_asig_perm_co_rol` (`co_rol` ASC),
-  CONSTRAINT `fk_asig_perm_co_perm`
-    FOREIGN KEY (`co_permisologia`)
-    REFERENCES `gor_db`.`cnx_permisologia` (`co_permisologia`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_asig_perm_co_rol`
-    FOREIGN KEY (`co_rol`)
-    REFERENCES `gor_db`.`cnx_roles` (`co_rol`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-COMMENT = 'Tabla de asignacion de permisos a los roles';
+--
+-- Constraints for table `cnx_empleados`
+--
+ALTER TABLE `cnx_empleados`
+  ADD CONSTRAINT `fk_username` FOREIGN KEY (`username`) REFERENCES `cruge_user` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_nu_docm_idnt` FOREIGN KEY (`nu_docm_idnt_supv`) REFERENCES `cnx_empleados` (`nu_docm_idnt`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
+--
+-- Constraints for table `cnx_org`
+--
+ALTER TABLE `cnx_org`
+  ADD CONSTRAINT `fk_co_org` FOREIGN KEY (`co_org_dpnd`) REFERENCES `cnx_org` (`co_org`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- -----------------------------------------------------
--- Table `gor_db`.`cnx_user_roles`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `gor_db`.`cnx_user_roles` (
-  `id_user_rol` INT(11) NOT NULL AUTO_INCREMENT,
-  `co_user_rol` INT(10) NOT NULL,
-  `nu_docm_idnt` INT(10) NOT NULL,
-  `co_rol` INT(10) NOT NULL,
-  `fe_crea` DATETIME NULL,
-  `fe_modf` DATETIME NULL,
-  `usr_crea` VARCHAR(10) NULL,
-  `usr_modf` VARCHAR(10) NULL,
-  `in_stat` CHAR NOT NULL DEFAULT 'A',
-  `tx_desc` VARCHAR(100) NULL,
-  UNIQUE INDEX `uk_id_user_rol` (`id_user_rol` ASC),
-  PRIMARY KEY (`co_user_rol`),
-  INDEX `idx_user_roles_cedula` (`nu_docm_idnt` ASC),
-  INDEX `idx_user_roles_co_rol` (`co_rol` ASC),
-  CONSTRAINT `fk_user_roles_cedula`
-    FOREIGN KEY (`nu_docm_idnt`)
-    REFERENCES `gor_db`.`cnx_usuarios` (`nu_docm_idnt`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_user_roles_co_rol`
-    FOREIGN KEY (`co_rol`)
-    REFERENCES `gor_db`.`cnx_roles` (`co_rol`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-COMMENT = 'Tabla de asignacion de roles a usuarios';
+--
+-- Constraints for table `cruge_authassignment`
+--
+ALTER TABLE `cruge_authassignment`
+  ADD CONSTRAINT `fk_cruge_authassignment_cruge_authitem1` FOREIGN KEY (`itemname`) REFERENCES `cruge_authitem` (`name`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_cruge_authassignment_user` FOREIGN KEY (`userid`) REFERENCES `cruge_user` (`iduser`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
+--
+-- Constraints for table `cruge_authitemchild`
+--
+ALTER TABLE `cruge_authitemchild`
+  ADD CONSTRAINT `crugeauthitemchild_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `cruge_authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `crugeauthitemchild_ibfk_2` FOREIGN KEY (`child`) REFERENCES `cruge_authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
 
--- -----------------------------------------------------
--- Table `gor_db`.`cnx_modulos`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `gor_db`.`cnx_modulos` (
-  `id_modulo` INT(11) NOT NULL AUTO_INCREMENT,
-  `co_modulo` INT(10) NOT NULL,
-  `tx_modulo` VARCHAR(50) NOT NULL,
-  `tx_descripcion` VARCHAR(250) NOT NULL,
-  `fe_crea` DATETIME NULL,
-  `fe_modf` DATETIME NULL,
-  `usr_crea` VARCHAR(10) NULL,
-  `usr_modf` VARCHAR(10) NULL,
-  `in_stat` CHAR NOT NULL DEFAULT 'A',
-  `tx_desc` VARCHAR(100) NULL,
-  UNIQUE INDEX `uk_id_modulo` (`id_modulo` ASC),
-  PRIMARY KEY (`co_modulo`))
-ENGINE = InnoDB
-COMMENT = 'Tabla de modulos del sistema';
+--
+-- Constraints for table `cruge_fieldvalue`
+--
+ALTER TABLE `cruge_fieldvalue`
+  ADD CONSTRAINT `fk_cruge_fieldvalue_cruge_user1` FOREIGN KEY (`iduser`) REFERENCES `cruge_user` (`iduser`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_cruge_fieldvalue_cruge_field1` FOREIGN KEY (`idfield`) REFERENCES `cruge_field` (`idfield`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
-
--- -----------------------------------------------------
--- Table `gor_db`.`cnx_asig_modulo`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `gor_db`.`cnx_asig_modulo` (
-  `id_asig_modulo` INT(11) NOT NULL AUTO_INCREMENT,
-  `co_asig_modulo` INT(10) NOT NULL,
-  `co_modulo` INT(10) NOT NULL,
-  `co_rol` INT(10) NOT NULL,
-  `fe_crea` DATETIME NULL,
-  `fe_modf` DATETIME NULL,
-  `usr_crea` VARCHAR(10) NULL,
-  `usr_modf` VARCHAR(10) NULL,
-  `in_stat` CHAR NOT NULL DEFAULT 'A',
-  `tx_desc` VARCHAR(100) NULL,
-  UNIQUE INDEX `uk_id_asig_modulo` (`id_asig_modulo` ASC),
-  PRIMARY KEY (`co_asig_modulo`),
-  INDEX `idx_asig_modulo_co_modulo` (`co_modulo` ASC),
-  INDEX `idx_asig_modulo_co_rol` (`co_rol` ASC),
-  CONSTRAINT `fk_asig_mod_co_mod`
-    FOREIGN KEY (`co_modulo`)
-    REFERENCES `gor_db`.`cnx_modulos` (`co_modulo`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_asig_mod_co_rol`
-    FOREIGN KEY (`co_rol`)
-    REFERENCES `gor_db`.`cnx_roles` (`co_rol`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-COMMENT = 'Tabla de asignacion de modulos a los roles';
-
-
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
