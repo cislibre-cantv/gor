@@ -102,18 +102,18 @@ class Empleados extends CActiveRecord
 	{
 		return array(
 			'id_usuario' => 'Id Usuario',
-			'nu_docm_idnt' => 'Nu Docm Idnt',
-			'nu_docm_idnt_supv' => 'Nu Docm Idnt Supv',
-			'username' => 'Username',
-			'nb_pers' => 'Nb Pers',
-			'email' => 'Email',
-			'ldap_login' => 'Ldap Login',
-			'fe_crea' => 'Fe Crea',
-			'fe_modf' => 'Fe Modf',
-			'usr_crea' => 'Usr Crea',
-			'usr_modf' => 'Usr Modf',
-			'in_stat' => 'In Stat',
-			'tx_desc' => 'Tx Desc',
+			'nu_docm_idnt' => 'Cedula',
+			'nu_docm_idnt_supv' => 'Cedula Supervisor',
+			'username' => 'Usuario',
+			'nb_pers' => 'Apellidos y Nombres',
+			'email' => 'Coreo Electronico',
+			'ldap_login' => 'Tipo de Autenticacion',
+			'fe_crea' => 'Creado el',
+			'fe_modf' => 'Modificado el',
+			'usr_crea' => 'Creado por',
+			'usr_modf' => 'Modificado por',
+			'in_stat' => 'Estatus',
+			'tx_desc' => 'Observaciones',
 		);
 	}
 
