@@ -1,9 +1,26 @@
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+-- phpMyAdmin SQL Dump
+-- version 4.0.9
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Feb 01, 2014 at 09:43 pm
+-- Server version: 5.5.34
+-- PHP Version: 5.4.22
 
-CREATE SCHEMA IF NOT EXISTS `gor_db` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `gor_db` ;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `gor_db`
+--
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `cnx_active_record_log`
@@ -20,6 +37,46 @@ CREATE TABLE IF NOT EXISTS `cnx_active_record_log` (
   `userid` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=43 ;
+
+--
+-- Dumping data for table `cnx_active_record_log`
+--
+
+INSERT INTO `cnx_active_record_log` (`id`, `description`, `action`, `model`, `idModel`, `field`, `creationdate`, `userid`) VALUES
+(11, 'User admin deleted Org[33].', 'DELETE', 'Org', 33, '', '2014-02-01 03:13:52', '1'),
+(12, 'User goradmin changed co_asig_org for AsigOrg[3].', 'CHANGE', 'AsigOrg', 3, 'co_asig_org', '2014-02-01 15:23:03', '1'),
+(13, 'User goradmin changed co_org for AsigOrg[3].', 'CHANGE', 'AsigOrg', 3, 'co_org', '2014-02-01 15:23:03', '1'),
+(14, 'User goradmin changed fe_modf for AsigOrg[3].', 'CHANGE', 'AsigOrg', 3, 'fe_modf', '2014-02-01 15:23:03', '1'),
+(15, 'User goradmin deleted Org[4444].', 'DELETE', 'Org', 4444, '', '2014-02-01 15:25:14', '1'),
+(16, 'User goradmin created Org[11111].', 'CREATE', 'Org', 11111, '', '2014-02-01 16:25:13', '1'),
+(17, 'User goradmin changed nb_org for Org[11111].', 'CHANGE', 'Org', 11111, 'nb_org', '2014-02-01 16:25:22', '1'),
+(18, 'User goradmin changed fe_modf for Org[11111].', 'CHANGE', 'Org', 11111, 'fe_modf', '2014-02-01 16:25:22', '1'),
+(19, 'User goradmin deleted Org[11111].', 'DELETE', 'Org', 11111, '', '2014-02-01 16:25:30', '1'),
+(20, 'User goradmin created Empleados[15481004].', 'CREATE', 'Empleados', 15481004, '', '2014-02-01 16:36:12', '1'),
+(21, 'User goradmin created AsigOrg[1].', 'CREATE', 'AsigOrg', 1, '', '2014-02-01 16:37:17', '1'),
+(22, 'User goradmin changed email for Empleados[15481004].', 'CHANGE', 'Empleados', 15481004, 'email', '2014-02-01 16:40:28', '1'),
+(23, 'User goradmin changed fe_modf for Empleados[15481004].', 'CHANGE', 'Empleados', 15481004, 'fe_modf', '2014-02-01 16:40:28', '1'),
+(24, 'User averen01 changed fe_modf for Empleados[15481004].', 'CHANGE', 'Empleados', 15481004, 'fe_modf', '2014-02-01 16:50:30', '11'),
+(25, 'User averen01 created Org[33333].', 'CREATE', 'Org', 33333, '', '2014-02-01 16:52:15', '11'),
+(26, 'User averen01 changed co_org for Org[33333333].', 'CHANGE', 'Org', 33333333, 'co_org', '2014-02-01 16:52:19', '11'),
+(27, 'User averen01 changed fe_modf for Org[33333333].', 'CHANGE', 'Org', 33333333, 'fe_modf', '2014-02-01 16:52:19', '11'),
+(28, 'User averen01 deleted Org[33333333].', 'DELETE', 'Org', 33333333, '', '2014-02-01 16:52:23', '11'),
+(29, 'User averen01 created Empleados[33333].', 'CREATE', 'Empleados', 33333, '', '2014-02-01 16:55:11', '11'),
+(30, 'User averen01 changed fe_modf for Empleados[33333].', 'CHANGE', 'Empleados', 33333, 'fe_modf', '2014-02-01 16:55:16', '11'),
+(31, 'User averen01 created AsigOrg[2].', 'CREATE', 'AsigOrg', 2, '', '2014-02-01 16:55:58', '11'),
+(32, 'User averen01 changed fe_modf for AsigOrg[2].', 'CHANGE', 'AsigOrg', 2, 'fe_modf', '2014-02-01 16:56:02', '11'),
+(33, 'User averen01 changed fe_modf for AsigOrg[2].', 'CHANGE', 'AsigOrg', 2, 'fe_modf', '2014-02-01 16:56:43', '11'),
+(34, 'User averen01 changed co_asig_org for AsigOrg[3].', 'CHANGE', 'AsigOrg', 3, 'co_asig_org', '2014-02-01 16:57:03', '11'),
+(35, 'User averen01 changed fe_modf for AsigOrg[3].', 'CHANGE', 'AsigOrg', 3, 'fe_modf', '2014-02-01 16:57:03', '11'),
+(36, 'User averen01 deleted Empleados[33333].', 'DELETE', 'Empleados', 33333, '', '2014-02-01 17:11:35', '11'),
+(37, 'User averen01 created Empleados[3333].', 'CREATE', 'Empleados', 3333, '', '2014-02-01 17:13:09', '11'),
+(38, 'User averen01 created AsigOrg[2].', 'CREATE', 'AsigOrg', 2, '', '2014-02-01 17:14:02', '11'),
+(39, 'User goradmin deleted AsigOrg[2].', 'DELETE', 'AsigOrg', 2, '', '2014-02-01 17:36:10', '1'),
+(40, 'User goradmin created AsigOrg[2].', 'CREATE', 'AsigOrg', 2, '', '2014-02-01 17:39:31', '1'),
+(41, 'User goradmin deleted AsigOrg[2].', 'DELETE', 'AsigOrg', 2, '', '2014-02-01 17:39:52', '1'),
+(42, 'User goradmin deleted Empleados[3333].', 'DELETE', 'Empleados', 3333, '', '2014-02-01 17:40:14', '1');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `cnx_asig_org`
@@ -41,6 +98,15 @@ CREATE TABLE IF NOT EXISTS `cnx_asig_org` (
   KEY `idx_asig_org_nu_docm_idnt` (`nu_docm_idnt`),
   KEY `idx_asig_org_co_org` (`co_org`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Tabla de usuarios del sistema' AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `cnx_asig_org`
+--
+
+INSERT INTO `cnx_asig_org` (`id_asig_org`, `co_asig_org`, `nu_docm_idnt`, `co_org`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`, `tx_desc`) VALUES
+(5, 1, 15481004, 1005, '2014-02-01 12:07:17', '2014-02-01 12:07:17', '1', '1', 'A', NULL);
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `cnx_empleados`
@@ -67,6 +133,15 @@ CREATE TABLE IF NOT EXISTS `cnx_empleados` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Tabla de asignacion de usuarios a organizacion' AUTO_INCREMENT=11 ;
 
 --
+-- Dumping data for table `cnx_empleados`
+--
+
+INSERT INTO `cnx_empleados` (`id_usuario`, `nu_docm_idnt`, `nu_docm_idnt_supv`, `username`, `nb_pers`, `email`, `ldap_login`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`, `tx_desc`) VALUES
+(7, 15481004, NULL, 'averen01', 'VERENZUELA ANDRES', 'averen01@cantv.com.ve', b'0', '2014-02-01 12:06:11', '2014-02-01 12:20:30', '1', '1', 'A', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cnx_org`
 --
 
@@ -89,6 +164,25 @@ CREATE TABLE IF NOT EXISTS `cnx_org` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Tabla de estrutura organizativa' AUTO_INCREMENT=18 ;
 
 --
+-- Dumping data for table `cnx_org`
+--
+
+INSERT INTO `cnx_org` (`id_org`, `co_org`, `co_org_dpnd`, `nb_org`, `tx_descripcion`, `abv_org`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`, `tx_desc`) VALUES
+(2, 1001, NULL, 'CANTV', 'Compañia Anónima Nacional Teléfonos de Venezuela', 'CANTV', '2014-01-27 15:10:21', '2014-01-27 15:10:28', '1', '1', 'A', ''),
+(3, 1002, 1001, 'Presidencia', 'Presidencia Cantv', '', '2014-01-27 15:24:45', '2014-01-27 15:24:45', '1', '1', 'A', ''),
+(4, 1003, 1002, 'Vicepresidencia Ejecutiva', 'Vicepresidencia Ejecutiva', 'VPE', '2014-01-27 15:25:27', '2014-01-27 15:25:41', '1', '1', 'A', ''),
+(5, 1004, 1003, 'Gcia. Gral.Tecnología y Operaciones', 'Gcia. Gral.Tecnología y Operaciones', 'GGTO', '2014-01-27 15:26:25', '2014-01-27 15:26:40', '1', '1', 'A', ''),
+(7, 1005, 1004, 'Gcia. Ing. Desarrollo y Const. IT/IS', 'Gcia. Ing. Desarrollo y Const. IT/IS', 'GIDC IT/IS', '2014-01-27 15:36:56', '2014-01-27 15:47:32', '1', '1', 'A', ''),
+(8, 1006, 1005, 'Gcia. Atención al Cliente', 'Gcia. Atención al Cliente', 'GAC', '2014-01-27 15:37:59', '2014-01-27 15:39:26', '1', '1', 'A', ''),
+(9, 1007, 1005, 'Gcia. Ingeniería de Soluciones', 'Gcia. Ingeniería de Soluciones', 'GIS', '2014-01-27 15:50:44', '2014-01-27 15:50:44', '1', '1', 'A', ''),
+(10, 1008, 1005, 'Gcia. Entrega de Soluciones', 'Gcia. Entrega de Soluciones', 'GES', '2014-01-27 15:51:27', '2014-01-27 15:51:27', '1', '1', 'A', ''),
+(11, 1009, 1005, 'Gcia. Centro Transacciones Corporativas', 'Gcia. Centro Transacciones Corporativas', 'GCTC', '2014-01-27 15:52:05', '2014-01-27 15:52:05', '1', '1', 'A', ''),
+(12, 1010, 1005, 'Gcia. Facturación', 'Gcia. Facturación', 'GF', '2014-01-27 15:52:51', '2014-01-27 16:19:03', '1', '1', 'A', ''),
+(13, 1011, 1005, 'Gcia. Des.Mantto.Calidad de Aplicaciones', 'Gcia. Des.Mantto.Calidad de Aplicaciones', 'GDMCA', '2014-01-27 15:53:35', '2014-01-27 15:53:35', '1', '1', 'A', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cruge_authassignment`
 --
 
@@ -101,6 +195,17 @@ CREATE TABLE IF NOT EXISTS `cruge_authassignment` (
   KEY `fk_cruge_authassignment_cruge_authitem1` (`itemname`),
   KEY `fk_cruge_authassignment_user` (`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `cruge_authassignment`
+--
+
+INSERT INTO `cruge_authassignment` (`userid`, `bizrule`, `data`, `itemname`) VALUES
+(11, NULL, 'N;', 'Empleados_CONSULTAR'),
+(11, NULL, 'N;', 'Organizaciones_CONSULTAR'),
+(11, NULL, 'N;', 'Usuarios_CONSULTAR');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `cruge_authitem`
@@ -116,6 +221,89 @@ CREATE TABLE IF NOT EXISTS `cruge_authitem` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Dumping data for table `cruge_authitem`
+--
+
+INSERT INTO `cruge_authitem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
+('action_asigorg_admin', 0, '', NULL, 'N;'),
+('action_asigorg_create', 0, '', NULL, 'N;'),
+('action_asigorg_delete', 0, '', NULL, 'N;'),
+('action_asigorg_index', 0, '', NULL, 'N;'),
+('action_asigorg_update', 0, '', NULL, 'N;'),
+('action_asigorg_view', 0, '', NULL, 'N;'),
+('action_empleados_admin', 0, '', NULL, 'N;'),
+('action_empleados_create', 0, '', NULL, 'N;'),
+('action_empleados_delete', 0, '', NULL, 'N;'),
+('action_empleados_index', 0, '', NULL, 'N;'),
+('action_empleados_update', 0, '', NULL, 'N;'),
+('action_empleados_view', 0, '', NULL, 'N;'),
+('action_org_admin', 0, '', NULL, 'N;'),
+('action_org_create', 0, '', NULL, 'N;'),
+('action_org_delete', 0, '', NULL, 'N;'),
+('action_org_index', 0, '', NULL, 'N;'),
+('action_org_update', 0, '', NULL, 'N;'),
+('action_org_view', 0, '', NULL, 'N;'),
+('action_site_captcha', 0, '', NULL, 'N;'),
+('action_site_contact', 0, '', NULL, 'N;'),
+('action_site_error', 0, '', NULL, 'N;'),
+('action_site_index', 0, '', NULL, 'N;'),
+('action_site_login', 0, '', NULL, 'N;'),
+('action_site_logout', 0, '', NULL, 'N;'),
+('action_site_page', 0, '', NULL, 'N;'),
+('action_ui_editprofile', 0, '', '', 'N;'),
+('action_ui_fieldsadmincreate', 0, '', NULL, 'N;'),
+('action_ui_fieldsadmindelete', 0, '', NULL, 'N;'),
+('action_ui_fieldsadminlist', 0, '', NULL, 'N;'),
+('action_ui_fieldsadminupdate', 0, '', NULL, 'N;'),
+('action_ui_rbacajaxassignment', 0, '', NULL, 'N;'),
+('action_ui_rbacajaxsetchilditem', 0, '', NULL, 'N;'),
+('action_ui_rbacauthitemchilditems', 0, '', NULL, 'N;'),
+('action_ui_rbacauthitemcreate', 0, '', NULL, 'N;'),
+('action_ui_rbacauthitemdelete', 0, '', NULL, 'N;'),
+('action_ui_rbacauthitemupdate', 0, '', NULL, 'N;'),
+('action_ui_rbaclistops', 0, '', NULL, 'N;'),
+('action_ui_rbaclistroles', 0, '', NULL, 'N;'),
+('action_ui_rbaclisttasks', 0, '', NULL, 'N;'),
+('action_ui_rbacusersassignments', 0, '', NULL, 'N;'),
+('action_ui_sessionadmin', 0, '', NULL, 'N;'),
+('action_ui_sessionadmindelete', 0, '', '', 'N;'),
+('action_ui_systemupdate', 0, '', NULL, 'N;'),
+('action_ui_usermanagementadmin', 0, '', NULL, 'N;'),
+('action_ui_usermanagementcreate', 0, '', NULL, 'N;'),
+('action_ui_usermanagementdelete', 0, '', NULL, 'N;'),
+('action_ui_usermanagementupdate', 0, '', NULL, 'N;'),
+('action_ui_usersaved', 0, '', NULL, 'N;'),
+('controller_asigorg', 0, '', NULL, 'N;'),
+('controller_empleados', 0, '', NULL, 'N;'),
+('controller_org', 0, '', NULL, 'N;'),
+('controller_site', 0, '', NULL, 'N;'),
+('controller_usuarios', 0, '', NULL, 'N;'),
+('edit-advanced-profile-features', 0, '', '', 'N;'),
+('empleados_actualizar', 1, '', '', 'N;'),
+('Empleados_ADMINISTRAR', 2, '', '', 'N;'),
+('empleados_agregar', 1, '', '', 'N;'),
+('Empleados_CONSULTAR', 2, '', '', 'N;'),
+('empleados_eliminar', 1, '', '', 'N;'),
+('empleados_listar', 1, '', '', 'N;'),
+('goradmin', 0, '', '', 'N;'),
+('organizaciones_actualizar', 1, '', '', 'N;'),
+('Organizaciones_ADMINISTRAR', 2, '', '', 'N;'),
+('organizaciones_agregar', 1, '', '', 'N;'),
+('Organizaciones_CONSULTAR', 2, '', '', 'N;'),
+('organizaciones_eliminar', 1, '', '', 'N;'),
+('organizaciones_listar', 1, '', '', 'N;'),
+('organizacion_aignar', 1, '', '', 'N;'),
+('usuarios_actualizar', 1, '', '', 'N;'),
+('Usuarios_ADMINISTRAR', 2, '', '', 'N;'),
+('usuarios_agregar', 1, '', '', 'N;'),
+('Usuarios_CONSULTAR', 2, '', '', 'N;'),
+('usuarios_eliminar', 1, '', '', 'N;'),
+('usuarios_listar', 1, '', '', 'N;'),
+('usuarios_super_admin', 1, '', '', 'N;');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cruge_authitemchild`
 --
 
@@ -125,6 +313,97 @@ CREATE TABLE IF NOT EXISTS `cruge_authitemchild` (
   PRIMARY KEY (`parent`,`child`),
   KEY `child` (`child`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `cruge_authitemchild`
+--
+
+INSERT INTO `cruge_authitemchild` (`parent`, `child`) VALUES
+('organizaciones_listar', 'action_asigorg_admin'),
+('organizacion_aignar', 'action_asigorg_admin'),
+('organizacion_aignar', 'action_asigorg_create'),
+('organizacion_aignar', 'action_asigorg_delete'),
+('organizaciones_listar', 'action_asigorg_index'),
+('organizacion_aignar', 'action_asigorg_index'),
+('organizacion_aignar', 'action_asigorg_update'),
+('organizaciones_listar', 'action_asigorg_view'),
+('organizacion_aignar', 'action_asigorg_view'),
+('empleados_actualizar', 'action_empleados_admin'),
+('empleados_agregar', 'action_empleados_admin'),
+('empleados_eliminar', 'action_empleados_admin'),
+('empleados_listar', 'action_empleados_admin'),
+('empleados_agregar', 'action_empleados_create'),
+('empleados_eliminar', 'action_empleados_delete'),
+('empleados_actualizar', 'action_empleados_index'),
+('empleados_agregar', 'action_empleados_index'),
+('empleados_eliminar', 'action_empleados_index'),
+('empleados_listar', 'action_empleados_index'),
+('empleados_actualizar', 'action_empleados_update'),
+('empleados_actualizar', 'action_empleados_view'),
+('empleados_agregar', 'action_empleados_view'),
+('empleados_eliminar', 'action_empleados_view'),
+('empleados_listar', 'action_empleados_view'),
+('organizaciones_actualizar', 'action_org_admin'),
+('organizaciones_agregar', 'action_org_admin'),
+('organizaciones_eliminar', 'action_org_admin'),
+('organizaciones_listar', 'action_org_admin'),
+('organizaciones_agregar', 'action_org_create'),
+('organizaciones_eliminar', 'action_org_delete'),
+('organizaciones_actualizar', 'action_org_index'),
+('organizaciones_agregar', 'action_org_index'),
+('organizaciones_eliminar', 'action_org_index'),
+('organizaciones_listar', 'action_org_index'),
+('organizaciones_actualizar', 'action_org_update'),
+('organizaciones_actualizar', 'action_org_view'),
+('organizaciones_agregar', 'action_org_view'),
+('organizaciones_eliminar', 'action_org_view'),
+('organizaciones_listar', 'action_org_view'),
+('usuarios_super_admin', 'action_ui_editprofile'),
+('usuarios_super_admin', 'action_ui_fieldsadmincreate'),
+('usuarios_super_admin', 'action_ui_fieldsadmindelete'),
+('usuarios_super_admin', 'action_ui_fieldsadminlist'),
+('usuarios_super_admin', 'action_ui_fieldsadminupdate'),
+('usuarios_super_admin', 'action_ui_rbacajaxassignment'),
+('usuarios_super_admin', 'action_ui_rbacajaxsetchilditem'),
+('usuarios_super_admin', 'action_ui_rbacauthitemchilditems'),
+('usuarios_super_admin', 'action_ui_rbacauthitemcreate'),
+('usuarios_super_admin', 'action_ui_rbacauthitemdelete'),
+('usuarios_super_admin', 'action_ui_rbacauthitemupdate'),
+('usuarios_super_admin', 'action_ui_rbaclistops'),
+('usuarios_super_admin', 'action_ui_rbaclistroles'),
+('usuarios_super_admin', 'action_ui_rbaclisttasks'),
+('usuarios_super_admin', 'action_ui_rbacusersassignments'),
+('usuarios_super_admin', 'action_ui_sessionadmin'),
+('usuarios_super_admin', 'action_ui_sessionadmindelete'),
+('usuarios_super_admin', 'action_ui_systemupdate'),
+('Usuarios_CONSULTAR', 'action_ui_usermanagementadmin'),
+('usuarios_listar', 'action_ui_usermanagementadmin'),
+('usuarios_agregar', 'action_ui_usermanagementcreate'),
+('usuarios_eliminar', 'action_ui_usermanagementdelete'),
+('usuarios_actualizar', 'action_ui_usermanagementupdate'),
+('organizaciones_listar', 'controller_asigorg'),
+('organizacion_aignar', 'controller_asigorg'),
+('organizaciones_actualizar', 'controller_org'),
+('organizaciones_agregar', 'controller_org'),
+('organizaciones_eliminar', 'controller_org'),
+('organizaciones_listar', 'controller_org'),
+('usuarios_super_admin', 'edit-advanced-profile-features'),
+('Empleados_ADMINISTRAR', 'empleados_actualizar'),
+('Empleados_ADMINISTRAR', 'empleados_agregar'),
+('Empleados_ADMINISTRAR', 'empleados_listar'),
+('Empleados_CONSULTAR', 'empleados_listar'),
+('usuarios_super_admin', 'goradmin'),
+('Organizaciones_ADMINISTRAR', 'organizaciones_actualizar'),
+('Organizaciones_ADMINISTRAR', 'organizaciones_agregar'),
+('Organizaciones_ADMINISTRAR', 'organizaciones_listar'),
+('Organizaciones_CONSULTAR', 'organizaciones_listar'),
+('Usuarios_ADMINISTRAR', 'usuarios_actualizar'),
+('Usuarios_ADMINISTRAR', 'usuarios_agregar'),
+('Usuarios_ADMINISTRAR', 'usuarios_eliminar'),
+('Usuarios_ADMINISTRAR', 'usuarios_listar'),
+('Usuarios_ADMINISTRAR', 'usuarios_super_admin');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `cruge_field`
@@ -181,7 +460,46 @@ CREATE TABLE IF NOT EXISTS `cruge_session` (
   `ipaddressout` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idsession`),
   KEY `crugesession_iduser` (`iduser`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=55 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=68 ;
+
+--
+-- Dumping data for table `cruge_session`
+--
+
+INSERT INTO `cruge_session` (`idsession`, `iduser`, `created`, `expire`, `status`, `ipaddress`, `usagecount`, `lastusage`, `logoutdate`, `ipaddressout`) VALUES
+(37, 11, 1391224015, 1391225815, 0, '127.0.0.1', 1, 1391224015, NULL, NULL),
+(38, 1, 1391224422, 1391226222, 0, '127.0.0.1', 1, 1391224422, NULL, NULL),
+(39, 11, 1391226960, 1391228760, 0, '127.0.0.1', 1, 1391226960, 1391228187, '127.0.0.1'),
+(40, 1, 1391227592, 1391229392, 0, '127.0.0.1', 1, 1391227592, 1391227601, '127.0.0.1'),
+(41, 1, 1391227613, 1391229413, 0, '127.0.0.1', 1, 1391227613, 1391227641, '127.0.0.1'),
+(42, 1, 1391227645, 1391229445, 0, '127.0.0.1', 1, 1391227645, 1391227648, '127.0.0.1'),
+(43, 1, 1391227683, 1391229483, 0, '127.0.0.1', 1, 1391227683, NULL, NULL),
+(44, 2, 1391228190, 1391229990, 1, '127.0.0.1', 2, 1391228201, NULL, NULL),
+(45, 11, 1391228371, 1391230171, 0, '127.0.0.1', 1, 1391228371, 1391228372, '127.0.0.1'),
+(46, 1, 1391267136, 1391268936, 0, '127.0.0.1', 1, 1391267136, 1391268464, '127.0.0.1'),
+(47, 1, 1391268825, 1391270625, 0, '127.0.0.1', 1, 1391268825, 1391269527, '127.0.0.1'),
+(48, 1, 1391269540, 1391271340, 0, '127.0.0.1', 1, 1391269540, 1391269547, '127.0.0.1'),
+(49, 1, 1391271397, 1391273197, 0, '127.0.0.1', 1, 1391271397, NULL, NULL),
+(50, 11, 1391273397, 1391275197, 0, '127.0.0.1', 1, 1391273397, 1391273552, '127.0.0.1'),
+(51, 1, 1391273558, 1391275358, 0, '127.0.0.1', 1, 1391273558, 1391273653, '127.0.0.1'),
+(52, 11, 1391273691, 1391275491, 0, '127.0.0.1', 1, 1391273691, NULL, NULL),
+(53, 11, 1391275518, 1391277318, 0, '127.0.0.1', 1, 1391275518, 1391275769, '127.0.0.1'),
+(54, 1, 1391275782, 1391277582, 0, '127.0.0.1', 1, 1391275782, NULL, NULL),
+(55, 1, 1391280319, 1391282119, 0, '127.0.0.1', 1, 1391280319, NULL, NULL),
+(56, 1, 1391282138, 1391283938, 0, '127.0.0.1', 1, 1391282138, NULL, NULL),
+(57, 11, 1391284334, 1391286134, 0, '127.0.0.1', 1, 1391284334, 1391284366, '127.0.0.1'),
+(58, 11, 1391284373, 1391286173, 0, '127.0.0.1', 1, 1391284373, 1391284381, '127.0.0.1'),
+(59, 1, 1391284388, 1391286188, 0, '127.0.0.1', 1, 1391284388, 1391284410, '127.0.0.1'),
+(60, 11, 1391284417, 1391286217, 0, '127.0.0.1', 1, 1391284417, 1391284437, '127.0.0.1'),
+(61, 1, 1391284446, 1391286246, 0, '127.0.0.1', 1, 1391284446, 1391284593, '127.0.0.1'),
+(62, 11, 1391284600, 1391286400, 0, '127.0.0.1', 1, 1391284600, 1391284843, '127.0.0.1'),
+(63, 1, 1391284850, 1391286650, 0, '127.0.0.1', 1, 1391284850, 1391284935, '127.0.0.1'),
+(64, 1, 1391284974, 1391286774, 0, '127.0.0.1', 1, 1391284974, 1391284977, '127.0.0.1'),
+(65, 1, 1391284992, 1391286792, 0, '127.0.0.1', 1, 1391284992, 1391285001, '127.0.0.1'),
+(66, 1, 1391285161, 1391286961, 0, '127.0.0.1', 1, 1391285161, NULL, NULL),
+(67, 1, 1391287022, 1391288822, 1, '127.0.0.1', 1, 1391287022, NULL, NULL);
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `cruge_system`
@@ -209,6 +527,15 @@ CREATE TABLE IF NOT EXISTS `cruge_system` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
+-- Dumping data for table `cruge_system`
+--
+
+INSERT INTO `cruge_system` (`idsystem`, `name`, `largename`, `sessionmaxdurationmins`, `sessionmaxsameipconnections`, `sessionreusesessions`, `sessionmaxsessionsperday`, `sessionmaxsessionsperuser`, `systemnonewsessions`, `systemdown`, `registerusingcaptcha`, `registerusingterms`, `terms`, `registerusingactivation`, `defaultroleforregistration`, `registerusingtermslabel`, `registrationonlogin`) VALUES
+(1, 'default', NULL, 30, 10, 1, -1, -1, 0, 0, 0, 0, '', 0, '', '', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cruge_user`
 --
 
@@ -228,215 +555,14 @@ CREATE TABLE IF NOT EXISTS `cruge_user` (
   UNIQUE KEY `idx_cruge_username` (`username`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
-
-
 --
 -- Dumping data for table `cruge_user`
 --
 
 INSERT INTO `cruge_user` (`iduser`, `regdate`, `actdate`, `logondate`, `username`, `email`, `password`, `authkey`, `state`, `totalsessioncounter`, `currentsessioncounter`) VALUES
-(1, NULL, NULL, 1391275782, 'goradmin', 'cislibre@cantv.com.ve', '370ed327c72dab929be5330ba89e20f8', NULL, 1, 0, 0),
+(1, NULL, NULL, 1391287023, 'goradmin', 'cislibre@cantv.com.ve', '370ed327c72dab929be5330ba89e20f8', NULL, 1, 0, 0),
 (2, 1391219995, NULL, 1391228201, 'invitado', 'invitado@cantv.com.ve', 'a6ae8a143d440ab8c006d799f682d48d', 'a2302625999b85435b84ef447e4a05b7', 1, 0, 0),
-
---
--- Dumping data for table `cnx_empleados`
---
-
-INSERT INTO `cnx_empleados` (`id_usuario`, `nu_docm_idnt`, `nu_docm_idnt_supv`, `username`, `nb_pers`, `email`, `ldap_login`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`, `tx_desc`) VALUES
-(7, NULL, NULL, 'goradmin', 'ADMINISTRADOR', 'cislibre@cantv.com.ve', b'0', sysdate(), sysdate(), '1', '1', 'A', '');
-
--- --------------------------------------------------------
-
---
--- Dumping data for table `cnx_org`
---
-
-INSERT INTO `cnx_org` (`id_org`, `co_org`, `co_org_dpnd`, `nb_org`, `tx_descripcion`, `abv_org`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`, `tx_desc`) VALUES
-(2, 1001, NULL, 'CANTV', 'Compañia Anónima Nacional Teléfonos de Venezuela', 'CANTV', '2014-01-27 15:10:21', '2014-01-27 15:10:28', '1', '1', 'A', ''),
-(3, 1002, 1001, 'Presidencia', 'Presidencia Cantv', '', '2014-01-27 15:24:45', '2014-01-27 15:24:45', '1', '1', 'A', ''),
-(4, 1003, 1002, 'Vicepresidencia Ejecutiva', 'Vicepresidencia Ejecutiva', 'VPE', '2014-01-27 15:25:27', '2014-01-27 15:25:41', '1', '1', 'A', ''),
-(5, 1004, 1003, 'Gcia. Gral.Tecnología y Operaciones', 'Gcia. Gral.Tecnología y Operaciones', 'GGTO', '2014-01-27 15:26:25', '2014-01-27 15:26:40', '1', '1', 'A', ''),
-(7, 1005, 1004, 'Gcia. Ing. Desarrollo y Const. IT/IS', 'Gcia. Ing. Desarrollo y Const. IT/IS', 'GIDC IT/IS', '2014-01-27 15:36:56', '2014-01-27 15:47:32', '1', '1', 'A', ''),
-(8, 1006, 1005, 'Gcia. Atención al Cliente', 'Gcia. Atención al Cliente', 'GAC', '2014-01-27 15:37:59', '2014-01-27 15:39:26', '1', '1', 'A', ''),
-(9, 1007, 1005, 'Gcia. Ingeniería de Soluciones', 'Gcia. Ingeniería de Soluciones', 'GIS', '2014-01-27 15:50:44', '2014-01-27 15:50:44', '1', '1', 'A', ''),
-(10, 1008, 1005, 'Gcia. Entrega de Soluciones', 'Gcia. Entrega de Soluciones', 'GES', '2014-01-27 15:51:27', '2014-01-27 15:51:27', '1', '1', 'A', ''),
-(11, 1009, 1005, 'Gcia. Centro Transacciones Corporativas', 'Gcia. Centro Transacciones Corporativas', 'GCTC', '2014-01-27 15:52:05', '2014-01-27 15:52:05', '1', '1', 'A', ''),
-(12, 1010, 1005, 'Gcia. Facturación', 'Gcia. Facturación', 'GF', '2014-01-27 15:52:51', '2014-01-27 16:19:03', '1', '1', 'A', ''),
-(13, 1011, 1005, 'Gcia. Des.Mantto.Calidad de Aplicaciones', 'Gcia. Des.Mantto.Calidad de Aplicaciones', 'GDMCA', '2014-01-27 15:53:35', '2014-01-27 15:53:35', '1', '1', 'A', '');
-
--- --------------------------------------------------------
-
---
--- Dumping data for table `cruge_authitem`
---
-
-INSERT INTO `cruge_authitem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
-('action_asigorg_admin', 0, '', NULL, 'N;'),
-('action_asigorg_create', 0, '', NULL, 'N;'),
-('action_asigorg_delete', 0, '', NULL, 'N;'),
-('action_asigorg_index', 0, '', NULL, 'N;'),
-('action_asigorg_update', 0, '', NULL, 'N;'),
-('action_asigorg_view', 0, '', NULL, 'N;'),
-('action_empleados_admin', 0, '', NULL, 'N;'),
-('action_empleados_create', 0, '', NULL, 'N;'),
-('action_empleados_delete', 0, '', NULL, 'N;'),
-('action_empleados_index', 0, '', NULL, 'N;'),
-('action_empleados_update', 0, '', NULL, 'N;'),
-('action_empleados_view', 0, '', NULL, 'N;'),
-('action_org_admin', 0, '', NULL, 'N;'),
-('action_org_create', 0, '', NULL, 'N;'),
-('action_org_delete', 0, '', NULL, 'N;'),
-('action_org_index', 0, '', NULL, 'N;'),
-('action_org_update', 0, '', NULL, 'N;'),
-('action_org_view', 0, '', NULL, 'N;'),
-('action_site_captcha', 0, '', NULL, 'N;'),
-('action_site_contact', 0, '', NULL, 'N;'),
-('action_site_error', 0, '', NULL, 'N;'),
-('action_site_index', 0, '', NULL, 'N;'),
-('action_site_login', 0, '', NULL, 'N;'),
-('action_site_logout', 0, '', NULL, 'N;'),
-('action_site_page', 0, '', NULL, 'N;'),
-('action_ui_editprofile', 0, '', '', 'N;'),
-('action_ui_fieldsadmincreate', 0, '', NULL, 'N;'),
-('action_ui_fieldsadmindelete', 0, '', NULL, 'N;'),
-('action_ui_fieldsadminlist', 0, '', NULL, 'N;'),
-('action_ui_fieldsadminupdate', 0, '', NULL, 'N;'),
-('action_ui_rbacajaxassignment', 0, '', NULL, 'N;'),
-('action_ui_rbacajaxsetchilditem', 0, '', NULL, 'N;'),
-('action_ui_rbacauthitemchilditems', 0, '', NULL, 'N;'),
-('action_ui_rbacauthitemcreate', 0, '', NULL, 'N;'),
-('action_ui_rbacauthitemdelete', 0, '', NULL, 'N;'),
-('action_ui_rbacauthitemupdate', 0, '', NULL, 'N;'),
-('action_ui_rbaclistops', 0, '', NULL, 'N;'),
-('action_ui_rbaclistroles', 0, '', NULL, 'N;'),
-('action_ui_rbaclisttasks', 0, '', NULL, 'N;'),
-('action_ui_rbacusersassignments', 0, '', NULL, 'N;'),
-('action_ui_sessionadmin', 0, '', NULL, 'N;'),
-('action_ui_sessionadmindelete', 0, '', '', 'N;'),
-('action_ui_systemupdate', 0, '', NULL, 'N;'),
-('action_ui_usermanagementadmin', 0, '', NULL, 'N;'),
-('action_ui_usermanagementcreate', 0, '', NULL, 'N;'),
-('action_ui_usermanagementdelete', 0, '', NULL, 'N;'),
-('action_ui_usermanagementupdate', 0, '', NULL, 'N;'),
-('action_ui_usersaved', 0, '', NULL, 'N;'),
-('admin', 0, '', NULL, 'N;'),
-('controller_asigorg', 0, '', NULL, 'N;'),
-('controller_empleados', 0, '', NULL, 'N;'),
-('controller_org', 0, '', NULL, 'N;'),
-('controller_site', 0, '', NULL, 'N;'),
-('controller_usuarios', 0, '', NULL, 'N;'),
-('edit-advanced-profile-features', 0, '/opt/lampp/htdocs/gor/protected/modules/cruge/views/ui/usermanagementupdate.php linea 114', NULL, 'N;'),
-('empleados_actualizar', 1, '', '', 'N;'),
-('Empleados_ADMINISTRAR', 2, '', '', 'N;'),
-('empleados_agregar', 1, '', '', 'N;'),
-('Empleados_CONSULTAR', 2, '', '', 'N;'),
-('empleados_eliminar', 1, '', '', 'N;'),
-('empleados_listar', 1, '', '', 'N;'),
-('organizaciones_actualizar', 1, '', '', 'N;'),
-('Organizaciones_ADMINISTRAR', 2, '', '', 'N;'),
-('organizaciones_agregar', 1, '', '', 'N;'),
-('Organizaciones_CONSULTAR', 2, '', '', 'N;'),
-('organizaciones_eliminar', 1, '', '', 'N;'),
-('organizaciones_listar', 1, '', '', 'N;'),
-('usuarios_actualizar', 1, '', '', 'N;'),
-('Usuarios_ADMINISTRAR', 2, '', '', 'N;'),
-('usuarios_agregar', 1, '', '', 'N;'),
-('Usuarios_CONSULTAR', 2, '', '', 'N;'),
-('usuarios_eliminar', 1, '', '', 'N;'),
-('usuarios_listar', 1, '', '', 'N;'),
-('usuarios_super_admin', 1, '', '', 'N;');
-
--- --------------------------------------------------------
-
---
--- Dumping data for table `cruge_authitemchild`
---
-
-INSERT INTO `cruge_authitemchild` (`parent`, `child`) VALUES
-('empleados_actualizar', 'action_empleados_admin'),
-('empleados_agregar', 'action_empleados_admin'),
-('empleados_eliminar', 'action_empleados_admin'),
-('empleados_listar', 'action_empleados_admin'),
-('empleados_agregar', 'action_empleados_create'),
-('empleados_eliminar', 'action_empleados_delete'),
-('empleados_actualizar', 'action_empleados_index'),
-('empleados_agregar', 'action_empleados_index'),
-('empleados_eliminar', 'action_empleados_index'),
-('empleados_listar', 'action_empleados_index'),
-('empleados_actualizar', 'action_empleados_update'),
-('empleados_actualizar', 'action_empleados_view'),
-('empleados_agregar', 'action_empleados_view'),
-('empleados_eliminar', 'action_empleados_view'),
-('empleados_listar', 'action_empleados_view'),
-('organizaciones_actualizar', 'action_org_admin'),
-('organizaciones_agregar', 'action_org_admin'),
-('organizaciones_eliminar', 'action_org_admin'),
-('organizaciones_listar', 'action_org_admin'),
-('organizaciones_agregar', 'action_org_create'),
-('organizaciones_eliminar', 'action_org_delete'),
-('organizaciones_actualizar', 'action_org_index'),
-('organizaciones_agregar', 'action_org_index'),
-('organizaciones_eliminar', 'action_org_index'),
-('organizaciones_listar', 'action_org_index'),
-('organizaciones_actualizar', 'action_org_update'),
-('organizaciones_actualizar', 'action_org_view'),
-('organizaciones_agregar', 'action_org_view'),
-('organizaciones_eliminar', 'action_org_view'),
-('organizaciones_listar', 'action_org_view'),
-('usuarios_super_admin', 'action_ui_editprofile'),
-('usuarios_super_admin', 'action_ui_fieldsadmincreate'),
-('usuarios_super_admin', 'action_ui_fieldsadmindelete'),
-('usuarios_super_admin', 'action_ui_fieldsadminlist'),
-('usuarios_super_admin', 'action_ui_fieldsadminupdate'),
-('usuarios_super_admin', 'action_ui_rbacajaxassignment'),
-('usuarios_super_admin', 'action_ui_rbacajaxsetchilditem'),
-('usuarios_super_admin', 'action_ui_rbacauthitemchilditems'),
-('usuarios_super_admin', 'action_ui_rbacauthitemcreate'),
-('usuarios_super_admin', 'action_ui_rbacauthitemdelete'),
-('usuarios_super_admin', 'action_ui_rbacauthitemupdate'),
-('usuarios_super_admin', 'action_ui_rbaclistops'),
-('usuarios_super_admin', 'action_ui_rbaclistroles'),
-('usuarios_super_admin', 'action_ui_rbaclisttasks'),
-('usuarios_super_admin', 'action_ui_rbacusersassignments'),
-('usuarios_super_admin', 'action_ui_sessionadmin'),
-('usuarios_super_admin', 'action_ui_sessionadmindelete'),
-('usuarios_super_admin', 'action_ui_systemupdate'),
-('Usuarios_CONSULTAR', 'action_ui_usermanagementadmin'),
-('usuarios_listar', 'action_ui_usermanagementadmin'),
-('usuarios_agregar', 'action_ui_usermanagementcreate'),
-('usuarios_eliminar', 'action_ui_usermanagementdelete'),
-('usuarios_actualizar', 'action_ui_usermanagementupdate'),
-('usuarios_super_admin', 'admin'),
-('organizaciones_actualizar', 'controller_org'),
-('organizaciones_agregar', 'controller_org'),
-('organizaciones_eliminar', 'controller_org'),
-('organizaciones_listar', 'controller_org'),
-('usuarios_super_admin', 'edit-advanced-profile-features'),
-('Empleados_ADMINISTRAR', 'empleados_actualizar'),
-('Empleados_ADMINISTRAR', 'empleados_agregar'),
-('Empleados_ADMINISTRAR', 'empleados_listar'),
-('Empleados_CONSULTAR', 'empleados_listar'),
-('Organizaciones_ADMINISTRAR', 'organizaciones_actualizar'),
-('Organizaciones_ADMINISTRAR', 'organizaciones_agregar'),
-('Organizaciones_ADMINISTRAR', 'organizaciones_listar'),
-('Organizaciones_CONSULTAR', 'organizaciones_listar'),
-('Usuarios_ADMINISTRAR', 'usuarios_actualizar'),
-('Usuarios_ADMINISTRAR', 'usuarios_agregar'),
-('Usuarios_ADMINISTRAR', 'usuarios_eliminar'),
-('Usuarios_ADMINISTRAR', 'usuarios_listar'),
-('Usuarios_ADMINISTRAR', 'usuarios_super_admin');
-
--- --------------------------------------------------------
-
---
--- Dumping data for table `cruge_system`
---
-
-INSERT INTO `cruge_system` (`idsystem`, `name`, `largename`, `sessionmaxdurationmins`, `sessionmaxsameipconnections`, `sessionreusesessions`, `sessionmaxsessionsperday`, `sessionmaxsessionsperuser`, `systemnonewsessions`, `systemdown`, `registerusingcaptcha`, `registerusingterms`, `terms`, `registerusingactivation`, `defaultroleforregistration`, `registerusingtermslabel`, `registrationonlogin`) VALUES
-(1, 'default', NULL, 30, 10, 1, -1, -1, 0, 0, 0, 0, '', 0, '', '', 0);
-
--- --------------------------------------------------------
-
+(11, 1391213516, NULL, 1391284600, 'averen01', 'averen01@cantv.com.ve', 'b08266fc0ed42d7b0f3f238ebba13882', '6e5b1874637eb1e622f5671f1288733b', 1, 0, 0);
 
 --
 -- Constraints for dumped tables
