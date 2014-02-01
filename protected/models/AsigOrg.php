@@ -52,7 +52,6 @@ class AsigOrg extends CActiveRecord
                                 'message' => 'El número de cédula no existe',
                                 'skipOnError'=>true
                                 ),
-                        //Valida foreing key
                         array('co_org', 'exist',
                                 'allowEmpty' => true,
                                 'attributeName' => 'co_org',
