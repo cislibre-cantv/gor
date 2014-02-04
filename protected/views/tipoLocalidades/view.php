@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Listar', 'url'=>array('index')),
+	array('label'=>'Listado', 'url'=>array('index')),
 	array('label'=>'Crear', 'url'=>array('create')),
 	array('label'=>'Actualizar', 'url'=>array('update', 'id'=>$model->co_tipo_localidad)),
 	array('label'=>'Eliminar', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->co_tipo_localidad),'confirm'=>'Are you sure you want to delete this item?')),

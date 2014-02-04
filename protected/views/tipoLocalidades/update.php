@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Listar', 'url'=>array('index')),
+	array('label'=>'Listado', 'url'=>array('index')),
 	array('label'=>'Crear', 'url'=>array('create')),
 	array('label'=>'Ver', 'url'=>array('view', 'id'=>$model->co_tipo_localidad)),
 	array('label'=>'Gestionar', 'url'=>array('admin')),
