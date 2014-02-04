@@ -19,12 +19,14 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
+        <?php /*
 	<div class="row">
 		<?php echo $form->labelEx($model,'co_tipo_localidad'); ?>
 		<?php echo $form->textField($model,'co_tipo_localidad'); ?>
 		<?php echo $form->error($model,'co_tipo_localidad'); ?>
 	</div>
-
+        */ ?>
+        
 	<div class="row">
 		<?php echo $form->labelEx($model,'nb_tipo_localidad'); ?>
 		<?php echo $form->textField($model,'nb_tipo_localidad',array('size'=>60,'maxlength'=>100)); ?>

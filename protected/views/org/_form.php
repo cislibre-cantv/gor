@@ -19,14 +19,16 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
+        <?php /*
 	<div class="row">
 		<?php echo $form->labelEx($model,'co_org'); ?>
 		<?php echo $form->textField($model,'co_org'); ?>
 		<?php echo $form->error($model,'co_org'); ?>
 	</div>
-
+        */?>
+        
 	<div class="row">
-		<?php echo $form->labelEx($model,'co_org_dpnd'); ?>
+		<?php echo $form->labelEx($model,'Organización Padre'); ?>
 		<?php //echo $form->textField($model,'co_org_dpnd'); ?>
                 <?php echo $form->dropDownList($model,'co_org_dpnd', 
 					array( '' => 'Seleccione...', CHtml::listData(Org::model()->findAll(), 'co_org', 'nb_org') ) ); ?>
@@ -51,6 +53,7 @@
 		<?php echo $form->error($model,'abv_org'); ?>
 	</div>
 
+        <?php /*
 	<div class="row">
 		<?php echo $form->labelEx($model,'fe_crea'); ?>
 		<?php echo $form->textField($model,'fe_crea'); ?>
@@ -80,7 +83,8 @@
 		<?php echo $form->textField($model,'in_stat',array('size'=>1,'maxlength'=>1)); ?>
 		<?php echo $form->error($model,'in_stat'); ?>
 	</div>
-
+        */?>
+        
 	<div class="row">
 		<?php echo $form->labelEx($model,'tx_desc'); ?>
 		<?php echo $form->textField($model,'tx_desc',array('size'=>60,'maxlength'=>100)); ?>
