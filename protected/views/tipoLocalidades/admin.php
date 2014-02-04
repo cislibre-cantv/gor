@@ -46,15 +46,15 @@ o <b>=</b>) al principio de cada uno de los valores de búsqueda para especifica
 	'filter'=>$model,
 	'columns'=>array(
 		//'id_localidad',
-		'co_tipo_localidad',
+		//'co_tipo_localidad',
 		'nb_tipo_localidad',
+                'tx_desc',
 		'fe_crea',
 		'fe_modf',
 		'usr_crea',
 		/*
 		'usr_modf',
 		'in_stat',
-		'tx_desc',
 		*/
 		array(
 			'class'=>'CButtonColumn',
