@@ -19,15 +19,23 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
+        <?php /*
 	<div class="row">
 		<?php echo $form->labelEx($model,'co_asig_org'); ?>
 		<?php echo $form->textField($model,'co_asig_org'); ?>
 		<?php echo $form->error($model,'co_asig_org'); ?>
 	</div>
-
+        */ ?>
+        
 	<div class="row">
 		<?php echo $form->labelEx($model,'nu_docm_idnt'); ?>
-		<?php echo $form->textField($model,'nu_docm_idnt'); ?>
+		<?php 
+                    if ( empty($model->nu_docm_idnt) ) {
+                        echo $form->textField($model,'nu_docm_idnt'); 
+                    }else{
+                        echo $form->textField($model,'nu_docm_idnt',array('disabled'=>'true')); 
+                    }
+                ?>
 		<?php echo $form->error($model,'nu_docm_idnt'); ?>
 	</div>
 
