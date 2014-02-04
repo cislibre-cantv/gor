@@ -40,7 +40,7 @@ class Org extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('co_org, nb_org, tx_descripcion', 'required'),
+			array('nb_org, tx_descripcion', 'required'),
 			array('co_org, co_org_dpnd', 'numerical', 'integerOnly'=>true),
 			array('nb_org', 'length', 'max'=>128),
 			array('tx_descripcion', 'length', 'max'=>250),
@@ -175,4 +175,33 @@ class Org extends CActiveRecord
                         'ActiveRecordLogableBehavior' => 'application.components.ActiveRecordLogableBehavior',
                 );
         }
+        
+        
+        public function beforeSave()
+        {
+
+        if (parent::beforeSave())
+        {
+            if($this->co_org==null || $this->co_org==0 ||  $this->co_org=='')
+                $this->co_org=1001;
+
+            if($this->isNewRecord)
+            {
+                  $maxCoOrg = Yii::app()->db->createCommand()
+                   ->select('max(co_org) as max')
+                   ->from('cnx_org')
+                   ->queryScalar();
+
+                  $this->co_org = $maxCoOrg + 1;
+
+              }else{
+                  $this->usr_modf = Yii::app()->user->id;
+              }
+
+             return true;
+         }
+         else
+         return false;
+        }
+        
 }

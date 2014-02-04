@@ -187,4 +187,24 @@ class Empleados extends CActiveRecord
                
 	}
         
+        
+        public function beforeSave()
+        {
+
+          if (parent::beforeSave())
+          {
+              
+              if($this->isNewRecord)
+               {
+                  $this->usr_crea = Yii::app()->user->id;
+                }else{
+                    $this->usr_modf = Yii::app()->user->id;
+                }
+
+               return true;
+           }
+           else
+           return false;
+        }
+        
 }

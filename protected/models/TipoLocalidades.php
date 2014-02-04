@@ -35,7 +35,7 @@ class TipoLocalidades extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('co_tipo_localidad, nb_tipo_localidad, in_stat', 'required'),
+			array('nb_tipo_localidad, in_stat', 'required'),
 			array('co_tipo_localidad', 'numerical', 'integerOnly'=>true),
 			array('nb_tipo_localidad, tx_desc', 'length', 'max'=>100),
 			array('usr_crea, usr_modf', 'length', 'max'=>10),
@@ -145,4 +145,35 @@ class TipoLocalidades extends CActiveRecord
                         'ActiveRecordLogableBehavior' => 'application.components.ActiveRecordLogableBehavior',
                 );
         }
+        
+        
+        public function beforeSave()
+        {
+
+          if (parent::beforeSave())
+          {
+              
+              if($this->co_tipo_localidad==null || $this->co_tipo_localidad==0 ||  $this->co_tipo_localidad=='')
+                  $this->co_tipo_localidad=1;
+              
+              if($this->isNewRecord)
+               {
+
+                    $maxCoTipoLocalidad = Yii::app()->db->createCommand()
+                     ->select('max(co_tipo_localidad) as max')
+                     ->from('cnx_tipo_localidades')
+                     ->queryScalar();
+                    
+                    $this->co_tipo_localidad = $maxCoTipoLocalidad + 1;
+                    
+                }else{
+                    $this->usr_modf = Yii::app()->user->id;
+                }
+
+               return true;
+           }
+           else
+           return false;
+        }
+        
 }
