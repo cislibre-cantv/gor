@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "cnx_asig_org".
+ * This is the model class for table "base_asig_org".
  *
- * The followings are the available columns in table 'cnx_asig_org':
+ * The followings are the available columns in table 'base_asig_org':
  * @property integer $id_asig_org
  * @property integer $co_asig_org
  * @property integer $nu_docm_idnt
@@ -26,7 +26,7 @@ class AsigOrg extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'cnx_asig_org';
+		return 'base_asig_org';
 	}
 
 	/**
@@ -176,7 +176,7 @@ class AsigOrg extends CActiveRecord
                 //Busco el ultimo co_asig_org 
                 $maxCoAsigOrg = Yii::app()->db->createCommand()
                     ->select('max(co_asig_org) as max')
-                    ->from('cnx_asig_org')
+                    ->from('base_asig_org')
                     ->queryScalar();
 
                 $newCoAsigOrg = $maxCoAsigOrg + 1;
@@ -190,7 +190,7 @@ class AsigOrg extends CActiveRecord
                     //busco el ultimo co_org
                     $oldCoOrg = Yii::app()->db->createCommand()
                                 ->select('co_org')
-                                ->from('cnx_asig_org')
+                                ->from('base_asig_org')
                                 ->where('co_asig_org=:co_asig_org',array(':co_asig_org'=>$this->co_asig_org))
                                 ->queryScalar();
 

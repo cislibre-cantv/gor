@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "cnx_empleados".
+ * This is the model class for table "base_empleados".
  *
- * The followings are the available columns in table 'cnx_empleados':
+ * The followings are the available columns in table 'base_empleados':
  * @property integer $id_usuario
  * @property integer $nu_docm_idnt
  * @property integer $nu_docm_idnt_supv
@@ -31,7 +31,7 @@ class Empleados extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'cnx_empleados';
+		return 'base_empleados';
 	}
 
 	/**

@@ -1,35 +1,30 @@
 <?php
 
 /**
- * This is the model class for table "base_org".
+ * This is the model class for table "cnx_tipo_orden_servicio".
  *
- * The followings are the available columns in table 'base_org':
- * @property integer $id_org
- * @property integer $co_org
- * @property integer $co_org_dpnd
- * @property string $nb_org
- * @property string $tx_descripcion
- * @property string $abv_org
+ * The followings are the available columns in table 'cnx_tipo_orden_servicio':
+ * @property integer $id_tipo_orden_servicio
+ * @property integer $co_tipo_orden_servicio
+ * @property string $nb_tipo_servicio
+ * @property string $tx_desc
  * @property string $fe_crea
  * @property string $fe_modf
  * @property string $usr_crea
  * @property string $usr_modf
  * @property string $in_stat
- * @property string $tx_desc
  *
  * The followings are the available model relations:
- * @property AsigOrg[] $asigOrgs
- * @property Org $coOrgDpnd
- * @property Org[] $orgs
+ * @property AsigLocOrden $coTipoOrdenServicio
  */
-class Org extends CActiveRecord
+class TipoOrdenServicio extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'base_org';
+		return 'cnx_tipo_orden_servicio';
 	}
 
 	/**
@@ -40,30 +35,16 @@ class Org extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nb_org, tx_descripcion', 'required'),
-			array('co_org, co_org_dpnd', 'numerical', 'integerOnly'=>true),
-			array('nb_org', 'length', 'max'=>128),
-			array('tx_descripcion', 'length', 'max'=>250),
-			array('usr_crea, usr_modf, abv_org', 'length', 'max'=>10),
-			array('in_stat', 'length', 'max'=>1),
+			array('nb_tipo_servicio', 'required'),
+			array('id_tipo_orden_servicio, co_tipo_orden_servicio', 'numerical', 'integerOnly'=>true),
+			array('nb_tipo_servicio', 'length', 'max'=>20),
 			array('tx_desc', 'length', 'max'=>100),
+			array('usr_crea, usr_modf', 'length', 'max'=>10),
+			array('in_stat', 'length', 'max'=>45),
 			array('fe_crea, fe_modf', 'safe'),
-                    
-                        //Valida unique key
-                        array('co_org', 'unique', 'attributeName'=>'co_org'),
-                    
-                        //Valida foreing key
-                        array('co_org_dpnd', 'exist',
-                                'allowEmpty' => true,
-                                'attributeName' => 'co_org',
-                                'className' => 'Org',
-                                'message' => 'El codigo especificado no existe.',
-                                'skipOnError'=>true
-                                ),
-                                        
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_org, co_org, co_org_dpnd, nb_org, tx_descripcion, abv_org, fe_crea, fe_modf, usr_crea, usr_modf, in_stat, tx_desc', 'safe', 'on'=>'search'),
+			array('id_tipo_orden_servicio, co_tipo_orden_servicio, nb_tipo_servicio, tx_desc, fe_crea, fe_modf, usr_crea, usr_modf, in_stat', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -75,9 +56,7 @@ class Org extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'asigOrgs' => array(self::HAS_MANY, 'AsigOrg', 'co_org'),
-			'coOrgDpnd' => array(self::BELONGS_TO, 'Org', 'co_org_dpnd'),
-                        'orgs' => array(self::HAS_MANY, 'Org', 'co_org_dpnd'),
+			
 		);
 	}
 
@@ -87,18 +66,15 @@ class Org extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_org' => 'Id Org',
-			'co_org' => 'Codigo Organizacion',
-			'co_org_dpnd' => 'Codigo Padre',
-			'nb_org' => 'Organizacion',
-			'tx_descripcion' => 'Descripcion',
-			'abv_org' => 'Abreviacion',
+			'id_tipo_orden_servicio' => 'Id Cnx Tipo Orden Servicio',
+			'co_tipo_orden_servicio' => 'Codigo Tipo Orden Servicio',
+			'nb_tipo_servicio' => 'Tipo Orden Servicio',
+			'tx_desc' => 'Descripcion',
 			'fe_crea' => 'Creado el',
 			'fe_modf' => 'Modificado el',
 			'usr_crea' => 'Creado por',
 			'usr_modf' => 'Modificado por',
 			'in_stat' => 'Estatus',
-			'tx_desc' => 'Observaciones',
 		);
 	}
 
@@ -120,24 +96,15 @@ class Org extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id_org',$this->id_org);
-		$criteria->compare('co_org',$this->co_org);
-		$criteria->compare('co_org_dpnd',$this->co_org_dpnd);
-                
-                //$criteria->with =array('coOrgDpnd');
-		//$criteria->addSearchCondition('coOrgDpnd.nb_org', $this->co_org_dpnd);
-                //$criteria->addSearchCondition('LOWER(coOrgDpnd.nb_org)', strtolower($this->co_org));
-
-               
-		$criteria->compare('nb_org',$this->nb_org,true);
-		$criteria->compare('tx_descripcion',$this->tx_descripcion,true);
-		$criteria->compare('abv_org',$this->abv_org,true);
+		$criteria->compare('id_tipo_orden_servicio',$this->id_tipo_orden_servicio);
+		$criteria->compare('co_tipo_orden_servicio',$this->co_tipo_orden_servicio);
+		$criteria->compare('nb_tipo_servicio',$this->nb_tipo_servicio,true);
+		$criteria->compare('tx_desc',$this->tx_desc,true);
 		$criteria->compare('fe_crea',$this->fe_crea,true);
 		$criteria->compare('fe_modf',$this->fe_modf,true);
 		$criteria->compare('usr_crea',$this->usr_crea,true);
 		$criteria->compare('usr_modf',$this->usr_modf,true);
 		$criteria->compare('in_stat',$this->in_stat,true);
-		$criteria->compare('tx_desc',$this->tx_desc,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -148,13 +115,12 @@ class Org extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Org the static model class
+	 * @return TipoOrdenServicio the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
 	}
-        
         
         public function behaviors()
         {
@@ -171,7 +137,7 @@ class Org extends CActiveRecord
                             'createdByColumn' => 'usr_crea',
                             'updatedByColumn' => 'usr_modf',
                         ),
-                    
+
                         'ActiveRecordLogableBehavior' => 'application.components.ActiveRecordLogableBehavior',
                 );
         }
@@ -180,28 +146,29 @@ class Org extends CActiveRecord
         public function beforeSave()
         {
 
-        if (parent::beforeSave())
-        {
-            if($this->co_org==null || $this->co_org==0 ||  $this->co_org=='')
-                $this->co_org=1001;
+          if (parent::beforeSave())
+          {
+              
+              if($this->co_tipo_orden_servicio==null || $this->co_tipo_orden_servicio==0 ||  $this->co_tipo_orden_servicio=='')
+                  $this->co_tipo_orden_servicio=1;
+              
+              if($this->isNewRecord)
+               {
 
-            if($this->isNewRecord)
-            {
-                  $maxCoOrg = Yii::app()->db->createCommand()
-                   ->select('max(co_org) as max')
-                   ->from('base_org')
-                   ->queryScalar();
+                    $maxCoTipoOrdenServicio = Yii::app()->db->createCommand()
+                     ->select('max(co_tipo_orden_servicio) as max')
+                     ->from('cnx_tipo_orden_servicio')
+                     ->queryScalar();
+                    
+                    $this->co_tipo_orden_servicio = $maxCoTipoOrdenServicio + 1;
+                    
+                }else{
+                    $this->usr_modf = Yii::app()->user->id;
+                }
 
-                  $this->co_org = $maxCoOrg + 1;
-
-              }else{
-                  $this->usr_modf = Yii::app()->user->id;
-              }
-
-             return true;
-         }
-         else
-         return false;
+               return true;
+           }
+           else
+           return false;
         }
-        
 }
