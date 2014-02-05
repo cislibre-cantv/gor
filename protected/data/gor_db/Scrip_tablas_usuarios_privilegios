@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 04, 2014 at 11:43 pm
+-- Generation Time: Feb 05, 2014 at 03:03 pm
 -- Server version: 5.5.34
 -- PHP Version: 5.4.22
 
@@ -23,6 +23,113 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `base_asig_org`
+--
+
+CREATE TABLE IF NOT EXISTS `base_asig_org` (
+  `id_asig_org` int(11) NOT NULL AUTO_INCREMENT,
+  `co_asig_org` int(10) NOT NULL,
+  `nu_docm_idnt` int(10) NOT NULL,
+  `co_org` int(10) NOT NULL,
+  `fe_crea` datetime DEFAULT NULL,
+  `fe_modf` datetime DEFAULT NULL,
+  `usr_crea` varchar(10) DEFAULT NULL,
+  `usr_modf` varchar(10) DEFAULT NULL,
+  `in_stat` char(1) NOT NULL DEFAULT 'A',
+  `tx_desc` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`co_asig_org`),
+  UNIQUE KEY `uk_id_asig_org` (`id_asig_org`),
+  KEY `idx_asig_org_nu_docm_idnt` (`nu_docm_idnt`),
+  KEY `idx_asig_org_co_org` (`co_org`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='tabla de usuarios del sistema' AUTO_INCREMENT=25 ;
+
+--
+-- Dumping data for table `base_asig_org`
+--
+
+INSERT INTO `base_asig_org` (`id_asig_org`, `co_asig_org`, `nu_docm_idnt`, `co_org`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`, `tx_desc`) VALUES
+(20, 1, 15481004, 1007, '2014-02-04 18:03:21', '2014-02-05 09:11:00', '1', '1', 'A', NULL),
+(22, 2, 15481004, 1006, '2014-02-04 18:05:14', '2014-02-04 18:05:14', '1', '1', 'I', NULL),
+(23, 3, 15481004, 1003, '2014-02-04 18:05:22', '2014-02-04 18:05:22', '1', '1', 'I', NULL),
+(24, 4, 15481004, 1006, '2014-02-05 09:11:00', '2014-02-05 09:11:00', '1', '1', 'I', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `base_empleados`
+--
+
+CREATE TABLE IF NOT EXISTS `base_empleados` (
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+  `nu_docm_idnt` int(10) NOT NULL,
+  `nu_docm_idnt_supv` int(10) DEFAULT NULL,
+  `username` varchar(128) NOT NULL,
+  `nb_pers` varchar(100) NOT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `ldap_login` bit(1) NOT NULL DEFAULT b'0',
+  `fe_crea` datetime DEFAULT NULL,
+  `fe_modf` datetime DEFAULT NULL,
+  `usr_crea` varchar(10) DEFAULT NULL,
+  `usr_modf` varchar(10) DEFAULT NULL,
+  `in_stat` char(1) NOT NULL DEFAULT 'A',
+  `tx_desc` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`nu_docm_idnt`),
+  UNIQUE KEY `uk_id_usuario` (`id_usuario`),
+  UNIQUE KEY `idx_username` (`username`),
+  KEY `idx_nu_docm_idnt_supv` (`nu_docm_idnt_supv`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='tabla de asignacion de usuarios a organizacion' AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `base_empleados`
+--
+
+INSERT INTO `base_empleados` (`id_usuario`, `nu_docm_idnt`, `nu_docm_idnt_supv`, `username`, `nb_pers`, `email`, `ldap_login`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`, `tx_desc`) VALUES
+(7, 15481004, NULL, 'averen01', 'VERENZUELA ANDRES', 'averen01@cantv.com.ve', b'0', '2014-02-01 12:06:11', '2014-02-04 17:50:16', '1', '1', 'A', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `base_org`
+--
+
+CREATE TABLE IF NOT EXISTS `base_org` (
+  `id_org` int(11) NOT NULL AUTO_INCREMENT,
+  `co_org` int(10) NOT NULL,
+  `co_org_dpnd` int(10) DEFAULT NULL,
+  `nb_org` varchar(128) NOT NULL,
+  `tx_descripcion` varchar(250) NOT NULL,
+  `abv_org` varchar(10) DEFAULT NULL,
+  `fe_crea` datetime DEFAULT NULL,
+  `fe_modf` datetime DEFAULT NULL,
+  `usr_crea` varchar(10) DEFAULT NULL,
+  `usr_modf` varchar(10) DEFAULT NULL,
+  `in_stat` char(1) NOT NULL DEFAULT 'A',
+  `tx_desc` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`co_org`),
+  UNIQUE KEY `uk_id_org` (`id_org`),
+  KEY `idx_co_org_dpnd` (`co_org_dpnd`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='tabla de estrutura organizativa' AUTO_INCREMENT=14 ;
+
+--
+-- Dumping data for table `base_org`
+--
+
+INSERT INTO `base_org` (`id_org`, `co_org`, `co_org_dpnd`, `nb_org`, `tx_descripcion`, `abv_org`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`, `tx_desc`) VALUES
+(2, 1001, NULL, 'CANTV', 'Compañia Anónima Nacional Teléfonos de Venezuela', 'CANTV', '2014-01-27 15:10:21', '2014-02-04 14:11:38', '1', '1', 'A', ''),
+(3, 1002, 1001, 'Presidencia', 'Presidencia Cantv', '', '2014-01-27 15:24:45', '2014-02-04 14:11:51', '1', '1', 'A', ''),
+(4, 1003, 1002, 'Vicepresidencia Ejecutiva', 'Vicepresidencia Ejecutiva', 'VPE', '2014-01-27 15:25:27', '2014-02-04 14:12:14', '1', '1', 'A', ''),
+(5, 1004, 1003, 'Gcia. Gral.Tecnología y Operaciones', 'Gcia. Gral.Tecnología y Operaciones', 'GGTO', '2014-01-27 15:26:25', '2014-02-04 15:16:23', '1', '1', 'A', ''),
+(7, 1005, 1004, 'Gcia. Ing. Desarrollo y Const. IT/IS', 'Gcia. Ing. Desarrollo y Const. IT/IS', 'GIDC IT/IS', '2014-01-27 15:36:56', '2014-02-04 15:16:49', '1', '1', 'A', ''),
+(8, 1006, 1005, 'Gcia. Atención al Cliente', 'Gcia. Atención al Cliente', 'GAC', '2014-01-27 15:37:59', '2014-02-04 17:42:26', '1', '1', 'A', ''),
+(9, 1007, 1005, 'Gcia. Ingeniería de Soluciones', 'Gcia. Ingeniería de Soluciones', 'GIS', '2014-01-27 15:50:44', '2014-02-04 17:42:57', '1', '1', 'A', ''),
+(10, 1008, 1005, 'Gcia. Entrega de Soluciones', 'Gcia. Entrega de Soluciones', 'GES', '2014-01-27 15:51:27', '2014-02-04 17:43:21', '1', '1', 'A', ''),
+(11, 1009, 1005, 'Gcia. Centro Transacciones Corporativas', 'Gcia. Centro Transacciones Corporativas', 'GCTC', '2014-01-27 15:52:05', '2014-02-04 17:43:39', '1', '1', 'A', ''),
+(12, 1010, 1005, 'Gcia. Facturación', 'Gcia. Facturación', 'GF', '2014-01-27 15:52:51', '2014-02-04 17:43:50', '1', '1', 'A', ''),
+(13, 1011, 1005, 'Gcia. Des.Mantto.Calidad de Aplicaciones', 'Gcia. Des.Mantto.Calidad de Aplicaciones', 'GDMCA', '2014-01-27 15:53:35', '2014-02-04 17:44:31', '1', '1', 'A', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cnx_active_record_log`
 --
 
@@ -36,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `cnx_active_record_log` (
   `creationdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `userid` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=185 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=190 ;
 
 --
 -- Dumping data for table `cnx_active_record_log`
@@ -216,7 +323,12 @@ INSERT INTO `cnx_active_record_log` (`id`, `description`, `action`, `model`, `id
 (181, 'User goradmin changed fe_modf for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'fe_modf', '2014-02-04 22:35:14', '1'),
 (182, 'User goradmin created AsigOrg[3].', 'CREATE', 'AsigOrg', 3, '', '2014-02-04 22:35:22', '1'),
 (183, 'User goradmin changed co_org for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'co_org', '2014-02-04 22:35:23', '1'),
-(184, 'User goradmin changed fe_modf for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'fe_modf', '2014-02-04 22:35:23', '1');
+(184, 'User goradmin changed fe_modf for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'fe_modf', '2014-02-04 22:35:23', '1'),
+(185, 'User goradmin created TipoOrdenServicio[1].', 'CREATE', 'TipoOrdenServicio', 1, '', '2014-02-04 23:58:41', '1'),
+(186, 'User goradmin created TipoOrdenServicio[2].', 'CREATE', 'TipoOrdenServicio', 2, '', '2014-02-05 00:02:02', '1'),
+(187, 'User goradmin created AsigOrg[4].', 'CREATE', 'AsigOrg', 4, '', '2014-02-05 13:41:00', '1'),
+(188, 'User goradmin changed co_org for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'co_org', '2014-02-05 13:41:00', '1'),
+(189, 'User goradmin changed fe_modf for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'fe_modf', '2014-02-05 13:41:00', '1');
 
 -- --------------------------------------------------------
 
@@ -264,71 +376,6 @@ CREATE TABLE IF NOT EXISTS `cnx_asig_loc_orden` (
   KEY `fk_orden_asig_ord` (`co_orden`),
   KEY `fk_orden_asig_loc` (`co_localidad`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cnx_asig_org`
---
-
-CREATE TABLE IF NOT EXISTS `cnx_asig_org` (
-  `id_asig_org` int(11) NOT NULL AUTO_INCREMENT,
-  `co_asig_org` int(10) NOT NULL,
-  `nu_docm_idnt` int(10) NOT NULL,
-  `co_org` int(10) NOT NULL,
-  `fe_crea` datetime DEFAULT NULL,
-  `fe_modf` datetime DEFAULT NULL,
-  `usr_crea` varchar(10) DEFAULT NULL,
-  `usr_modf` varchar(10) DEFAULT NULL,
-  `in_stat` char(1) NOT NULL DEFAULT 'A',
-  `tx_desc` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`co_asig_org`),
-  UNIQUE KEY `uk_id_asig_org` (`id_asig_org`),
-  KEY `idx_asig_org_nu_docm_idnt` (`nu_docm_idnt`),
-  KEY `idx_asig_org_co_org` (`co_org`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='tabla de usuarios del sistema' AUTO_INCREMENT=24 ;
-
---
--- Dumping data for table `cnx_asig_org`
---
-
-INSERT INTO `cnx_asig_org` (`id_asig_org`, `co_asig_org`, `nu_docm_idnt`, `co_org`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`, `tx_desc`) VALUES
-(20, 1, 15481004, 1006, '2014-02-04 18:03:21', '2014-02-04 18:05:23', '1', '1', 'A', NULL),
-(22, 2, 15481004, 1006, '2014-02-04 18:05:14', '2014-02-04 18:05:14', '1', '1', 'I', NULL),
-(23, 3, 15481004, 1003, '2014-02-04 18:05:22', '2014-02-04 18:05:22', '1', '1', 'I', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cnx_empleados`
---
-
-CREATE TABLE IF NOT EXISTS `cnx_empleados` (
-  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
-  `nu_docm_idnt` int(10) NOT NULL,
-  `nu_docm_idnt_supv` int(10) DEFAULT NULL,
-  `username` varchar(128) NOT NULL,
-  `nb_pers` varchar(100) NOT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `ldap_login` bit(1) NOT NULL DEFAULT b'0',
-  `fe_crea` datetime DEFAULT NULL,
-  `fe_modf` datetime DEFAULT NULL,
-  `usr_crea` varchar(10) DEFAULT NULL,
-  `usr_modf` varchar(10) DEFAULT NULL,
-  `in_stat` char(1) NOT NULL DEFAULT 'A',
-  `tx_desc` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`nu_docm_idnt`),
-  UNIQUE KEY `uk_id_usuario` (`id_usuario`),
-  UNIQUE KEY `idx_username` (`username`),
-  KEY `idx_nu_docm_idnt_supv` (`nu_docm_idnt_supv`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='tabla de asignacion de usuarios a organizacion' AUTO_INCREMENT=8 ;
-
---
--- Dumping data for table `cnx_empleados`
---
-
-INSERT INTO `cnx_empleados` (`id_usuario`, `nu_docm_idnt`, `nu_docm_idnt_supv`, `username`, `nb_pers`, `email`, `ldap_login`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`, `tx_desc`) VALUES
-(7, 15481004, NULL, 'averen01', 'VERENZUELA ANDRES', 'averen01@cantv.com.ve', b'0', '2014-02-01 12:06:11', '2014-02-04 17:50:16', '1', '1', 'A', '');
 
 -- --------------------------------------------------------
 
@@ -743,47 +790,6 @@ CREATE TABLE IF NOT EXISTS `cnx_orden_wfi` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cnx_org`
---
-
-CREATE TABLE IF NOT EXISTS `cnx_org` (
-  `id_org` int(11) NOT NULL AUTO_INCREMENT,
-  `co_org` int(10) NOT NULL,
-  `co_org_dpnd` int(10) DEFAULT NULL,
-  `nb_org` varchar(128) NOT NULL,
-  `tx_descripcion` varchar(250) NOT NULL,
-  `abv_org` varchar(10) DEFAULT NULL,
-  `fe_crea` datetime DEFAULT NULL,
-  `fe_modf` datetime DEFAULT NULL,
-  `usr_crea` varchar(10) DEFAULT NULL,
-  `usr_modf` varchar(10) DEFAULT NULL,
-  `in_stat` char(1) NOT NULL DEFAULT 'A',
-  `tx_desc` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`co_org`),
-  UNIQUE KEY `uk_id_org` (`id_org`),
-  KEY `idx_co_org_dpnd` (`co_org_dpnd`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='tabla de estrutura organizativa' AUTO_INCREMENT=24 ;
-
---
--- Dumping data for table `cnx_org`
---
-
-INSERT INTO `cnx_org` (`id_org`, `co_org`, `co_org_dpnd`, `nb_org`, `tx_descripcion`, `abv_org`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`, `tx_desc`) VALUES
-(2, 1001, NULL, 'CANTV', 'Compañia Anónima Nacional Teléfonos de Venezuela', 'CANTV', '2014-01-27 15:10:21', '2014-02-04 14:11:38', '1', '1', 'A', ''),
-(3, 1002, 1001, 'Presidencia', 'Presidencia Cantv', '', '2014-01-27 15:24:45', '2014-02-04 14:11:51', '1', '1', 'A', ''),
-(4, 1003, 1002, 'Vicepresidencia Ejecutiva', 'Vicepresidencia Ejecutiva', 'VPE', '2014-01-27 15:25:27', '2014-02-04 14:12:14', '1', '1', 'A', ''),
-(5, 1004, 1003, 'Gcia. Gral.Tecnología y Operaciones', 'Gcia. Gral.Tecnología y Operaciones', 'GGTO', '2014-01-27 15:26:25', '2014-02-04 15:16:23', '1', '1', 'A', ''),
-(7, 1005, 1004, 'Gcia. Ing. Desarrollo y Const. IT/IS', 'Gcia. Ing. Desarrollo y Const. IT/IS', 'GIDC IT/IS', '2014-01-27 15:36:56', '2014-02-04 15:16:49', '1', '1', 'A', ''),
-(8, 1006, 1005, 'Gcia. Atención al Cliente', 'Gcia. Atención al Cliente', 'GAC', '2014-01-27 15:37:59', '2014-02-04 17:42:26', '1', '1', 'A', ''),
-(9, 1007, 1005, 'Gcia. Ingeniería de Soluciones', 'Gcia. Ingeniería de Soluciones', 'GIS', '2014-01-27 15:50:44', '2014-02-04 17:42:57', '1', '1', 'A', ''),
-(10, 1008, 1005, 'Gcia. Entrega de Soluciones', 'Gcia. Entrega de Soluciones', 'GES', '2014-01-27 15:51:27', '2014-02-04 17:43:21', '1', '1', 'A', ''),
-(11, 1009, 1005, 'Gcia. Centro Transacciones Corporativas', 'Gcia. Centro Transacciones Corporativas', 'GCTC', '2014-01-27 15:52:05', '2014-02-04 17:43:39', '1', '1', 'A', ''),
-(12, 1010, 1005, 'Gcia. Facturación', 'Gcia. Facturación', 'GF', '2014-01-27 15:52:51', '2014-02-04 17:43:50', '1', '1', 'A', ''),
-(13, 1011, 1005, 'Gcia. Des.Mantto.Calidad de Aplicaciones', 'Gcia. Des.Mantto.Calidad de Aplicaciones', 'GDMCA', '2014-01-27 15:53:35', '2014-02-04 17:44:31', '1', '1', 'A', '');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `cnx_parroquias`
 --
 
@@ -846,7 +852,7 @@ CREATE TABLE IF NOT EXISTS `cnx_tipo_localidades` (
   PRIMARY KEY (`co_tipo_localidad`),
   UNIQUE KEY `id_localidad_unique` (`id_localidad`),
   UNIQUE KEY `co_tipo_localidad_unique` (`co_tipo_localidad`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='almacena el tipo de localidad para definir la localidad u centro' AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='almacena el tipo de localidad para definir la localidad u centro' AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `cnx_tipo_localidades`
@@ -864,18 +870,26 @@ INSERT INTO `cnx_tipo_localidades` (`id_localidad`, `co_tipo_localidad`, `nb_tip
 --
 
 CREATE TABLE IF NOT EXISTS `cnx_tipo_orden_servicio` (
-  `id_cnx_tipo_orden_servicio` int(11) NOT NULL,
+  `id_tipo_orden_servicio` int(11) NOT NULL AUTO_INCREMENT,
   `co_tipo_orden_servicio` int(11) NOT NULL,
   `nb_tipo_servicio` varchar(20) NOT NULL COMMENT ' ',
   `tx_desc` varchar(100) DEFAULT NULL,
   `fe_crea` datetime DEFAULT NULL,
-  `fe_desde` datetime DEFAULT NULL,
+  `fe_modf` datetime DEFAULT NULL,
   `usr_crea` varchar(10) DEFAULT NULL,
   `usr_modf` varchar(10) DEFAULT NULL,
   `in_stat` varchar(45) DEFAULT 'A',
   PRIMARY KEY (`co_tipo_orden_servicio`),
-  UNIQUE KEY `idcnx_tipo_orden_servicio_unique` (`id_cnx_tipo_orden_servicio`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  UNIQUE KEY `idcnx_tipo_orden_servicio_unique` (`id_tipo_orden_servicio`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `cnx_tipo_orden_servicio`
+--
+
+INSERT INTO `cnx_tipo_orden_servicio` (`id_tipo_orden_servicio`, `co_tipo_orden_servicio`, `nb_tipo_servicio`, `tx_desc`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`) VALUES
+(1, 1, 'Tipo Servicio', '', '2014-02-04 19:28:41', '2014-02-04 19:28:41', '1', '1', 'A'),
+(2, 2, 'Tipo Servicio 2', '', '2014-02-04 19:32:02', '2014-02-04 19:32:02', '1', '1', 'A');
 
 -- --------------------------------------------------------
 
@@ -960,6 +974,12 @@ INSERT INTO `cruge_authitem` (`name`, `type`, `description`, `bizrule`, `data`) 
 ('action_tipolocalidades_index', 0, '', '', 'N;'),
 ('action_tipolocalidades_update', 0, '', '', 'N;'),
 ('action_tipolocalidades_view', 0, '', '', 'N;'),
+('action_tipoOrdenServicio_admin', 0, '', NULL, 'N;'),
+('action_tipoOrdenServicio_create', 0, '', NULL, 'N;'),
+('action_tipoordenservicio_delete', 0, '', NULL, 'N;'),
+('action_tipoOrdenServicio_index', 0, '', NULL, 'N;'),
+('action_tipoordenservicio_update', 0, '', NULL, 'N;'),
+('action_tipoOrdenServicio_view', 0, '', NULL, 'N;'),
 ('action_ui_editprofile', 0, '', '', 'n;'),
 ('action_ui_fieldsadmincreate', 0, '', NULL, 'n;'),
 ('action_ui_fieldsadmindelete', 0, '', NULL, 'n;'),
@@ -990,6 +1010,7 @@ INSERT INTO `cruge_authitem` (`name`, `type`, `description`, `bizrule`, `data`) 
 ('controller_org', 0, '', NULL, 'n;'),
 ('controller_site', 0, '', NULL, 'n;'),
 ('controller_tipolocalidades', 0, '', NULL, 'N;'),
+('controller_tipoordenservicio', 0, '', NULL, 'N;'),
 ('controller_usuarios', 0, '', NULL, 'n;'),
 ('edit-advanced-profile-features', 0, '', '', 'n;'),
 ('empleados_actualizar', 1, '', '', 'n;'),
@@ -1202,7 +1223,7 @@ CREATE TABLE IF NOT EXISTS `cruge_session` (
   `ipaddressout` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idsession`),
   KEY `crugesession_iduser` (`iduser`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=87 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=91 ;
 
 --
 -- Dumping data for table `cruge_session`
@@ -1256,7 +1277,11 @@ INSERT INTO `cruge_session` (`idsession`, `iduser`, `created`, `expire`, `status
 (83, 1, 1391547331, 1391549131, 0, '127.0.0.1', 1, 1391547331, NULL, NULL),
 (84, 1, 1391549182, 1391550982, 0, '127.0.0.1', 1, 1391549182, NULL, NULL),
 (85, 1, 1391551213, 1391553013, 0, '127.0.0.1', 1, 1391551213, NULL, NULL),
-(86, 1, 1391553060, 1391554860, 1, '127.0.0.1', 1, 1391553060, NULL, NULL);
+(86, 1, 1391553060, 1391554860, 0, '127.0.0.1', 1, 1391553060, NULL, NULL),
+(87, 1, 1391555166, 1391556966, 0, '127.0.0.1', 2, 1391556807, NULL, NULL),
+(88, 1, 1391557116, 1391558916, 0, '127.0.0.1', 1, 1391557116, 1391558609, '127.0.0.1'),
+(89, 1, 1391606783, 1391608583, 0, '127.0.0.1', 1, 1391606783, NULL, NULL),
+(90, 11, 1391608703, 1391610503, 1, '127.0.0.1', 1, 1391608703, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1319,13 +1344,33 @@ CREATE TABLE IF NOT EXISTS `cruge_user` (
 --
 
 INSERT INTO `cruge_user` (`iduser`, `regdate`, `actdate`, `logondate`, `username`, `email`, `password`, `authkey`, `state`, `totalsessioncounter`, `currentsessioncounter`) VALUES
-(1, NULL, NULL, 1391553060, 'goradmin', 'cislibre@cantv.com.ve', '370ed327c72dab929be5330ba89e20f8', NULL, 1, 0, 0),
+(1, NULL, NULL, 1391606783, 'goradmin', 'cislibre@cantv.com.ve', '370ed327c72dab929be5330ba89e20f8', NULL, 1, 0, 0),
 (2, 1391219995, NULL, 1391228201, 'invitado', 'invitado@cantv.com.ve', 'a6ae8a143d440ab8c006d799f682d48d', 'a2302625999b85435b84ef447e4a05b7', 1, 0, 0),
-(11, 1391213516, NULL, 1391537917, 'averen01', 'averen01@cantv.com.ve', 'b08266fc0ed42d7b0f3f238ebba13882', '6e5b1874637eb1e622f5671f1288733b', 1, 0, 0);
+(11, 1391213516, NULL, 1391608703, 'averen01', 'averen01@cantv.com.ve', 'b08266fc0ed42d7b0f3f238ebba13882', '6e5b1874637eb1e622f5671f1288733b', 1, 0, 0);
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `base_asig_org`
+--
+ALTER TABLE `base_asig_org`
+  ADD CONSTRAINT `fk_asig_org_co_org` FOREIGN KEY (`co_org`) REFERENCES `base_org` (`co_org`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_asig_org_nu_doc` FOREIGN KEY (`nu_docm_idnt`) REFERENCES `base_empleados` (`nu_docm_idnt`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `base_empleados`
+--
+ALTER TABLE `base_empleados`
+  ADD CONSTRAINT `fk_nu_docm_idnt` FOREIGN KEY (`nu_docm_idnt_supv`) REFERENCES `base_empleados` (`nu_docm_idnt`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_username` FOREIGN KEY (`username`) REFERENCES `cruge_user` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `base_org`
+--
+ALTER TABLE `base_org`
+  ADD CONSTRAINT `fk_co_org` FOREIGN KEY (`co_org_dpnd`) REFERENCES `base_org` (`co_org`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `cnx_asig_localidades_grupos`
@@ -1340,20 +1385,6 @@ ALTER TABLE `cnx_asig_localidades_grupos`
 ALTER TABLE `cnx_asig_loc_orden`
   ADD CONSTRAINT `fk_orden_asig_loc` FOREIGN KEY (`co_localidad`) REFERENCES `cnx_localidades` (`co_localidad`),
   ADD CONSTRAINT `fk_orden_asig_ord` FOREIGN KEY (`co_orden`) REFERENCES `cnx_ordenes` (`co_orden`);
-
---
--- Constraints for table `cnx_asig_org`
---
-ALTER TABLE `cnx_asig_org`
-  ADD CONSTRAINT `fk_asig_org_co_org` FOREIGN KEY (`co_org`) REFERENCES `cnx_org` (`co_org`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_asig_org_nu_doc` FOREIGN KEY (`nu_docm_idnt`) REFERENCES `cnx_empleados` (`nu_docm_idnt`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `cnx_empleados`
---
-ALTER TABLE `cnx_empleados`
-  ADD CONSTRAINT `fk_nu_docm_idnt` FOREIGN KEY (`nu_docm_idnt_supv`) REFERENCES `cnx_empleados` (`nu_docm_idnt`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_username` FOREIGN KEY (`username`) REFERENCES `cruge_user` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `cnx_estados`
@@ -1379,22 +1410,10 @@ ALTER TABLE `cnx_municipio`
   ADD CONSTRAINT `fk_cnx_munc_co_edo` FOREIGN KEY (`co_edo`) REFERENCES `cnx_estados` (`co_edo`);
 
 --
--- Constraints for table `cnx_org`
---
-ALTER TABLE `cnx_org`
-  ADD CONSTRAINT `fk_co_org` FOREIGN KEY (`co_org_dpnd`) REFERENCES `cnx_org` (`co_org`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
 -- Constraints for table `cnx_parroquias`
 --
 ALTER TABLE `cnx_parroquias`
   ADD CONSTRAINT `fk_cnx_prrq_co_munc` FOREIGN KEY (`co_municipio`) REFERENCES `cnx_municipio` (`co_municipio`);
-
---
--- Constraints for table `cnx_tipo_orden_servicio`
---
-ALTER TABLE `cnx_tipo_orden_servicio`
-  ADD CONSTRAINT `fk_co_tipo_serv` FOREIGN KEY (`co_tipo_orden_servicio`) REFERENCES `cnx_asig_loc_orden` (`co_tipo_servicio`);
 
 --
 -- Constraints for table `cruge_authassignment`
