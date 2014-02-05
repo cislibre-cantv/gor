@@ -48,9 +48,9 @@ return array(
                         'baseUrl'=>'http://gor.cantv.com.ve/',
 
                          // NO OLVIDES PONER EN FALSE TRAS INSTALAR
-                         'debug'=>false,
-                         'rbacSetupEnabled'=>false,
-                         'allowUserAlways'=>false,
+                         'debug'=>true,
+                         'rbacSetupEnabled'=>true,
+                         'allowUserAlways'=>true,
 
                         // MIENTRAS INSTALAS..PONLO EN: false
                         // lee mas abajo respecto a 'Encriptando las claves'
