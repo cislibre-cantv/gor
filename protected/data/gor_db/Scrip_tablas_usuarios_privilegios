@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 01, 2014 at 09:43 pm
+-- Generation Time: Feb 05, 2014 at 03:03 pm
 -- Server version: 5.5.34
 -- PHP Version: 5.4.22
 
@@ -23,66 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cnx_active_record_log`
+-- Table structure for table `base_asig_org`
 --
 
-CREATE TABLE IF NOT EXISTS `cnx_active_record_log` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `description` varchar(255) DEFAULT NULL,
-  `action` varchar(20) DEFAULT NULL,
-  `model` varchar(45) DEFAULT NULL,
-  `idModel` int(10) unsigned DEFAULT NULL,
-  `field` varchar(45) DEFAULT NULL,
-  `creationdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `userid` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=43 ;
-
---
--- Dumping data for table `cnx_active_record_log`
---
-
-INSERT INTO `cnx_active_record_log` (`id`, `description`, `action`, `model`, `idModel`, `field`, `creationdate`, `userid`) VALUES
-(11, 'User admin deleted Org[33].', 'DELETE', 'Org', 33, '', '2014-02-01 03:13:52', '1'),
-(12, 'User goradmin changed co_asig_org for AsigOrg[3].', 'CHANGE', 'AsigOrg', 3, 'co_asig_org', '2014-02-01 15:23:03', '1'),
-(13, 'User goradmin changed co_org for AsigOrg[3].', 'CHANGE', 'AsigOrg', 3, 'co_org', '2014-02-01 15:23:03', '1'),
-(14, 'User goradmin changed fe_modf for AsigOrg[3].', 'CHANGE', 'AsigOrg', 3, 'fe_modf', '2014-02-01 15:23:03', '1'),
-(15, 'User goradmin deleted Org[4444].', 'DELETE', 'Org', 4444, '', '2014-02-01 15:25:14', '1'),
-(16, 'User goradmin created Org[11111].', 'CREATE', 'Org', 11111, '', '2014-02-01 16:25:13', '1'),
-(17, 'User goradmin changed nb_org for Org[11111].', 'CHANGE', 'Org', 11111, 'nb_org', '2014-02-01 16:25:22', '1'),
-(18, 'User goradmin changed fe_modf for Org[11111].', 'CHANGE', 'Org', 11111, 'fe_modf', '2014-02-01 16:25:22', '1'),
-(19, 'User goradmin deleted Org[11111].', 'DELETE', 'Org', 11111, '', '2014-02-01 16:25:30', '1'),
-(20, 'User goradmin created Empleados[15481004].', 'CREATE', 'Empleados', 15481004, '', '2014-02-01 16:36:12', '1'),
-(21, 'User goradmin created AsigOrg[1].', 'CREATE', 'AsigOrg', 1, '', '2014-02-01 16:37:17', '1'),
-(22, 'User goradmin changed email for Empleados[15481004].', 'CHANGE', 'Empleados', 15481004, 'email', '2014-02-01 16:40:28', '1'),
-(23, 'User goradmin changed fe_modf for Empleados[15481004].', 'CHANGE', 'Empleados', 15481004, 'fe_modf', '2014-02-01 16:40:28', '1'),
-(24, 'User averen01 changed fe_modf for Empleados[15481004].', 'CHANGE', 'Empleados', 15481004, 'fe_modf', '2014-02-01 16:50:30', '11'),
-(25, 'User averen01 created Org[33333].', 'CREATE', 'Org', 33333, '', '2014-02-01 16:52:15', '11'),
-(26, 'User averen01 changed co_org for Org[33333333].', 'CHANGE', 'Org', 33333333, 'co_org', '2014-02-01 16:52:19', '11'),
-(27, 'User averen01 changed fe_modf for Org[33333333].', 'CHANGE', 'Org', 33333333, 'fe_modf', '2014-02-01 16:52:19', '11'),
-(28, 'User averen01 deleted Org[33333333].', 'DELETE', 'Org', 33333333, '', '2014-02-01 16:52:23', '11'),
-(29, 'User averen01 created Empleados[33333].', 'CREATE', 'Empleados', 33333, '', '2014-02-01 16:55:11', '11'),
-(30, 'User averen01 changed fe_modf for Empleados[33333].', 'CHANGE', 'Empleados', 33333, 'fe_modf', '2014-02-01 16:55:16', '11'),
-(31, 'User averen01 created AsigOrg[2].', 'CREATE', 'AsigOrg', 2, '', '2014-02-01 16:55:58', '11'),
-(32, 'User averen01 changed fe_modf for AsigOrg[2].', 'CHANGE', 'AsigOrg', 2, 'fe_modf', '2014-02-01 16:56:02', '11'),
-(33, 'User averen01 changed fe_modf for AsigOrg[2].', 'CHANGE', 'AsigOrg', 2, 'fe_modf', '2014-02-01 16:56:43', '11'),
-(34, 'User averen01 changed co_asig_org for AsigOrg[3].', 'CHANGE', 'AsigOrg', 3, 'co_asig_org', '2014-02-01 16:57:03', '11'),
-(35, 'User averen01 changed fe_modf for AsigOrg[3].', 'CHANGE', 'AsigOrg', 3, 'fe_modf', '2014-02-01 16:57:03', '11'),
-(36, 'User averen01 deleted Empleados[33333].', 'DELETE', 'Empleados', 33333, '', '2014-02-01 17:11:35', '11'),
-(37, 'User averen01 created Empleados[3333].', 'CREATE', 'Empleados', 3333, '', '2014-02-01 17:13:09', '11'),
-(38, 'User averen01 created AsigOrg[2].', 'CREATE', 'AsigOrg', 2, '', '2014-02-01 17:14:02', '11'),
-(39, 'User goradmin deleted AsigOrg[2].', 'DELETE', 'AsigOrg', 2, '', '2014-02-01 17:36:10', '1'),
-(40, 'User goradmin created AsigOrg[2].', 'CREATE', 'AsigOrg', 2, '', '2014-02-01 17:39:31', '1'),
-(41, 'User goradmin deleted AsigOrg[2].', 'DELETE', 'AsigOrg', 2, '', '2014-02-01 17:39:52', '1'),
-(42, 'User goradmin deleted Empleados[3333].', 'DELETE', 'Empleados', 3333, '', '2014-02-01 17:40:14', '1');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cnx_asig_org`
---
-
-CREATE TABLE IF NOT EXISTS `cnx_asig_org` (
+CREATE TABLE IF NOT EXISTS `base_asig_org` (
   `id_asig_org` int(11) NOT NULL AUTO_INCREMENT,
   `co_asig_org` int(10) NOT NULL,
   `nu_docm_idnt` int(10) NOT NULL,
@@ -97,22 +41,25 @@ CREATE TABLE IF NOT EXISTS `cnx_asig_org` (
   UNIQUE KEY `uk_id_asig_org` (`id_asig_org`),
   KEY `idx_asig_org_nu_docm_idnt` (`nu_docm_idnt`),
   KEY `idx_asig_org_co_org` (`co_org`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Tabla de usuarios del sistema' AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='tabla de usuarios del sistema' AUTO_INCREMENT=25 ;
 
 --
--- Dumping data for table `cnx_asig_org`
+-- Dumping data for table `base_asig_org`
 --
 
-INSERT INTO `cnx_asig_org` (`id_asig_org`, `co_asig_org`, `nu_docm_idnt`, `co_org`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`, `tx_desc`) VALUES
-(5, 1, 15481004, 1005, '2014-02-01 12:07:17', '2014-02-01 12:07:17', '1', '1', 'A', NULL);
+INSERT INTO `base_asig_org` (`id_asig_org`, `co_asig_org`, `nu_docm_idnt`, `co_org`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`, `tx_desc`) VALUES
+(20, 1, 15481004, 1007, '2014-02-04 18:03:21', '2014-02-05 09:11:00', '1', '1', 'A', NULL),
+(22, 2, 15481004, 1006, '2014-02-04 18:05:14', '2014-02-04 18:05:14', '1', '1', 'I', NULL),
+(23, 3, 15481004, 1003, '2014-02-04 18:05:22', '2014-02-04 18:05:22', '1', '1', 'I', NULL),
+(24, 4, 15481004, 1006, '2014-02-05 09:11:00', '2014-02-05 09:11:00', '1', '1', 'I', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cnx_empleados`
+-- Table structure for table `base_empleados`
 --
 
-CREATE TABLE IF NOT EXISTS `cnx_empleados` (
+CREATE TABLE IF NOT EXISTS `base_empleados` (
   `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `nu_docm_idnt` int(10) NOT NULL,
   `nu_docm_idnt_supv` int(10) DEFAULT NULL,
@@ -130,22 +77,22 @@ CREATE TABLE IF NOT EXISTS `cnx_empleados` (
   UNIQUE KEY `uk_id_usuario` (`id_usuario`),
   UNIQUE KEY `idx_username` (`username`),
   KEY `idx_nu_docm_idnt_supv` (`nu_docm_idnt_supv`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Tabla de asignacion de usuarios a organizacion' AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='tabla de asignacion de usuarios a organizacion' AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `cnx_empleados`
+-- Dumping data for table `base_empleados`
 --
 
-INSERT INTO `cnx_empleados` (`id_usuario`, `nu_docm_idnt`, `nu_docm_idnt_supv`, `username`, `nb_pers`, `email`, `ldap_login`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`, `tx_desc`) VALUES
-(7, 15481004, NULL, 'averen01', 'VERENZUELA ANDRES', 'averen01@cantv.com.ve', b'0', '2014-02-01 12:06:11', '2014-02-01 12:20:30', '1', '1', 'A', '');
+INSERT INTO `base_empleados` (`id_usuario`, `nu_docm_idnt`, `nu_docm_idnt_supv`, `username`, `nb_pers`, `email`, `ldap_login`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`, `tx_desc`) VALUES
+(7, 15481004, NULL, 'averen01', 'VERENZUELA ANDRES', 'averen01@cantv.com.ve', b'0', '2014-02-01 12:06:11', '2014-02-04 17:50:16', '1', '1', 'A', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cnx_org`
+-- Table structure for table `base_org`
 --
 
-CREATE TABLE IF NOT EXISTS `cnx_org` (
+CREATE TABLE IF NOT EXISTS `base_org` (
   `id_org` int(11) NOT NULL AUTO_INCREMENT,
   `co_org` int(10) NOT NULL,
   `co_org_dpnd` int(10) DEFAULT NULL,
@@ -161,24 +108,788 @@ CREATE TABLE IF NOT EXISTS `cnx_org` (
   PRIMARY KEY (`co_org`),
   UNIQUE KEY `uk_id_org` (`id_org`),
   KEY `idx_co_org_dpnd` (`co_org_dpnd`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Tabla de estrutura organizativa' AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='tabla de estrutura organizativa' AUTO_INCREMENT=14 ;
 
 --
--- Dumping data for table `cnx_org`
+-- Dumping data for table `base_org`
 --
 
-INSERT INTO `cnx_org` (`id_org`, `co_org`, `co_org_dpnd`, `nb_org`, `tx_descripcion`, `abv_org`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`, `tx_desc`) VALUES
-(2, 1001, NULL, 'CANTV', 'Compañia Anónima Nacional Teléfonos de Venezuela', 'CANTV', '2014-01-27 15:10:21', '2014-01-27 15:10:28', '1', '1', 'A', ''),
-(3, 1002, 1001, 'Presidencia', 'Presidencia Cantv', '', '2014-01-27 15:24:45', '2014-01-27 15:24:45', '1', '1', 'A', ''),
-(4, 1003, 1002, 'Vicepresidencia Ejecutiva', 'Vicepresidencia Ejecutiva', 'VPE', '2014-01-27 15:25:27', '2014-01-27 15:25:41', '1', '1', 'A', ''),
-(5, 1004, 1003, 'Gcia. Gral.Tecnología y Operaciones', 'Gcia. Gral.Tecnología y Operaciones', 'GGTO', '2014-01-27 15:26:25', '2014-01-27 15:26:40', '1', '1', 'A', ''),
-(7, 1005, 1004, 'Gcia. Ing. Desarrollo y Const. IT/IS', 'Gcia. Ing. Desarrollo y Const. IT/IS', 'GIDC IT/IS', '2014-01-27 15:36:56', '2014-01-27 15:47:32', '1', '1', 'A', ''),
-(8, 1006, 1005, 'Gcia. Atención al Cliente', 'Gcia. Atención al Cliente', 'GAC', '2014-01-27 15:37:59', '2014-01-27 15:39:26', '1', '1', 'A', ''),
-(9, 1007, 1005, 'Gcia. Ingeniería de Soluciones', 'Gcia. Ingeniería de Soluciones', 'GIS', '2014-01-27 15:50:44', '2014-01-27 15:50:44', '1', '1', 'A', ''),
-(10, 1008, 1005, 'Gcia. Entrega de Soluciones', 'Gcia. Entrega de Soluciones', 'GES', '2014-01-27 15:51:27', '2014-01-27 15:51:27', '1', '1', 'A', ''),
-(11, 1009, 1005, 'Gcia. Centro Transacciones Corporativas', 'Gcia. Centro Transacciones Corporativas', 'GCTC', '2014-01-27 15:52:05', '2014-01-27 15:52:05', '1', '1', 'A', ''),
-(12, 1010, 1005, 'Gcia. Facturación', 'Gcia. Facturación', 'GF', '2014-01-27 15:52:51', '2014-01-27 16:19:03', '1', '1', 'A', ''),
-(13, 1011, 1005, 'Gcia. Des.Mantto.Calidad de Aplicaciones', 'Gcia. Des.Mantto.Calidad de Aplicaciones', 'GDMCA', '2014-01-27 15:53:35', '2014-01-27 15:53:35', '1', '1', 'A', '');
+INSERT INTO `base_org` (`id_org`, `co_org`, `co_org_dpnd`, `nb_org`, `tx_descripcion`, `abv_org`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`, `tx_desc`) VALUES
+(2, 1001, NULL, 'CANTV', 'Compañia Anónima Nacional Teléfonos de Venezuela', 'CANTV', '2014-01-27 15:10:21', '2014-02-04 14:11:38', '1', '1', 'A', ''),
+(3, 1002, 1001, 'Presidencia', 'Presidencia Cantv', '', '2014-01-27 15:24:45', '2014-02-04 14:11:51', '1', '1', 'A', ''),
+(4, 1003, 1002, 'Vicepresidencia Ejecutiva', 'Vicepresidencia Ejecutiva', 'VPE', '2014-01-27 15:25:27', '2014-02-04 14:12:14', '1', '1', 'A', ''),
+(5, 1004, 1003, 'Gcia. Gral.Tecnología y Operaciones', 'Gcia. Gral.Tecnología y Operaciones', 'GGTO', '2014-01-27 15:26:25', '2014-02-04 15:16:23', '1', '1', 'A', ''),
+(7, 1005, 1004, 'Gcia. Ing. Desarrollo y Const. IT/IS', 'Gcia. Ing. Desarrollo y Const. IT/IS', 'GIDC IT/IS', '2014-01-27 15:36:56', '2014-02-04 15:16:49', '1', '1', 'A', ''),
+(8, 1006, 1005, 'Gcia. Atención al Cliente', 'Gcia. Atención al Cliente', 'GAC', '2014-01-27 15:37:59', '2014-02-04 17:42:26', '1', '1', 'A', ''),
+(9, 1007, 1005, 'Gcia. Ingeniería de Soluciones', 'Gcia. Ingeniería de Soluciones', 'GIS', '2014-01-27 15:50:44', '2014-02-04 17:42:57', '1', '1', 'A', ''),
+(10, 1008, 1005, 'Gcia. Entrega de Soluciones', 'Gcia. Entrega de Soluciones', 'GES', '2014-01-27 15:51:27', '2014-02-04 17:43:21', '1', '1', 'A', ''),
+(11, 1009, 1005, 'Gcia. Centro Transacciones Corporativas', 'Gcia. Centro Transacciones Corporativas', 'GCTC', '2014-01-27 15:52:05', '2014-02-04 17:43:39', '1', '1', 'A', ''),
+(12, 1010, 1005, 'Gcia. Facturación', 'Gcia. Facturación', 'GF', '2014-01-27 15:52:51', '2014-02-04 17:43:50', '1', '1', 'A', ''),
+(13, 1011, 1005, 'Gcia. Des.Mantto.Calidad de Aplicaciones', 'Gcia. Des.Mantto.Calidad de Aplicaciones', 'GDMCA', '2014-01-27 15:53:35', '2014-02-04 17:44:31', '1', '1', 'A', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cnx_active_record_log`
+--
+
+CREATE TABLE IF NOT EXISTS `cnx_active_record_log` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `description` varchar(255) DEFAULT NULL,
+  `action` varchar(20) DEFAULT NULL,
+  `model` varchar(45) DEFAULT NULL,
+  `idModel` int(10) unsigned DEFAULT NULL,
+  `field` varchar(45) DEFAULT NULL,
+  `creationdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `userid` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=190 ;
+
+--
+-- Dumping data for table `cnx_active_record_log`
+--
+
+INSERT INTO `cnx_active_record_log` (`id`, `description`, `action`, `model`, `idModel`, `field`, `creationdate`, `userid`) VALUES
+(11, 'user admin deleted org[33].', 'delete', 'org', 33, '', '2014-02-01 03:13:52', '1'),
+(12, 'user goradmin changed co_asig_org for asigorg[3].', 'change', 'asigorg', 3, 'co_asig_org', '2014-02-01 15:23:03', '1'),
+(13, 'user goradmin changed co_org for asigorg[3].', 'change', 'asigorg', 3, 'co_org', '2014-02-01 15:23:03', '1'),
+(14, 'user goradmin changed fe_modf for asigorg[3].', 'change', 'asigorg', 3, 'fe_modf', '2014-02-01 15:23:03', '1'),
+(15, 'user goradmin deleted org[4444].', 'delete', 'org', 4444, '', '2014-02-01 15:25:14', '1'),
+(16, 'user goradmin created org[11111].', 'create', 'org', 11111, '', '2014-02-01 16:25:13', '1'),
+(17, 'user goradmin changed nb_org for org[11111].', 'change', 'org', 11111, 'nb_org', '2014-02-01 16:25:22', '1'),
+(18, 'user goradmin changed fe_modf for org[11111].', 'change', 'org', 11111, 'fe_modf', '2014-02-01 16:25:22', '1'),
+(19, 'user goradmin deleted org[11111].', 'delete', 'org', 11111, '', '2014-02-01 16:25:30', '1'),
+(20, 'user goradmin created empleados[15481004].', 'create', 'empleados', 15481004, '', '2014-02-01 16:36:12', '1'),
+(21, 'user goradmin created asigorg[1].', 'create', 'asigorg', 1, '', '2014-02-01 16:37:17', '1'),
+(22, 'user goradmin changed email for empleados[15481004].', 'change', 'empleados', 15481004, 'email', '2014-02-01 16:40:28', '1'),
+(23, 'user goradmin changed fe_modf for empleados[15481004].', 'change', 'empleados', 15481004, 'fe_modf', '2014-02-01 16:40:28', '1'),
+(24, 'user averen01 changed fe_modf for empleados[15481004].', 'change', 'empleados', 15481004, 'fe_modf', '2014-02-01 16:50:30', '11'),
+(25, 'user averen01 created org[33333].', 'create', 'org', 33333, '', '2014-02-01 16:52:15', '11'),
+(26, 'user averen01 changed co_org for org[33333333].', 'change', 'org', 33333333, 'co_org', '2014-02-01 16:52:19', '11'),
+(27, 'user averen01 changed fe_modf for org[33333333].', 'change', 'org', 33333333, 'fe_modf', '2014-02-01 16:52:19', '11'),
+(28, 'user averen01 deleted org[33333333].', 'delete', 'org', 33333333, '', '2014-02-01 16:52:23', '11'),
+(29, 'user averen01 created empleados[33333].', 'create', 'empleados', 33333, '', '2014-02-01 16:55:11', '11'),
+(30, 'user averen01 changed fe_modf for empleados[33333].', 'change', 'empleados', 33333, 'fe_modf', '2014-02-01 16:55:16', '11'),
+(31, 'user averen01 created asigorg[2].', 'create', 'asigorg', 2, '', '2014-02-01 16:55:58', '11'),
+(32, 'user averen01 changed fe_modf for asigorg[2].', 'change', 'asigorg', 2, 'fe_modf', '2014-02-01 16:56:02', '11'),
+(33, 'user averen01 changed fe_modf for asigorg[2].', 'change', 'asigorg', 2, 'fe_modf', '2014-02-01 16:56:43', '11'),
+(34, 'user averen01 changed co_asig_org for asigorg[3].', 'change', 'asigorg', 3, 'co_asig_org', '2014-02-01 16:57:03', '11'),
+(35, 'user averen01 changed fe_modf for asigorg[3].', 'change', 'asigorg', 3, 'fe_modf', '2014-02-01 16:57:03', '11'),
+(36, 'user averen01 deleted empleados[33333].', 'delete', 'empleados', 33333, '', '2014-02-01 17:11:35', '11'),
+(37, 'user averen01 created empleados[3333].', 'create', 'empleados', 3333, '', '2014-02-01 17:13:09', '11'),
+(38, 'user averen01 created asigorg[2].', 'create', 'asigorg', 2, '', '2014-02-01 17:14:02', '11'),
+(39, 'user goradmin deleted asigorg[2].', 'delete', 'asigorg', 2, '', '2014-02-01 17:36:10', '1'),
+(40, 'user goradmin created asigorg[2].', 'create', 'asigorg', 2, '', '2014-02-01 17:39:31', '1'),
+(41, 'user goradmin deleted asigorg[2].', 'delete', 'asigorg', 2, '', '2014-02-01 17:39:52', '1'),
+(42, 'user goradmin deleted empleados[3333].', 'delete', 'empleados', 3333, '', '2014-02-01 17:40:14', '1'),
+(43, 'User goradmin changed nb_tipo_localidad for TipoLocalidades[1].', 'CHANGE', 'TipoLocalidades', 1, 'nb_tipo_localidad', '2014-02-02 01:32:35', '1'),
+(44, 'User goradmin changed fe_modf for TipoLocalidades[1].', 'CHANGE', 'TipoLocalidades', 1, 'fe_modf', '2014-02-02 01:32:35', '1'),
+(45, 'User goradmin deleted TipoLocalidades[1].', 'DELETE', 'TipoLocalidades', 1, '', '2014-02-02 01:32:38', '1'),
+(46, 'User goradmin created TipoLocalidades[1].', 'CREATE', 'TipoLocalidades', 1, '', '2014-02-02 01:32:51', '1'),
+(47, 'User goradmin deleted TipoLocalidades[1].', 'DELETE', 'TipoLocalidades', 1, '', '2014-02-02 01:36:01', '1'),
+(48, 'User goradmin created TipoLocalidades[1].', 'CREATE', 'TipoLocalidades', 1, '', '2014-02-02 01:36:12', '1'),
+(49, 'User averen01 created TipoLocalidades[2].', 'CREATE', 'TipoLocalidades', 2, '', '2014-02-02 01:37:11', '11'),
+(50, 'User averen01 changed nb_tipo_localidad for TipoLocalidades[2].', 'CHANGE', 'TipoLocalidades', 2, 'nb_tipo_localidad', '2014-02-02 01:37:22', '11'),
+(51, 'User averen01 changed fe_modf for TipoLocalidades[2].', 'CHANGE', 'TipoLocalidades', 2, 'fe_modf', '2014-02-02 01:37:22', '11'),
+(52, 'User averen01 created TipoLocalidades[3].', 'CREATE', 'TipoLocalidades', 3, '', '2014-02-02 01:37:38', '11'),
+(53, 'User averen01 created TipoLocalidades[4].', 'CREATE', 'TipoLocalidades', 4, '', '2014-02-02 01:37:50', '11'),
+(54, 'User averen01 deleted TipoLocalidades[4].', 'DELETE', 'TipoLocalidades', 4, '', '2014-02-02 01:37:58', '11'),
+(55, 'User averen01 changed fe_modf for TipoLocalidades[2].', 'CHANGE', 'TipoLocalidades', 2, 'fe_modf', '2014-02-02 01:41:37', '11'),
+(56, 'User goradmin changed fe_modf for TipoLocalidades[1].', 'CHANGE', 'TipoLocalidades', 1, 'fe_modf', '2014-02-02 02:02:02', '1'),
+(57, 'User goradmin changed nb_tipo_localidad for TipoLocalidades[2].', 'CHANGE', 'TipoLocalidades', 2, 'nb_tipo_localidad', '2014-02-02 02:02:33', '1'),
+(58, 'User goradmin changed fe_modf for TipoLocalidades[2].', 'CHANGE', 'TipoLocalidades', 2, 'fe_modf', '2014-02-02 02:02:33', '1'),
+(59, 'User goradmin created TipoLocalidades[4].', 'CREATE', 'TipoLocalidades', 4, '', '2014-02-02 02:02:41', '1'),
+(60, 'User goradmin deleted TipoLocalidades[4].', 'DELETE', 'TipoLocalidades', 4, '', '2014-02-02 02:02:48', '1'),
+(61, 'User goradmin changed nb_tipo_localidad for TipoLocalidades[2].', 'CHANGE', 'TipoLocalidades', 2, 'nb_tipo_localidad', '2014-02-02 02:03:25', '1'),
+(62, 'User goradmin changed fe_modf for TipoLocalidades[2].', 'CHANGE', 'TipoLocalidades', 2, 'fe_modf', '2014-02-02 02:03:25', '1'),
+(63, 'User goradmin changed nb_tipo_localidad for TipoLocalidades[2].', 'CHANGE', 'TipoLocalidades', 2, 'nb_tipo_localidad', '2014-02-02 02:03:31', '1'),
+(64, 'User goradmin changed fe_modf for TipoLocalidades[2].', 'CHANGE', 'TipoLocalidades', 2, 'fe_modf', '2014-02-02 02:03:32', '1'),
+(65, 'User goradmin deleted Org[0].', 'DELETE', 'Org', 0, '', '2014-02-04 17:23:33', '1'),
+(66, 'User invitado created Org[1012].', 'CREATE', 'Org', 1012, '', '2014-02-04 17:54:26', '2'),
+(67, 'User invitado deleted Org[1012].', 'DELETE', 'Org', 1012, '', '2014-02-04 17:54:46', '2'),
+(68, 'User invitado created Org[1012].', 'CREATE', 'Org', 1012, '', '2014-02-04 17:59:57', '2'),
+(69, 'User goradmin changed tx_descripcion for Org[1012].', 'CHANGE', 'Org', 1012, 'tx_descripcion', '2014-02-04 18:01:01', '1'),
+(70, 'User goradmin changed fe_modf for Org[1012].', 'CHANGE', 'Org', 1012, 'fe_modf', '2014-02-04 18:01:01', '1'),
+(71, 'User goradmin changed tx_descripcion for Org[1012].', 'CHANGE', 'Org', 1012, 'tx_descripcion', '2014-02-04 18:04:55', '1'),
+(72, 'User goradmin changed fe_modf for Org[1012].', 'CHANGE', 'Org', 1012, 'fe_modf', '2014-02-04 18:04:55', '1'),
+(73, 'User goradmin changed usr_modf for Org[1012].', 'CHANGE', 'Org', 1012, 'usr_modf', '2014-02-04 18:04:55', '1'),
+(74, 'User goradmin deleted Org[1012].', 'DELETE', 'Org', 1012, '', '2014-02-04 18:05:15', '1'),
+(75, 'User goradmin created Org[1012].', 'CREATE', 'Org', 1012, '', '2014-02-04 18:18:24', '1'),
+(76, 'User goradmin deleted Org[1012].', 'DELETE', 'Org', 1012, '', '2014-02-04 18:18:58', '1'),
+(77, 'User goradmin created Org[1012].', 'CREATE', 'Org', 1012, '', '2014-02-04 18:27:09', '1'),
+(78, 'User goradmin created Org[1013].', 'CREATE', 'Org', 1013, '', '2014-02-04 18:27:19', '1'),
+(79, 'User goradmin deleted Org[1012].', 'DELETE', 'Org', 1012, '', '2014-02-04 18:27:26', '1'),
+(80, 'User goradmin deleted Org[1013].', 'DELETE', 'Org', 1013, '', '2014-02-04 18:27:27', '1'),
+(81, 'User goradmin created TipoLocalidades[4].', 'CREATE', 'TipoLocalidades', 4, '', '2014-02-04 18:29:37', '1'),
+(82, 'User goradmin created TipoLocalidades[5].', 'CREATE', 'TipoLocalidades', 5, '', '2014-02-04 18:29:46', '1'),
+(83, 'User goradmin deleted TipoLocalidades[4].', 'DELETE', 'TipoLocalidades', 4, '', '2014-02-04 18:29:52', '1'),
+(84, 'User goradmin deleted TipoLocalidades[5].', 'DELETE', 'TipoLocalidades', 5, '', '2014-02-04 18:29:54', '1'),
+(85, 'User goradmin changed fe_modf for Empleados[15481004].', 'CHANGE', 'Empleados', 15481004, 'fe_modf', '2014-02-04 18:33:53', '1'),
+(86, 'User goradmin changed nb_pers for Empleados[15481004].', 'CHANGE', 'Empleados', 15481004, 'nb_pers', '2014-02-04 18:36:08', '1'),
+(87, 'User goradmin changed fe_modf for Empleados[15481004].', 'CHANGE', 'Empleados', 15481004, 'fe_modf', '2014-02-04 18:36:08', '1'),
+(88, 'User goradmin changed nb_org for Org[1001].', 'CHANGE', 'Org', 1001, 'nb_org', '2014-02-04 18:41:39', '1'),
+(89, 'User goradmin changed tx_descripcion for Org[1001].', 'CHANGE', 'Org', 1001, 'tx_descripcion', '2014-02-04 18:41:39', '1'),
+(90, 'User goradmin changed abv_org for Org[1001].', 'CHANGE', 'Org', 1001, 'abv_org', '2014-02-04 18:41:39', '1'),
+(91, 'User goradmin changed fe_modf for Org[1001].', 'CHANGE', 'Org', 1001, 'fe_modf', '2014-02-04 18:41:39', '1'),
+(92, 'User goradmin changed nb_org for Org[1002].', 'CHANGE', 'Org', 1002, 'nb_org', '2014-02-04 18:41:51', '1'),
+(93, 'User goradmin changed tx_descripcion for Org[1002].', 'CHANGE', 'Org', 1002, 'tx_descripcion', '2014-02-04 18:41:51', '1'),
+(94, 'User goradmin changed fe_modf for Org[1002].', 'CHANGE', 'Org', 1002, 'fe_modf', '2014-02-04 18:41:51', '1'),
+(95, 'User goradmin changed nb_org for Org[1003].', 'CHANGE', 'Org', 1003, 'nb_org', '2014-02-04 18:42:03', '1'),
+(96, 'User goradmin changed tx_descripcion for Org[1003].', 'CHANGE', 'Org', 1003, 'tx_descripcion', '2014-02-04 18:42:03', '1'),
+(97, 'User goradmin changed fe_modf for Org[1003].', 'CHANGE', 'Org', 1003, 'fe_modf', '2014-02-04 18:42:03', '1'),
+(98, 'User goradmin changed abv_org for Org[1003].', 'CHANGE', 'Org', 1003, 'abv_org', '2014-02-04 18:42:14', '1'),
+(99, 'User goradmin changed fe_modf for Org[1003].', 'CHANGE', 'Org', 1003, 'fe_modf', '2014-02-04 18:42:15', '1'),
+(100, 'User goradmin changed fe_modf for Empleados[15481004].', 'CHANGE', 'Empleados', 15481004, 'fe_modf', '2014-02-04 19:44:43', '1'),
+(101, 'User goradmin changed nb_org for Org[1004].', 'CHANGE', 'Org', 1004, 'nb_org', '2014-02-04 19:46:23', '1'),
+(102, 'User goradmin changed tx_descripcion for Org[1004].', 'CHANGE', 'Org', 1004, 'tx_descripcion', '2014-02-04 19:46:24', '1'),
+(103, 'User goradmin changed abv_org for Org[1004].', 'CHANGE', 'Org', 1004, 'abv_org', '2014-02-04 19:46:24', '1'),
+(104, 'User goradmin changed fe_modf for Org[1004].', 'CHANGE', 'Org', 1004, 'fe_modf', '2014-02-04 19:46:24', '1'),
+(105, 'User goradmin changed nb_org for Org[1005].', 'CHANGE', 'Org', 1005, 'nb_org', '2014-02-04 19:46:49', '1'),
+(106, 'User goradmin changed tx_descripcion for Org[1005].', 'CHANGE', 'Org', 1005, 'tx_descripcion', '2014-02-04 19:46:49', '1'),
+(107, 'User goradmin changed abv_org for Org[1005].', 'CHANGE', 'Org', 1005, 'abv_org', '2014-02-04 19:46:49', '1'),
+(108, 'User goradmin changed fe_modf for Org[1005].', 'CHANGE', 'Org', 1005, 'fe_modf', '2014-02-04 19:46:49', '1'),
+(109, 'User goradmin changed co_asig_org for AsigOrg[2].', 'CHANGE', 'AsigOrg', 2, 'co_asig_org', '2014-02-04 20:18:06', '1'),
+(110, 'User goradmin changed co_org for AsigOrg[2].', 'CHANGE', 'AsigOrg', 2, 'co_org', '2014-02-04 20:18:06', '1'),
+(111, 'User goradmin changed fe_modf for AsigOrg[2].', 'CHANGE', 'AsigOrg', 2, 'fe_modf', '2014-02-04 20:18:07', '1'),
+(112, 'User goradmin changed co_asig_org for AsigOrg[3].', 'CHANGE', 'AsigOrg', 3, 'co_asig_org', '2014-02-04 20:19:15', '1'),
+(113, 'User goradmin changed fe_modf for AsigOrg[3].', 'CHANGE', 'AsigOrg', 3, 'fe_modf', '2014-02-04 20:19:15', '1'),
+(114, 'User goradmin changed id_asig_org for AsigOrg[7].', 'CHANGE', 'AsigOrg', 7, 'id_asig_org', '2014-02-04 20:19:54', '1'),
+(115, 'User goradmin changed co_asig_org for AsigOrg[7].', 'CHANGE', 'AsigOrg', 7, 'co_asig_org', '2014-02-04 20:19:54', '1'),
+(116, 'User goradmin changed fe_modf for AsigOrg[7].', 'CHANGE', 'AsigOrg', 7, 'fe_modf', '2014-02-04 20:19:54', '1'),
+(117, 'User goradmin created AsigOrg[1].', 'CREATE', 'AsigOrg', 1, '', '2014-02-04 20:20:52', '1'),
+(118, 'User goradmin changed id_asig_org for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'id_asig_org', '2014-02-04 20:21:43', '1'),
+(119, 'User goradmin changed fe_modf for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'fe_modf', '2014-02-04 20:21:43', '1'),
+(120, 'User goradmin changed co_org for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'co_org', '2014-02-04 21:19:39', '1'),
+(121, 'User goradmin changed fe_modf for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'fe_modf', '2014-02-04 21:19:39', '1'),
+(122, 'User goradmin created AsigOrg[1].', 'CREATE', 'AsigOrg', 1, '', '2014-02-04 21:20:03', '1'),
+(123, 'User goradmin changed co_org for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'co_org', '2014-02-04 21:20:13', '1'),
+(124, 'User goradmin changed fe_modf for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'fe_modf', '2014-02-04 21:20:13', '1'),
+(125, 'User goradmin changed co_org for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'co_org', '2014-02-04 21:20:39', '1'),
+(126, 'User goradmin changed fe_modf for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'fe_modf', '2014-02-04 21:20:39', '1'),
+(127, 'User goradmin changed co_org for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'co_org', '2014-02-04 21:26:32', '1'),
+(128, 'User goradmin changed fe_modf for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'fe_modf', '2014-02-04 21:26:32', '1'),
+(129, 'User goradmin changed co_org for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'co_org', '2014-02-04 21:27:28', '1'),
+(130, 'User goradmin changed fe_modf for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'fe_modf', '2014-02-04 21:27:28', '1'),
+(131, 'User goradmin changed co_org for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'co_org', '2014-02-04 21:41:50', '1'),
+(132, 'User goradmin changed fe_modf for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'fe_modf', '2014-02-04 21:41:50', '1'),
+(133, 'User goradmin changed co_org for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'co_org', '2014-02-04 21:51:25', '1'),
+(134, 'User goradmin changed fe_modf for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'fe_modf', '2014-02-04 21:51:25', '1'),
+(135, 'User goradmin changed co_org for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'co_org', '2014-02-04 21:53:18', '1'),
+(136, 'User goradmin changed fe_modf for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'fe_modf', '2014-02-04 21:53:18', '1'),
+(137, 'User goradmin changed co_org for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'co_org', '2014-02-04 22:11:18', '1'),
+(138, 'User goradmin changed fe_modf for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'fe_modf', '2014-02-04 22:11:18', '1'),
+(139, 'User goradmin changed co_org for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'co_org', '2014-02-04 22:11:47', '1'),
+(140, 'User goradmin changed fe_modf for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'fe_modf', '2014-02-04 22:11:47', '1'),
+(141, 'User goradmin changed co_org for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'co_org', '2014-02-04 22:12:12', '1'),
+(142, 'User goradmin changed fe_modf for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'fe_modf', '2014-02-04 22:12:12', '1'),
+(143, 'User goradmin changed nb_org for Org[1006].', 'CHANGE', 'Org', 1006, 'nb_org', '2014-02-04 22:12:26', '1'),
+(144, 'User goradmin changed tx_descripcion for Org[1006].', 'CHANGE', 'Org', 1006, 'tx_descripcion', '2014-02-04 22:12:26', '1'),
+(145, 'User goradmin changed abv_org for Org[1006].', 'CHANGE', 'Org', 1006, 'abv_org', '2014-02-04 22:12:26', '1'),
+(146, 'User goradmin changed fe_modf for Org[1006].', 'CHANGE', 'Org', 1006, 'fe_modf', '2014-02-04 22:12:26', '1'),
+(147, 'User goradmin changed nb_org for Org[1007].', 'CHANGE', 'Org', 1007, 'nb_org', '2014-02-04 22:12:57', '1'),
+(148, 'User goradmin changed tx_descripcion for Org[1007].', 'CHANGE', 'Org', 1007, 'tx_descripcion', '2014-02-04 22:12:57', '1'),
+(149, 'User goradmin changed abv_org for Org[1007].', 'CHANGE', 'Org', 1007, 'abv_org', '2014-02-04 22:12:57', '1'),
+(150, 'User goradmin changed fe_modf for Org[1007].', 'CHANGE', 'Org', 1007, 'fe_modf', '2014-02-04 22:12:57', '1'),
+(151, 'User goradmin changed nb_org for Org[1008].', 'CHANGE', 'Org', 1008, 'nb_org', '2014-02-04 22:13:22', '1'),
+(152, 'User goradmin changed tx_descripcion for Org[1008].', 'CHANGE', 'Org', 1008, 'tx_descripcion', '2014-02-04 22:13:22', '1'),
+(153, 'User goradmin changed abv_org for Org[1008].', 'CHANGE', 'Org', 1008, 'abv_org', '2014-02-04 22:13:22', '1'),
+(154, 'User goradmin changed fe_modf for Org[1008].', 'CHANGE', 'Org', 1008, 'fe_modf', '2014-02-04 22:13:22', '1'),
+(155, 'User goradmin changed nb_org for Org[1009].', 'CHANGE', 'Org', 1009, 'nb_org', '2014-02-04 22:13:39', '1'),
+(156, 'User goradmin changed tx_descripcion for Org[1009].', 'CHANGE', 'Org', 1009, 'tx_descripcion', '2014-02-04 22:13:39', '1'),
+(157, 'User goradmin changed abv_org for Org[1009].', 'CHANGE', 'Org', 1009, 'abv_org', '2014-02-04 22:13:39', '1'),
+(158, 'User goradmin changed fe_modf for Org[1009].', 'CHANGE', 'Org', 1009, 'fe_modf', '2014-02-04 22:13:39', '1'),
+(159, 'User goradmin changed nb_org for Org[1010].', 'CHANGE', 'Org', 1010, 'nb_org', '2014-02-04 22:13:50', '1'),
+(160, 'User goradmin changed tx_descripcion for Org[1010].', 'CHANGE', 'Org', 1010, 'tx_descripcion', '2014-02-04 22:13:50', '1'),
+(161, 'User goradmin changed abv_org for Org[1010].', 'CHANGE', 'Org', 1010, 'abv_org', '2014-02-04 22:13:50', '1'),
+(162, 'User goradmin changed fe_modf for Org[1010].', 'CHANGE', 'Org', 1010, 'fe_modf', '2014-02-04 22:13:50', '1'),
+(163, 'User goradmin changed nb_org for Org[1011].', 'CHANGE', 'Org', 1011, 'nb_org', '2014-02-04 22:14:31', '1'),
+(164, 'User goradmin changed tx_descripcion for Org[1011].', 'CHANGE', 'Org', 1011, 'tx_descripcion', '2014-02-04 22:14:32', '1'),
+(165, 'User goradmin changed abv_org for Org[1011].', 'CHANGE', 'Org', 1011, 'abv_org', '2014-02-04 22:14:32', '1'),
+(166, 'User goradmin changed fe_modf for Org[1011].', 'CHANGE', 'Org', 1011, 'fe_modf', '2014-02-04 22:14:32', '1'),
+(167, 'User goradmin changed co_org for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'co_org', '2014-02-04 22:15:32', '1'),
+(168, 'User goradmin changed fe_modf for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'fe_modf', '2014-02-04 22:15:32', '1'),
+(169, 'User goradmin created AsigOrg[1].', 'CREATE', 'AsigOrg', 1, '', '2014-02-04 22:17:40', '1'),
+(170, 'User goradmin created AsigOrg[2].', 'CREATE', 'AsigOrg', 2, '', '2014-02-04 22:19:31', '1'),
+(171, 'User goradmin changed co_org for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'co_org', '2014-02-04 22:19:31', '1'),
+(172, 'User goradmin changed fe_modf for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'fe_modf', '2014-02-04 22:19:31', '1'),
+(173, 'User goradmin changed fe_modf for Empleados[15481004].', 'CHANGE', 'Empleados', 15481004, 'fe_modf', '2014-02-04 22:20:17', '1'),
+(174, 'User goradmin created AsigOrg[1].', 'CREATE', 'AsigOrg', 1, '', '2014-02-04 22:31:45', '1'),
+(175, 'User goradmin created AsigOrg[1].', 'CREATE', 'AsigOrg', 1, '', '2014-02-04 22:33:21', '1'),
+(176, 'User goradmin created AsigOrg[2].', 'CREATE', 'AsigOrg', 2, '', '2014-02-04 22:33:28', '1'),
+(177, 'User goradmin changed fe_modf for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'fe_modf', '2014-02-04 22:33:28', '1'),
+(178, 'User goradmin changed fe_modf for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'fe_modf', '2014-02-04 22:34:57', '1'),
+(179, 'User goradmin created AsigOrg[2].', 'CREATE', 'AsigOrg', 2, '', '2014-02-04 22:35:14', '1'),
+(180, 'User goradmin changed co_org for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'co_org', '2014-02-04 22:35:14', '1'),
+(181, 'User goradmin changed fe_modf for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'fe_modf', '2014-02-04 22:35:14', '1'),
+(182, 'User goradmin created AsigOrg[3].', 'CREATE', 'AsigOrg', 3, '', '2014-02-04 22:35:22', '1'),
+(183, 'User goradmin changed co_org for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'co_org', '2014-02-04 22:35:23', '1'),
+(184, 'User goradmin changed fe_modf for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'fe_modf', '2014-02-04 22:35:23', '1'),
+(185, 'User goradmin created TipoOrdenServicio[1].', 'CREATE', 'TipoOrdenServicio', 1, '', '2014-02-04 23:58:41', '1'),
+(186, 'User goradmin created TipoOrdenServicio[2].', 'CREATE', 'TipoOrdenServicio', 2, '', '2014-02-05 00:02:02', '1'),
+(187, 'User goradmin created AsigOrg[4].', 'CREATE', 'AsigOrg', 4, '', '2014-02-05 13:41:00', '1'),
+(188, 'User goradmin changed co_org for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'co_org', '2014-02-05 13:41:00', '1'),
+(189, 'User goradmin changed fe_modf for AsigOrg[1].', 'CHANGE', 'AsigOrg', 1, 'fe_modf', '2014-02-05 13:41:00', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cnx_asig_localidades_grupos`
+--
+
+CREATE TABLE IF NOT EXISTS `cnx_asig_localidades_grupos` (
+  `id_localidad_grupo` int(11) NOT NULL AUTO_INCREMENT,
+  `co_grupo` int(11) NOT NULL,
+  `co_localidad` int(11) NOT NULL,
+  `fe_crea` datetime DEFAULT NULL,
+  `fe_modf` datetime DEFAULT NULL,
+  `usr_crea` varchar(10) DEFAULT NULL,
+  `usr_modf` varchar(10) DEFAULT NULL,
+  `in_stat` varchar(1) DEFAULT 'A',
+  `tx_desc` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id_localidad_grupo`),
+  UNIQUE KEY `id_localidad_grupo_unique` (`id_localidad_grupo`),
+  KEY `fk_asig_co_grupo` (`co_grupo`),
+  KEY `fk_asig_co_localidad` (`co_localidad`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cnx_asig_loc_orden`
+--
+
+CREATE TABLE IF NOT EXISTS `cnx_asig_loc_orden` (
+  `id_asig_loc_orden` int(11) NOT NULL,
+  `co_asig_loc_orden` int(11) NOT NULL,
+  `co_localidad` int(11) NOT NULL,
+  `co_orden` int(11) NOT NULL,
+  `in_stat` varchar(2) COLLATE latin1_general_cs DEFAULT NULL,
+  `tx_obs` varchar(500) COLLATE latin1_general_cs DEFAULT NULL,
+  `co_tipo_servicio` int(11) DEFAULT NULL,
+  `co_status_serv` int(11) DEFAULT NULL,
+  `fe_crea` datetime DEFAULT NULL,
+  `fe_modf` datetime DEFAULT NULL,
+  `usr_crea` varchar(10) COLLATE latin1_general_cs DEFAULT NULL,
+  `usr_modf` varchar(10) COLLATE latin1_general_cs DEFAULT NULL,
+  PRIMARY KEY (`co_asig_loc_orden`),
+  KEY `co_tipo_servicio` (`co_tipo_servicio`),
+  KEY `fk_orden_asig_ord` (`co_orden`),
+  KEY `fk_orden_asig_loc` (`co_localidad`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cnx_entes_localidades`
+--
+
+CREATE TABLE IF NOT EXISTS `cnx_entes_localidades` (
+  `id_sector_proyecto` int(11) NOT NULL AUTO_INCREMENT,
+  `co_sector_proyecto` int(11) NOT NULL,
+  `nb_entidad` varchar(50) COLLATE latin1_general_cs NOT NULL,
+  `email` varchar(45) COLLATE latin1_general_cs DEFAULT NULL,
+  `cnx_sectores_proyectos` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `fe_crea` datetime DEFAULT NULL,
+  `fe_modf` varchar(10) COLLATE latin1_general_cs DEFAULT NULL,
+  `usr_crea` varchar(10) COLLATE latin1_general_cs DEFAULT NULL,
+  `usr_modf` varchar(10) COLLATE latin1_general_cs DEFAULT NULL,
+  `in_stat` varchar(1) COLLATE latin1_general_cs DEFAULT 'A',
+  `tx_desc` varchar(45) COLLATE latin1_general_cs DEFAULT NULL,
+  PRIMARY KEY (`co_sector_proyecto`),
+  UNIQUE KEY `id_sector_proyecto_unique` (`id_sector_proyecto`),
+  UNIQUE KEY `co_sector_proyecto_unique` (`co_sector_proyecto`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cnx_estados`
+--
+
+CREATE TABLE IF NOT EXISTS `cnx_estados` (
+  `id_edo` int(11) NOT NULL AUTO_INCREMENT,
+  `co_edo` int(11) NOT NULL,
+  `co_region` int(11) DEFAULT NULL,
+  `nb_edo` varchar(45) NOT NULL,
+  `fe_crea` datetime DEFAULT NULL,
+  `fe_modf` datetime DEFAULT NULL,
+  `usr_crea` varchar(10) DEFAULT NULL,
+  `usr_modf` varchar(10) DEFAULT NULL,
+  `in_stat` varchar(1) DEFAULT 'A',
+  `tx_desc` varchar(100) DEFAULT NULL,
+  `cuadri_dedic_exclu` int(11) DEFAULT NULL,
+  PRIMARY KEY (`co_edo`),
+  UNIQUE KEY `id_region_unique` (`id_edo`),
+  UNIQUE KEY `nb_region_unique` (`nb_edo`),
+  KEY `fk_cnx_edo_coregion` (`co_region`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cnx_grupos`
+--
+
+CREATE TABLE IF NOT EXISTS `cnx_grupos` (
+  `id_grupo` int(11) NOT NULL AUTO_INCREMENT,
+  `co_grupo` int(11) NOT NULL,
+  `nb_grupo` varchar(100) NOT NULL,
+  `fe_crea` datetime DEFAULT NULL,
+  `fe_modf` datetime DEFAULT NULL,
+  `usr_crea` varchar(10) DEFAULT NULL,
+  `usr_modf` varchar(10) DEFAULT NULL,
+  `in_stat` varchar(1) DEFAULT 'A',
+  `tx_desc` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`co_grupo`),
+  UNIQUE KEY `id_grupo_unique` (`id_grupo`),
+  UNIQUE KEY `co_grupo_unique` (`co_grupo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cnx_localidades`
+--
+
+CREATE TABLE IF NOT EXISTS `cnx_localidades` (
+  `id_localidad` int(11) NOT NULL AUTO_INCREMENT COMMENT '    ',
+  `co_localidad` int(11) NOT NULL,
+  `co_tipo_localidad` int(11) NOT NULL,
+  `tecnologia_inicial` int(11) DEFAULT NULL,
+  `co_ente` int(11) NOT NULL,
+  `tecnologia_actual` int(11) DEFAULT NULL,
+  `co_region` int(11) NOT NULL,
+  `co_edo` int(11) DEFAULT NULL,
+  `co_municipio` int(11) NOT NULL,
+  `co_parroquia` int(11) NOT NULL,
+  `nb_localidad` varchar(100) NOT NULL,
+  `direccion` varchar(200) DEFAULT NULL,
+  `codigo_localidad` varchar(45) NOT NULL,
+  `ciudad` varchar(45) DEFAULT NULL,
+  `urbanizacion` varchar(45) DEFAULT NULL,
+  `avcalle` varchar(45) DEFAULT NULL,
+  `numero` int(11) DEFAULT NULL,
+  PRIMARY KEY (`co_localidad`),
+  UNIQUE KEY `id_localidad_unique` (`id_localidad`),
+  UNIQUE KEY `co_localidad_unique` (`co_localidad`),
+  UNIQUE KEY `codigo_localidad_unique` (`codigo_localidad`),
+  KEY `fk_cnx_loc_co_region` (`co_region`),
+  KEY `fk_cnx_loc_co_edo` (`co_edo`),
+  KEY `fk_cnx_loc_co_munc` (`co_municipio`),
+  KEY `fk_cnx_loc_co_prrq` (`co_parroquia`),
+  KEY `fk_cnx_loc_co_tipo_loc` (`co_tipo_localidad`),
+  KEY `fk_cnx_loc_co_ente_idx` (`co_ente`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='almacena informacion de todas las localidades u centros pertenecientes al proyecto conectividad y wifi' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cnx_localidades1`
+--
+
+CREATE TABLE IF NOT EXISTS `cnx_localidades1` (
+  `id_localidad` int(11) NOT NULL AUTO_INCREMENT COMMENT '    ',
+  `co_localidad` varchar(15) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `co_tipo_localidad` int(11) DEFAULT NULL,
+  `tecnologia_inicial` int(11) DEFAULT NULL,
+  `tecnologia_actual` int(11) DEFAULT NULL,
+  `co_region` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `co_edo` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `co_municipio` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `co_parroquia` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `nb_localidad` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `direccion` varchar(200) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `codigo_localidad` varchar(45) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `ciudad` varchar(45) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `urbanizacion` varchar(45) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `avcalle` varchar(45) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `numero` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_localidad`),
+  UNIQUE KEY `id_localidad_unique` (`id_localidad`),
+  UNIQUE KEY `codigo_localidad_unique` (`codigo_localidad`),
+  KEY `fk_cnx_loc_co_region` (`co_region`),
+  KEY `fk_cnx_loc_co_edo` (`co_edo`),
+  KEY `fk_cnx_loc_co_munc` (`co_municipio`),
+  KEY `fk_cnx_loc_co_prrq` (`co_parroquia`),
+  KEY `fk_cnx_loc_co_tipo_loc` (`co_tipo_localidad`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cnx_municipio`
+--
+
+CREATE TABLE IF NOT EXISTS `cnx_municipio` (
+  `id_municipio` int(11) NOT NULL AUTO_INCREMENT,
+  `co_municipio` int(11) NOT NULL,
+  `co_edo` int(11) DEFAULT NULL,
+  `nb_municipio` varchar(100) NOT NULL,
+  `fe_crea` datetime DEFAULT NULL,
+  `fe_modf` datetime DEFAULT NULL,
+  `usr_crea` varchar(10) DEFAULT NULL,
+  `usr_modf` varchar(10) DEFAULT NULL,
+  `in_stat` varchar(1) DEFAULT 'A',
+  `tx_desc` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`co_municipio`),
+  UNIQUE KEY `id_region_unique` (`id_municipio`),
+  UNIQUE KEY `co_region_unique` (`co_municipio`),
+  KEY `fk_cnx_munc_co_edo` (`co_edo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cnx_oper_orden_wifi`
+--
+
+CREATE TABLE IF NOT EXISTS `cnx_oper_orden_wifi` (
+  `id_operacion` int(11) NOT NULL AUTO_INCREMENT,
+  `orden` varchar(30) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `des_operacion` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `fe_operacion` datetime NOT NULL,
+  `clave_asap` varchar(15) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `fe_ini` datetime DEFAULT NULL,
+  `cargado_por` varchar(10) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `fe_act` datetime DEFAULT NULL,
+  `actualizado_por` varchar(10) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `fe_elim` datetime DEFAULT NULL,
+  `estatus` varchar(1) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT 'A',
+  `num_row_asap` int(11) DEFAULT '0',
+  PRIMARY KEY (`id_operacion`),
+  KEY `fk_orden_oper_idx` (`orden`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cnx_ordenes`
+--
+
+CREATE TABLE IF NOT EXISTS `cnx_ordenes` (
+  `id_cnx_ordenes` int(11) NOT NULL AUTO_INCREMENT,
+  `co_orden` int(11) NOT NULL,
+  `nro_orden_serv` varchar(30) COLLATE latin1_general_cs NOT NULL,
+  `orden_confirmacion` varchar(2) COLLATE latin1_general_cs DEFAULT NULL,
+  `orden_status` varchar(15) COLLATE latin1_general_cs NOT NULL,
+  `orden_telefono` varchar(15) COLLATE latin1_general_cs DEFAULT NULL,
+  `orden_central` varchar(6) COLLATE latin1_general_cs DEFAULT NULL,
+  `orden_observacion` varchar(250) COLLATE latin1_general_cs DEFAULT NULL,
+  `orden_accion` varchar(3) COLLATE latin1_general_cs DEFAULT NULL,
+  `usuario` varchar(50) COLLATE latin1_general_cs DEFAULT NULL,
+  `fecha` varchar(25) COLLATE latin1_general_cs DEFAULT NULL,
+  `orden_lni` varchar(2) COLLATE latin1_general_cs DEFAULT NULL,
+  `clase_s` varchar(8) COLLATE latin1_general_cs DEFAULT NULL,
+  `centro` varchar(20) COLLATE latin1_general_cs NOT NULL,
+  `orden_iaba` varchar(12) COLLATE latin1_general_cs DEFAULT NULL,
+  `status_iaba` varchar(15) COLLATE latin1_general_cs DEFAULT NULL,
+  `orden_rif` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `orden_tarifa` varchar(15) COLLATE latin1_general_cs DEFAULT NULL,
+  `fecha_compl_itp` date DEFAULT NULL,
+  `fecha_compl_iaba` date DEFAULT NULL,
+  `fecha_act_reg` datetime DEFAULT NULL,
+  `fecha_ini_reg` datetime DEFAULT NULL,
+  `es_ficticia` varchar(1) COLLATE latin1_general_cs DEFAULT NULL,
+  `es_ficticia_iaba` varchar(1) COLLATE latin1_general_cs DEFAULT NULL,
+  `fecha_solc_itp` date DEFAULT NULL,
+  `fecha_solc_iaba` date DEFAULT NULL,
+  `nro_cuenta` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `usuario_act` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `ciudad` varchar(30) COLLATE latin1_general_cs DEFAULT NULL,
+  `urb_barrio` varchar(50) COLLATE latin1_general_cs DEFAULT NULL,
+  `cod_av_calle` varchar(5) COLLATE latin1_general_cs DEFAULT NULL,
+  `nb_av_calle` varchar(50) COLLATE latin1_general_cs DEFAULT NULL,
+  `cod_inmueble` varchar(5) COLLATE latin1_general_cs DEFAULT NULL,
+  `nb_inmueble` varchar(50) COLLATE latin1_general_cs DEFAULT NULL,
+  `zona_postal` varchar(5) COLLATE latin1_general_cs DEFAULT NULL,
+  `reg_doc` varchar(150) COLLATE latin1_general_cs DEFAULT NULL,
+  `direccion` varchar(240) COLLATE latin1_general_cs DEFAULT NULL,
+  `requiere_odt` varchar(2) COLLATE latin1_general_cs DEFAULT NULL,
+  `id_revision_pfred` int(11) DEFAULT NULL,
+  `propuesta_pfred` varchar(200) COLLATE latin1_general_cs DEFAULT NULL,
+  `sugerencia_pfred` varchar(15) COLLATE latin1_general_cs DEFAULT NULL,
+  `observacion_pfred` varchar(200) COLLATE latin1_general_cs DEFAULT NULL,
+  `nb_responsable_pfred` varchar(40) COLLATE latin1_general_cs DEFAULT NULL,
+  `cedula_resp_pfred` int(11) DEFAULT NULL,
+  `telf_resp_pfred` varchar(11) COLLATE latin1_general_cs DEFAULT NULL,
+  `usuario_act_pfred` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `fecha_act_pfred` date DEFAULT NULL,
+  `status_itp_anterior` varchar(15) COLLATE latin1_general_cs DEFAULT NULL,
+  `fecha_revision_pfred` date DEFAULT NULL,
+  `nombre_razon_social` varchar(50) COLLATE latin1_general_cs DEFAULT NULL,
+  `nombre_via` varchar(50) COLLATE latin1_general_cs DEFAULT NULL,
+  `tipo_inmueble` varchar(6) COLLATE latin1_general_cs DEFAULT NULL,
+  `piso` varchar(10) COLLATE latin1_general_cs DEFAULT NULL,
+  `tlf_contacto` varchar(11) COLLATE latin1_general_cs DEFAULT NULL,
+  `tlf_cercano` varchar(11) COLLATE latin1_general_cs DEFAULT NULL,
+  `cod_condicion` varchar(4) COLLATE latin1_general_cs DEFAULT NULL,
+  `obs_cod` varchar(50) COLLATE latin1_general_cs DEFAULT NULL,
+  `ult_pto` varchar(50) COLLATE latin1_general_cs DEFAULT NULL,
+  `subestatus` varchar(15) COLLATE latin1_general_cs DEFAULT NULL,
+  `distrito` varchar(10) COLLATE latin1_general_cs DEFAULT NULL,
+  `iaba_cargada_por` varchar(15) COLLATE latin1_general_cs DEFAULT NULL,
+  `cuadrilla` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `rut_cobro` varchar(10) COLLATE latin1_general_cs DEFAULT NULL,
+  `fe_compromiso_itp` date DEFAULT NULL,
+  `fe_compromiso_iaba` date DEFAULT NULL,
+  `tipo_tarifa` varchar(15) COLLATE latin1_general_cs DEFAULT NULL,
+  `origen` varchar(10) COLLATE latin1_general_cs DEFAULT NULL,
+  `armario` varchar(10) COLLATE latin1_general_cs DEFAULT NULL,
+  `cable_1` varchar(10) COLLATE latin1_general_cs DEFAULT NULL,
+  `cable_2` varchar(10) COLLATE latin1_general_cs DEFAULT NULL,
+  `par_1` varchar(10) COLLATE latin1_general_cs DEFAULT NULL,
+  `par_2` varchar(10) COLLATE latin1_general_cs DEFAULT NULL,
+  `ult_pto_pdr` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `unidad_negocio` varchar(5) COLLATE latin1_general_cs DEFAULT NULL,
+  `fe_real_ejecucion` date DEFAULT NULL,
+  `dist_aprox_central` decimal(6,2) DEFAULT NULL,
+  `fe_compl_itp_old` date DEFAULT NULL,
+  `fe_compl_iaba_old` date DEFAULT NULL,
+  `fe_ultm_pinst` date DEFAULT NULL,
+  `cod_dev` varchar(10) COLLATE latin1_general_cs DEFAULT NULL,
+  `des_cod_dev` varchar(50) COLLATE latin1_general_cs DEFAULT NULL,
+  `fe_crea` datetime DEFAULT NULL,
+  `fe_modf` datetime DEFAULT NULL,
+  `usr_crea` varchar(10) COLLATE latin1_general_cs DEFAULT NULL,
+  `usr_modf` varchar(10) COLLATE latin1_general_cs DEFAULT NULL,
+  `in_stat` varchar(2) COLLATE latin1_general_cs DEFAULT 'A',
+  `tx_obs` varchar(255) COLLATE latin1_general_cs DEFAULT NULL,
+  `mac_add` varchar(40) COLLATE latin1_general_cs DEFAULT NULL,
+  `cod_cierre_sat` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `velocidad_qos` varbinary(10) DEFAULT NULL,
+  PRIMARY KEY (`co_orden`),
+  UNIQUE KEY `id_cnx_ordenes_unique` (`id_cnx_ordenes`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cnx_ordenwifi_pfred`
+--
+
+CREATE TABLE IF NOT EXISTS `cnx_ordenwifi_pfred` (
+  `id_orden_pfred` int(11) NOT NULL AUTO_INCREMENT,
+  `orden` varchar(30) COLLATE latin1_general_cs NOT NULL,
+  `orden_status` varchar(45) COLLATE latin1_general_cs DEFAULT NULL,
+  `orden_telefono` varchar(45) COLLATE latin1_general_cs DEFAULT NULL,
+  `orden_central` varchar(45) COLLATE latin1_general_cs DEFAULT NULL,
+  `fecha_ini_reg` datetime DEFAULT NULL,
+  `usuario_ini` varchar(45) COLLATE latin1_general_cs DEFAULT NULL,
+  `usuario_act` varchar(45) COLLATE latin1_general_cs DEFAULT NULL,
+  `fecha_act_` datetime DEFAULT NULL,
+  `fecha_solc_itp` datetime DEFAULT NULL,
+  `fecha_compl_itp` datetime DEFAULT NULL,
+  `orden_iaba` varchar(45) COLLATE latin1_general_cs DEFAULT NULL,
+  `status_iaba` varchar(45) COLLATE latin1_general_cs DEFAULT NULL,
+  `fecha_solc_iaba` datetime DEFAULT NULL,
+  `fecha_compl_iaba` datetime DEFAULT NULL,
+  `codigo_localidad` varchar(45) COLLATE latin1_general_cs DEFAULT NULL,
+  `observacion_ti` varchar(45) COLLATE latin1_general_cs DEFAULT NULL,
+  `status_ini` varchar(45) COLLATE latin1_general_cs DEFAULT NULL,
+  PRIMARY KEY (`id_orden_pfred`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cnx_orden_wfi`
+--
+
+CREATE TABLE IF NOT EXISTS `cnx_orden_wfi` (
+  `id_orden_wifi` int(11) NOT NULL AUTO_INCREMENT,
+  `co_orden_wifi` int(11) NOT NULL,
+  `codigo_localidad` varchar(20) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `orden` varchar(30) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `codigo` varchar(15) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `orden_confirmacion` varchar(2) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `orden_status` varchar(15) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `orden_telefono` varchar(15) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `orden_central` varchar(6) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `orden_observacion` varchar(250) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `orden_accion` varchar(3) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `usuario` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `fecha` datetime DEFAULT NULL,
+  `orden_lni` varchar(2) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `clase_s` varchar(8) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `co_localidad` varchar(20) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `orden_iaba` varchar(12) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `status_iaba` varchar(15) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `orden_rif` varchar(20) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `orden_tarifa` varchar(15) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `fecha_compl_itp` datetime DEFAULT NULL,
+  `fecha_compl_iaba` datetime DEFAULT NULL,
+  `fecha_act_reg` datetime DEFAULT NULL,
+  `fecha_ini_reg` datetime DEFAULT NULL,
+  `es_ficticia` varchar(1) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `es_ficticia_iaba` varchar(1) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `fecha_solc_itp` datetime DEFAULT NULL,
+  `fecha_solc_iaba` datetime DEFAULT NULL,
+  `nro_cuenta` varchar(20) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `usuario_act` varchar(20) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `ciudad` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `urb_barrio` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `cod_av_calle` varchar(5) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `nb_av_calle` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `cod_inmueble` varchar(5) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `nb_inmueble` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `zona_postal` varchar(5) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `reg_doc` varchar(150) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `direccion` varchar(240) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `requiere_odt` varchar(2) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `id_revision_pfred` int(11) DEFAULT NULL,
+  `propuesta_pfred` varchar(200) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `sugerencia_pfred` varchar(15) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `observacion_pfred` varchar(200) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `nb_responsable_pfred` varchar(40) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `cedula_resp_pfred` int(11) DEFAULT NULL,
+  `telf_resp_pfred` varchar(11) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `usuario_act_pfred` varchar(20) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `fecha_act_pfred` datetime DEFAULT NULL,
+  `status_itp_anterior` varchar(15) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `fecha_revision_pfred` datetime DEFAULT NULL,
+  `nombre_razon_social` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `nombre_via` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `tipo_inmueble` varchar(6) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `piso` varchar(10) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `tlf_contacto` varchar(11) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `tlf_cercano` varchar(11) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `cod_condicion` varchar(4) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `obs_cod` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `ult_pto` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `subestatus` varchar(15) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `distrito` varchar(10) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `iaba_cargada_por` varchar(15) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `cuadrilla` varchar(20) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `rut_cobro` varchar(10) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `fe_compromiso_itp` datetime DEFAULT NULL,
+  `fe_compromiso_iaba` datetime DEFAULT NULL,
+  `tipo_tarifa` varchar(15) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `origen` varchar(10) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `armario` varchar(10) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `cable_1` varchar(10) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `cable_2` varchar(10) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `par_1` varchar(10) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `par_2` varchar(10) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `ult_pto_pdr` varchar(20) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `unidad_negocio` varchar(5) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `fe_real_ejecucion` datetime DEFAULT NULL,
+  `dist_aprox_central` decimal(6,2) DEFAULT NULL,
+  `fe_compl_itp_old` datetime DEFAULT NULL,
+  `fe_compl_iaba_old` datetime DEFAULT NULL,
+  `fe_ultm_pinst` datetime DEFAULT NULL,
+  `cod_dev` varchar(10) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `des_cod_dev` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `cod_estatus` varchar(10) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `area_instalacion` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `in_stat` varchar(2) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT 'A',
+  PRIMARY KEY (`co_orden_wifi`),
+  UNIQUE KEY `orden_unique` (`orden`),
+  UNIQUE KEY `id_orden_wifi_unique` (`id_orden_wifi`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cnx_parroquias`
+--
+
+CREATE TABLE IF NOT EXISTS `cnx_parroquias` (
+  `id_parroquia` int(11) NOT NULL AUTO_INCREMENT,
+  `co_parroquia` int(11) NOT NULL,
+  `co_municipio` int(11) NOT NULL,
+  `nb_parroquia` varchar(100) NOT NULL,
+  `fe_crea` datetime DEFAULT NULL,
+  `fe_modf` datetime DEFAULT NULL,
+  `usr_crea` varchar(10) DEFAULT NULL,
+  `usr_modf` varchar(10) DEFAULT NULL,
+  `in_stat` varchar(1) DEFAULT 'A',
+  `tx_desc` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`co_parroquia`),
+  UNIQUE KEY `id_region_unique` (`id_parroquia`),
+  UNIQUE KEY `co_region_unique` (`co_parroquia`),
+  UNIQUE KEY `nb_region_unique` (`nb_parroquia`),
+  KEY `fk_cnx_prrq_co_munc` (`co_municipio`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cnx_regiones`
+--
+
+CREATE TABLE IF NOT EXISTS `cnx_regiones` (
+  `id_region` int(11) NOT NULL AUTO_INCREMENT,
+  `co_region` int(11) NOT NULL,
+  `nb_region` varchar(45) NOT NULL,
+  `fe_crea` datetime DEFAULT NULL,
+  `fe_modf` datetime DEFAULT NULL,
+  `usr_crea` varchar(10) DEFAULT NULL,
+  `usr_modf` varchar(10) DEFAULT NULL,
+  `in_stat` varchar(1) DEFAULT 'A',
+  `tx_desc` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`co_region`),
+  UNIQUE KEY `id_region_unique` (`id_region`),
+  UNIQUE KEY `nb_region_unique` (`nb_region`),
+  UNIQUE KEY `co_region_unique` (`co_region`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cnx_tipo_localidades`
+--
+
+CREATE TABLE IF NOT EXISTS `cnx_tipo_localidades` (
+  `id_localidad` int(11) NOT NULL AUTO_INCREMENT,
+  `co_tipo_localidad` int(11) NOT NULL,
+  `nb_tipo_localidad` varchar(100) NOT NULL,
+  `fe_crea` datetime DEFAULT NULL,
+  `fe_modf` datetime DEFAULT NULL,
+  `usr_crea` varchar(10) DEFAULT NULL,
+  `usr_modf` varchar(10) DEFAULT NULL,
+  `in_stat` varchar(1) NOT NULL DEFAULT 'A',
+  `tx_desc` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`co_tipo_localidad`),
+  UNIQUE KEY `id_localidad_unique` (`id_localidad`),
+  UNIQUE KEY `co_tipo_localidad_unique` (`co_tipo_localidad`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='almacena el tipo de localidad para definir la localidad u centro' AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `cnx_tipo_localidades`
+--
+
+INSERT INTO `cnx_tipo_localidades` (`id_localidad`, `co_tipo_localidad`, `nb_tipo_localidad`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`, `tx_desc`) VALUES
+(4, 1, 'tipo localidad 1', '2014-02-01 21:06:12', '2014-02-01 21:32:02', '1', '1', 'A', ''),
+(5, 2, 'tipo localidad 2', '2014-02-01 21:07:11', '2014-02-01 21:33:31', '11', '11', 'A', ''),
+(6, 3, 'tipo localidad 3', '2014-02-01 21:07:38', '2014-02-01 21:07:38', '11', '11', 'A', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cnx_tipo_orden_servicio`
+--
+
+CREATE TABLE IF NOT EXISTS `cnx_tipo_orden_servicio` (
+  `id_tipo_orden_servicio` int(11) NOT NULL AUTO_INCREMENT,
+  `co_tipo_orden_servicio` int(11) NOT NULL,
+  `nb_tipo_servicio` varchar(20) NOT NULL COMMENT ' ',
+  `tx_desc` varchar(100) DEFAULT NULL,
+  `fe_crea` datetime DEFAULT NULL,
+  `fe_modf` datetime DEFAULT NULL,
+  `usr_crea` varchar(10) DEFAULT NULL,
+  `usr_modf` varchar(10) DEFAULT NULL,
+  `in_stat` varchar(45) DEFAULT 'A',
+  PRIMARY KEY (`co_tipo_orden_servicio`),
+  UNIQUE KEY `idcnx_tipo_orden_servicio_unique` (`id_tipo_orden_servicio`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `cnx_tipo_orden_servicio`
+--
+
+INSERT INTO `cnx_tipo_orden_servicio` (`id_tipo_orden_servicio`, `co_tipo_orden_servicio`, `nb_tipo_servicio`, `tx_desc`, `fe_crea`, `fe_modf`, `usr_crea`, `usr_modf`, `in_stat`) VALUES
+(1, 1, 'Tipo Servicio', '', '2014-02-04 19:28:41', '2014-02-04 19:28:41', '1', '1', 'A'),
+(2, 2, 'Tipo Servicio 2', '', '2014-02-04 19:32:02', '2014-02-04 19:32:02', '1', '1', 'A');
 
 -- --------------------------------------------------------
 
@@ -201,9 +912,10 @@ CREATE TABLE IF NOT EXISTS `cruge_authassignment` (
 --
 
 INSERT INTO `cruge_authassignment` (`userid`, `bizrule`, `data`, `itemname`) VALUES
-(11, NULL, 'N;', 'Empleados_CONSULTAR'),
-(11, NULL, 'N;', 'Organizaciones_CONSULTAR'),
-(11, NULL, 'N;', 'Usuarios_CONSULTAR');
+(11, NULL, 'n;', 'empleados_consultar'),
+(11, NULL, 'N;', 'localidad_consultar'),
+(11, NULL, 'n;', 'organizaciones_consultar'),
+(11, NULL, 'n;', 'usuarios_consultar');
 
 -- --------------------------------------------------------
 
@@ -225,81 +937,109 @@ CREATE TABLE IF NOT EXISTS `cruge_authitem` (
 --
 
 INSERT INTO `cruge_authitem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
-('action_asigorg_admin', 0, '', NULL, 'N;'),
-('action_asigorg_create', 0, '', NULL, 'N;'),
-('action_asigorg_delete', 0, '', NULL, 'N;'),
-('action_asigorg_index', 0, '', NULL, 'N;'),
-('action_asigorg_update', 0, '', NULL, 'N;'),
-('action_asigorg_view', 0, '', NULL, 'N;'),
-('action_empleados_admin', 0, '', NULL, 'N;'),
-('action_empleados_create', 0, '', NULL, 'N;'),
-('action_empleados_delete', 0, '', NULL, 'N;'),
-('action_empleados_index', 0, '', NULL, 'N;'),
-('action_empleados_update', 0, '', NULL, 'N;'),
-('action_empleados_view', 0, '', NULL, 'N;'),
-('action_org_admin', 0, '', NULL, 'N;'),
-('action_org_create', 0, '', NULL, 'N;'),
-('action_org_delete', 0, '', NULL, 'N;'),
-('action_org_index', 0, '', NULL, 'N;'),
-('action_org_update', 0, '', NULL, 'N;'),
-('action_org_view', 0, '', NULL, 'N;'),
-('action_site_captcha', 0, '', NULL, 'N;'),
-('action_site_contact', 0, '', NULL, 'N;'),
-('action_site_error', 0, '', NULL, 'N;'),
-('action_site_index', 0, '', NULL, 'N;'),
-('action_site_login', 0, '', NULL, 'N;'),
-('action_site_logout', 0, '', NULL, 'N;'),
-('action_site_page', 0, '', NULL, 'N;'),
-('action_ui_editprofile', 0, '', '', 'N;'),
-('action_ui_fieldsadmincreate', 0, '', NULL, 'N;'),
-('action_ui_fieldsadmindelete', 0, '', NULL, 'N;'),
-('action_ui_fieldsadminlist', 0, '', NULL, 'N;'),
-('action_ui_fieldsadminupdate', 0, '', NULL, 'N;'),
-('action_ui_rbacajaxassignment', 0, '', NULL, 'N;'),
-('action_ui_rbacajaxsetchilditem', 0, '', NULL, 'N;'),
-('action_ui_rbacauthitemchilditems', 0, '', NULL, 'N;'),
-('action_ui_rbacauthitemcreate', 0, '', NULL, 'N;'),
-('action_ui_rbacauthitemdelete', 0, '', NULL, 'N;'),
-('action_ui_rbacauthitemupdate', 0, '', NULL, 'N;'),
-('action_ui_rbaclistops', 0, '', NULL, 'N;'),
-('action_ui_rbaclistroles', 0, '', NULL, 'N;'),
-('action_ui_rbaclisttasks', 0, '', NULL, 'N;'),
-('action_ui_rbacusersassignments', 0, '', NULL, 'N;'),
-('action_ui_sessionadmin', 0, '', NULL, 'N;'),
-('action_ui_sessionadmindelete', 0, '', '', 'N;'),
-('action_ui_systemupdate', 0, '', NULL, 'N;'),
-('action_ui_usermanagementadmin', 0, '', NULL, 'N;'),
-('action_ui_usermanagementcreate', 0, '', NULL, 'N;'),
-('action_ui_usermanagementdelete', 0, '', NULL, 'N;'),
-('action_ui_usermanagementupdate', 0, '', NULL, 'N;'),
-('action_ui_usersaved', 0, '', NULL, 'N;'),
-('controller_asigorg', 0, '', NULL, 'N;'),
-('controller_empleados', 0, '', NULL, 'N;'),
-('controller_org', 0, '', NULL, 'N;'),
-('controller_site', 0, '', NULL, 'N;'),
-('controller_usuarios', 0, '', NULL, 'N;'),
-('edit-advanced-profile-features', 0, '', '', 'N;'),
-('empleados_actualizar', 1, '', '', 'N;'),
-('Empleados_ADMINISTRAR', 2, '', '', 'N;'),
-('empleados_agregar', 1, '', '', 'N;'),
-('Empleados_CONSULTAR', 2, '', '', 'N;'),
-('empleados_eliminar', 1, '', '', 'N;'),
-('empleados_listar', 1, '', '', 'N;'),
-('goradmin', 0, '', '', 'N;'),
-('organizaciones_actualizar', 1, '', '', 'N;'),
-('Organizaciones_ADMINISTRAR', 2, '', '', 'N;'),
-('organizaciones_agregar', 1, '', '', 'N;'),
-('Organizaciones_CONSULTAR', 2, '', '', 'N;'),
-('organizaciones_eliminar', 1, '', '', 'N;'),
-('organizaciones_listar', 1, '', '', 'N;'),
-('organizacion_aignar', 1, '', '', 'N;'),
-('usuarios_actualizar', 1, '', '', 'N;'),
-('Usuarios_ADMINISTRAR', 2, '', '', 'N;'),
-('usuarios_agregar', 1, '', '', 'N;'),
-('Usuarios_CONSULTAR', 2, '', '', 'N;'),
-('usuarios_eliminar', 1, '', '', 'N;'),
-('usuarios_listar', 1, '', '', 'N;'),
-('usuarios_super_admin', 1, '', '', 'N;');
+('action_asigorg_admin', 0, '', NULL, 'n;'),
+('action_asigorg_create', 0, '', NULL, 'n;'),
+('action_asigorg_delete', 0, '', NULL, 'n;'),
+('action_asigorg_index', 0, '', NULL, 'n;'),
+('action_asigorg_update', 0, '', NULL, 'n;'),
+('action_asigorg_view', 0, '', NULL, 'n;'),
+('action_empleados_admin', 0, '', NULL, 'n;'),
+('action_empleados_create', 0, '', NULL, 'n;'),
+('action_empleados_delete', 0, '', NULL, 'n;'),
+('action_empleados_index', 0, '', NULL, 'n;'),
+('action_empleados_update', 0, '', NULL, 'n;'),
+('action_empleados_view', 0, '', NULL, 'n;'),
+('action_entesLocalidades_admin', 0, '', NULL, 'N;'),
+('action_enteslocalidades_create', 0, '', NULL, 'N;'),
+('action_enteslocalidades_delete', 0, '', NULL, 'N;'),
+('action_enteslocalidades_index', 0, '', NULL, 'N;'),
+('action_enteslocalidades_update', 0, '', NULL, 'N;'),
+('action_enteslocalidades_view', 0, '', NULL, 'N;'),
+('action_org_admin', 0, '', NULL, 'n;'),
+('action_org_create', 0, '', NULL, 'n;'),
+('action_org_delete', 0, '', NULL, 'n;'),
+('action_org_index', 0, '', NULL, 'n;'),
+('action_org_update', 0, '', NULL, 'n;'),
+('action_org_view', 0, '', NULL, 'n;'),
+('action_site_captcha', 0, '', NULL, 'n;'),
+('action_site_contact', 0, '', NULL, 'n;'),
+('action_site_error', 0, '', NULL, 'n;'),
+('action_site_index', 0, '', NULL, 'n;'),
+('action_site_login', 0, '', NULL, 'n;'),
+('action_site_logout', 0, '', NULL, 'n;'),
+('action_site_page', 0, '', NULL, 'n;'),
+('action_tipolocalidades_admin', 0, '', '', 'N;'),
+('action_tipolocalidades_create', 0, '', '', 'N;'),
+('action_tipolocalidades_delete', 0, '', '', 'N;'),
+('action_tipolocalidades_index', 0, '', '', 'N;'),
+('action_tipolocalidades_update', 0, '', '', 'N;'),
+('action_tipolocalidades_view', 0, '', '', 'N;'),
+('action_tipoOrdenServicio_admin', 0, '', NULL, 'N;'),
+('action_tipoOrdenServicio_create', 0, '', NULL, 'N;'),
+('action_tipoordenservicio_delete', 0, '', NULL, 'N;'),
+('action_tipoOrdenServicio_index', 0, '', NULL, 'N;'),
+('action_tipoordenservicio_update', 0, '', NULL, 'N;'),
+('action_tipoOrdenServicio_view', 0, '', NULL, 'N;'),
+('action_ui_editprofile', 0, '', '', 'n;'),
+('action_ui_fieldsadmincreate', 0, '', NULL, 'n;'),
+('action_ui_fieldsadmindelete', 0, '', NULL, 'n;'),
+('action_ui_fieldsadminlist', 0, '', NULL, 'n;'),
+('action_ui_fieldsadminupdate', 0, '', NULL, 'n;'),
+('action_ui_rbacajaxassignment', 0, '', NULL, 'n;'),
+('action_ui_rbacajaxsetchilditem', 0, '', NULL, 'n;'),
+('action_ui_rbacauthitemchilditems', 0, '', NULL, 'n;'),
+('action_ui_rbacauthitemcreate', 0, '', NULL, 'n;'),
+('action_ui_rbacauthitemdelete', 0, '', NULL, 'n;'),
+('action_ui_rbacauthitemupdate', 0, '', NULL, 'n;'),
+('action_ui_rbaclistops', 0, '', NULL, 'n;'),
+('action_ui_rbaclistroles', 0, '', NULL, 'n;'),
+('action_ui_rbaclisttasks', 0, '', NULL, 'n;'),
+('action_ui_rbacusersassignments', 0, '', NULL, 'n;'),
+('action_ui_sessionadmin', 0, '', NULL, 'n;'),
+('action_ui_sessionadmindelete', 0, '', '', 'n;'),
+('action_ui_systemupdate', 0, '', NULL, 'n;'),
+('action_ui_usermanagementadmin', 0, '', NULL, 'n;'),
+('action_ui_usermanagementcreate', 0, '', NULL, 'n;'),
+('action_ui_usermanagementdelete', 0, '', NULL, 'n;'),
+('action_ui_usermanagementupdate', 0, '', NULL, 'n;'),
+('action_ui_usersaved', 0, '', NULL, 'n;'),
+('admin', 0, '', NULL, 'N;'),
+('controller_asigorg', 0, '', NULL, 'n;'),
+('controller_empleados', 0, '', NULL, 'n;'),
+('controller_enteslocalidades', 0, '', NULL, 'N;'),
+('controller_org', 0, '', NULL, 'n;'),
+('controller_site', 0, '', NULL, 'n;'),
+('controller_tipolocalidades', 0, '', NULL, 'N;'),
+('controller_tipoordenservicio', 0, '', NULL, 'N;'),
+('controller_usuarios', 0, '', NULL, 'n;'),
+('edit-advanced-profile-features', 0, '', '', 'n;'),
+('empleados_actualizar', 1, '', '', 'n;'),
+('empleados_administrar', 2, '', '', 'n;'),
+('empleados_agregar', 1, '', '', 'n;'),
+('empleados_consultar', 2, '', '', 'n;'),
+('empleados_eliminar', 1, '', '', 'n;'),
+('empleados_listar', 1, '', '', 'n;'),
+('goradmin', 0, '', '', 'n;'),
+('localidad_administrar', 2, '', '', 'N;'),
+('localidad_consultar', 2, '', '', 'N;'),
+('organizaciones_actualizar', 1, '', '', 'n;'),
+('organizaciones_administrar', 2, '', '', 'n;'),
+('organizaciones_agregar', 1, '', '', 'n;'),
+('organizaciones_consultar', 2, '', '', 'n;'),
+('organizaciones_eliminar', 1, '', '', 'n;'),
+('organizaciones_listar', 1, '', '', 'n;'),
+('organizacion_aignar', 1, '', '', 'n;'),
+('tipoLocalidad_actualizar', 1, '', '', 'N;'),
+('tipoLocalidad_agregar', 1, '', '', 'N;'),
+('tipoLocalidad_eliminar', 1, '', '', 'N;'),
+('tipoLocalidad_listar', 1, '', '', 'N;'),
+('usuarios_actualizar', 1, '', '', 'n;'),
+('usuarios_administrar', 2, '', '', 'n;'),
+('usuarios_agregar', 1, '', '', 'n;'),
+('usuarios_consultar', 2, '', '', 'n;'),
+('usuarios_eliminar', 1, '', '', 'n;'),
+('usuarios_listar', 1, '', '', 'n;'),
+('usuarios_super_admin', 1, '', '', 'n;');
 
 -- --------------------------------------------------------
 
@@ -358,6 +1098,21 @@ INSERT INTO `cruge_authitemchild` (`parent`, `child`) VALUES
 ('organizaciones_agregar', 'action_org_view'),
 ('organizaciones_eliminar', 'action_org_view'),
 ('organizaciones_listar', 'action_org_view'),
+('tipoLocalidad_actualizar', 'action_tipolocalidades_admin'),
+('tipoLocalidad_agregar', 'action_tipolocalidades_admin'),
+('tipoLocalidad_eliminar', 'action_tipolocalidades_admin'),
+('tipoLocalidad_listar', 'action_tipolocalidades_admin'),
+('tipoLocalidad_agregar', 'action_tipolocalidades_create'),
+('tipoLocalidad_eliminar', 'action_tipolocalidades_delete'),
+('tipoLocalidad_actualizar', 'action_tipolocalidades_index'),
+('tipoLocalidad_agregar', 'action_tipolocalidades_index'),
+('tipoLocalidad_eliminar', 'action_tipolocalidades_index'),
+('tipoLocalidad_listar', 'action_tipolocalidades_index'),
+('tipoLocalidad_actualizar', 'action_tipolocalidades_update'),
+('tipoLocalidad_actualizar', 'action_tipolocalidades_view'),
+('tipoLocalidad_agregar', 'action_tipolocalidades_view'),
+('tipoLocalidad_eliminar', 'action_tipolocalidades_view'),
+('tipoLocalidad_listar', 'action_tipolocalidades_view'),
 ('usuarios_super_admin', 'action_ui_editprofile'),
 ('usuarios_super_admin', 'action_ui_fieldsadmincreate'),
 ('usuarios_super_admin', 'action_ui_fieldsadmindelete'),
@@ -376,7 +1131,7 @@ INSERT INTO `cruge_authitemchild` (`parent`, `child`) VALUES
 ('usuarios_super_admin', 'action_ui_sessionadmin'),
 ('usuarios_super_admin', 'action_ui_sessionadmindelete'),
 ('usuarios_super_admin', 'action_ui_systemupdate'),
-('Usuarios_CONSULTAR', 'action_ui_usermanagementadmin'),
+('usuarios_consultar', 'action_ui_usermanagementadmin'),
 ('usuarios_listar', 'action_ui_usermanagementadmin'),
 ('usuarios_agregar', 'action_ui_usermanagementcreate'),
 ('usuarios_eliminar', 'action_ui_usermanagementdelete'),
@@ -387,21 +1142,29 @@ INSERT INTO `cruge_authitemchild` (`parent`, `child`) VALUES
 ('organizaciones_agregar', 'controller_org'),
 ('organizaciones_eliminar', 'controller_org'),
 ('organizaciones_listar', 'controller_org'),
+('tipoLocalidad_actualizar', 'controller_tipolocalidades'),
+('tipoLocalidad_agregar', 'controller_tipolocalidades'),
+('tipoLocalidad_eliminar', 'controller_tipolocalidades'),
+('tipoLocalidad_listar', 'controller_tipolocalidades'),
 ('usuarios_super_admin', 'edit-advanced-profile-features'),
-('Empleados_ADMINISTRAR', 'empleados_actualizar'),
-('Empleados_ADMINISTRAR', 'empleados_agregar'),
-('Empleados_ADMINISTRAR', 'empleados_listar'),
-('Empleados_CONSULTAR', 'empleados_listar'),
+('empleados_administrar', 'empleados_actualizar'),
+('empleados_administrar', 'empleados_agregar'),
+('empleados_administrar', 'empleados_listar'),
+('empleados_consultar', 'empleados_listar'),
 ('usuarios_super_admin', 'goradmin'),
-('Organizaciones_ADMINISTRAR', 'organizaciones_actualizar'),
-('Organizaciones_ADMINISTRAR', 'organizaciones_agregar'),
-('Organizaciones_ADMINISTRAR', 'organizaciones_listar'),
-('Organizaciones_CONSULTAR', 'organizaciones_listar'),
-('Usuarios_ADMINISTRAR', 'usuarios_actualizar'),
-('Usuarios_ADMINISTRAR', 'usuarios_agregar'),
-('Usuarios_ADMINISTRAR', 'usuarios_eliminar'),
-('Usuarios_ADMINISTRAR', 'usuarios_listar'),
-('Usuarios_ADMINISTRAR', 'usuarios_super_admin');
+('organizaciones_administrar', 'organizaciones_actualizar'),
+('organizaciones_administrar', 'organizaciones_agregar'),
+('organizaciones_administrar', 'organizaciones_listar'),
+('organizaciones_consultar', 'organizaciones_listar'),
+('localidad_administrar', 'tipoLocalidad_actualizar'),
+('localidad_administrar', 'tipoLocalidad_agregar'),
+('localidad_administrar', 'tipoLocalidad_listar'),
+('localidad_consultar', 'tipoLocalidad_listar'),
+('usuarios_administrar', 'usuarios_actualizar'),
+('usuarios_administrar', 'usuarios_agregar'),
+('usuarios_administrar', 'usuarios_eliminar'),
+('usuarios_administrar', 'usuarios_listar'),
+('usuarios_administrar', 'usuarios_super_admin');
 
 -- --------------------------------------------------------
 
@@ -423,7 +1186,7 @@ CREATE TABLE IF NOT EXISTS `cruge_field` (
   `useregexpmsg` varchar(512) DEFAULT NULL,
   `predetvalue` mediumblob,
   PRIMARY KEY (`idfield`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -439,7 +1202,7 @@ CREATE TABLE IF NOT EXISTS `cruge_fieldvalue` (
   PRIMARY KEY (`idfieldvalue`),
   KEY `fk_cruge_fieldvalue_cruge_user1` (`iduser`),
   KEY `fk_cruge_fieldvalue_cruge_field1` (`idfield`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -460,7 +1223,7 @@ CREATE TABLE IF NOT EXISTS `cruge_session` (
   `ipaddressout` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idsession`),
   KEY `crugesession_iduser` (`iduser`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=68 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=91 ;
 
 --
 -- Dumping data for table `cruge_session`
@@ -474,7 +1237,6 @@ INSERT INTO `cruge_session` (`idsession`, `iduser`, `created`, `expire`, `status
 (41, 1, 1391227613, 1391229413, 0, '127.0.0.1', 1, 1391227613, 1391227641, '127.0.0.1'),
 (42, 1, 1391227645, 1391229445, 0, '127.0.0.1', 1, 1391227645, 1391227648, '127.0.0.1'),
 (43, 1, 1391227683, 1391229483, 0, '127.0.0.1', 1, 1391227683, NULL, NULL),
-(44, 2, 1391228190, 1391229990, 1, '127.0.0.1', 2, 1391228201, NULL, NULL),
 (45, 11, 1391228371, 1391230171, 0, '127.0.0.1', 1, 1391228371, 1391228372, '127.0.0.1'),
 (46, 1, 1391267136, 1391268936, 0, '127.0.0.1', 1, 1391267136, 1391268464, '127.0.0.1'),
 (47, 1, 1391268825, 1391270625, 0, '127.0.0.1', 1, 1391268825, 1391269527, '127.0.0.1'),
@@ -497,7 +1259,29 @@ INSERT INTO `cruge_session` (`idsession`, `iduser`, `created`, `expire`, `status
 (64, 1, 1391284974, 1391286774, 0, '127.0.0.1', 1, 1391284974, 1391284977, '127.0.0.1'),
 (65, 1, 1391284992, 1391286792, 0, '127.0.0.1', 1, 1391284992, 1391285001, '127.0.0.1'),
 (66, 1, 1391285161, 1391286961, 0, '127.0.0.1', 1, 1391285161, NULL, NULL),
-(67, 1, 1391287022, 1391288822, 1, '127.0.0.1', 1, 1391287022, NULL, NULL);
+(68, 1, 1391303152, 1391304952, 0, '127.0.0.1', 1, 1391303152, 1391303164, '127.0.0.1'),
+(69, 1, 1391304111, 1391305911, 0, '127.0.0.1', 1, 1391304111, 1391304998, '127.0.0.1'),
+(70, 11, 1391305005, 1391306805, 0, '127.0.0.1', 1, 1391305005, 1391305083, '127.0.0.1'),
+(71, 1, 1391305093, 1391306893, 0, '127.0.0.1', 1, 1391305093, 1391305260, '127.0.0.1'),
+(72, 11, 1391305268, 1391307068, 0, '127.0.0.1', 1, 1391305268, 1391305316, '127.0.0.1'),
+(73, 1, 1391305324, 1391307124, 0, '127.0.0.1', 1, 1391305324, 1391306627, '127.0.0.1'),
+(74, 1, 1391306636, 1391308436, 0, '127.0.0.1', 1, 1391306636, 1391306758, '127.0.0.1'),
+(75, 11, 1391306766, 1391308566, 0, '127.0.0.1', 1, 1391306766, 1391306874, '127.0.0.1'),
+(76, 1, 1391306922, 1391308722, 1, '127.0.0.1', 1, 1391306922, NULL, NULL),
+(77, 1, 1391533142, 1391534942, 0, '127.0.0.1', 1, 1391533142, NULL, NULL),
+(78, 1, 1391536844, 1391538644, 0, '127.0.0.1', 1, 1391536844, 1391537909, '127.0.0.1'),
+(79, 11, 1391537917, 1391539717, 0, '127.0.0.1', 1, 1391537917, 1391537923, '127.0.0.1'),
+(80, 1, 1391537930, 1391539730, 0, '127.0.0.1', 1, 1391537930, NULL, NULL),
+(81, 1, 1391543033, 1391544833, 0, '127.0.0.1', 1, 1391543033, NULL, NULL),
+(82, 1, 1391545076, 1391546876, 0, '127.0.0.1', 1, 1391545076, NULL, NULL),
+(83, 1, 1391547331, 1391549131, 0, '127.0.0.1', 1, 1391547331, NULL, NULL),
+(84, 1, 1391549182, 1391550982, 0, '127.0.0.1', 1, 1391549182, NULL, NULL),
+(85, 1, 1391551213, 1391553013, 0, '127.0.0.1', 1, 1391551213, NULL, NULL),
+(86, 1, 1391553060, 1391554860, 0, '127.0.0.1', 1, 1391553060, NULL, NULL),
+(87, 1, 1391555166, 1391556966, 0, '127.0.0.1', 2, 1391556807, NULL, NULL),
+(88, 1, 1391557116, 1391558916, 0, '127.0.0.1', 1, 1391557116, 1391558609, '127.0.0.1'),
+(89, 1, 1391606783, 1391608583, 0, '127.0.0.1', 1, 1391606783, NULL, NULL),
+(90, 11, 1391608703, 1391610503, 1, '127.0.0.1', 1, 1391608703, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -546,47 +1330,90 @@ CREATE TABLE IF NOT EXISTS `cruge_user` (
   `logondate` bigint(30) DEFAULT NULL,
   `username` varchar(64) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
-  `password` varchar(64) DEFAULT NULL COMMENT 'Hashed password',
+  `password` varchar(64) DEFAULT NULL COMMENT 'hashed password',
   `authkey` varchar(100) DEFAULT NULL COMMENT 'llave de autentificacion',
   `state` int(11) DEFAULT '0',
   `totalsessioncounter` int(11) DEFAULT '0',
   `currentsessioncounter` int(11) DEFAULT '0',
   PRIMARY KEY (`iduser`),
   UNIQUE KEY `idx_cruge_username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `cruge_user`
 --
 
 INSERT INTO `cruge_user` (`iduser`, `regdate`, `actdate`, `logondate`, `username`, `email`, `password`, `authkey`, `state`, `totalsessioncounter`, `currentsessioncounter`) VALUES
-(1, NULL, NULL, 1391287023, 'goradmin', 'cislibre@cantv.com.ve', '370ed327c72dab929be5330ba89e20f8', NULL, 1, 0, 0),
+(1, NULL, NULL, 1391606783, 'goradmin', 'cislibre@cantv.com.ve', '370ed327c72dab929be5330ba89e20f8', NULL, 1, 0, 0),
 (2, 1391219995, NULL, 1391228201, 'invitado', 'invitado@cantv.com.ve', 'a6ae8a143d440ab8c006d799f682d48d', 'a2302625999b85435b84ef447e4a05b7', 1, 0, 0),
-(11, 1391213516, NULL, 1391284600, 'averen01', 'averen01@cantv.com.ve', 'b08266fc0ed42d7b0f3f238ebba13882', '6e5b1874637eb1e622f5671f1288733b', 1, 0, 0);
+(11, 1391213516, NULL, 1391608703, 'averen01', 'averen01@cantv.com.ve', 'b08266fc0ed42d7b0f3f238ebba13882', '6e5b1874637eb1e622f5671f1288733b', 1, 0, 0);
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `cnx_asig_org`
+-- Constraints for table `base_asig_org`
 --
-ALTER TABLE `cnx_asig_org`
-  ADD CONSTRAINT `fk_asig_org_nu_doc` FOREIGN KEY (`nu_docm_idnt`) REFERENCES `cnx_empleados` (`nu_docm_idnt`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_asig_org_co_org` FOREIGN KEY (`co_org`) REFERENCES `cnx_org` (`co_org`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `base_asig_org`
+  ADD CONSTRAINT `fk_asig_org_co_org` FOREIGN KEY (`co_org`) REFERENCES `base_org` (`co_org`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_asig_org_nu_doc` FOREIGN KEY (`nu_docm_idnt`) REFERENCES `base_empleados` (`nu_docm_idnt`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `cnx_empleados`
+-- Constraints for table `base_empleados`
 --
-ALTER TABLE `cnx_empleados`
-  ADD CONSTRAINT `fk_username` FOREIGN KEY (`username`) REFERENCES `cruge_user` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_nu_docm_idnt` FOREIGN KEY (`nu_docm_idnt_supv`) REFERENCES `cnx_empleados` (`nu_docm_idnt`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `base_empleados`
+  ADD CONSTRAINT `fk_nu_docm_idnt` FOREIGN KEY (`nu_docm_idnt_supv`) REFERENCES `base_empleados` (`nu_docm_idnt`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_username` FOREIGN KEY (`username`) REFERENCES `cruge_user` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `cnx_org`
+-- Constraints for table `base_org`
 --
-ALTER TABLE `cnx_org`
-  ADD CONSTRAINT `fk_co_org` FOREIGN KEY (`co_org_dpnd`) REFERENCES `cnx_org` (`co_org`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `base_org`
+  ADD CONSTRAINT `fk_co_org` FOREIGN KEY (`co_org_dpnd`) REFERENCES `base_org` (`co_org`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `cnx_asig_localidades_grupos`
+--
+ALTER TABLE `cnx_asig_localidades_grupos`
+  ADD CONSTRAINT `fk_asig_co_grupo` FOREIGN KEY (`co_grupo`) REFERENCES `cnx_grupos` (`co_grupo`),
+  ADD CONSTRAINT `fk_asig_co_localidad` FOREIGN KEY (`co_localidad`) REFERENCES `cnx_localidades` (`id_localidad`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `cnx_asig_loc_orden`
+--
+ALTER TABLE `cnx_asig_loc_orden`
+  ADD CONSTRAINT `fk_orden_asig_loc` FOREIGN KEY (`co_localidad`) REFERENCES `cnx_localidades` (`co_localidad`),
+  ADD CONSTRAINT `fk_orden_asig_ord` FOREIGN KEY (`co_orden`) REFERENCES `cnx_ordenes` (`co_orden`);
+
+--
+-- Constraints for table `cnx_estados`
+--
+ALTER TABLE `cnx_estados`
+  ADD CONSTRAINT `fk_cnx_edo_coregion` FOREIGN KEY (`co_region`) REFERENCES `cnx_regiones` (`co_region`);
+
+--
+-- Constraints for table `cnx_localidades`
+--
+ALTER TABLE `cnx_localidades`
+  ADD CONSTRAINT `fk_cnx_loc_co_edo` FOREIGN KEY (`co_edo`) REFERENCES `cnx_estados` (`co_edo`),
+  ADD CONSTRAINT `fk_cnx_loc_co_ente` FOREIGN KEY (`co_ente`) REFERENCES `cnx_entes_localidades` (`co_sector_proyecto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_cnx_loc_co_munc` FOREIGN KEY (`co_municipio`) REFERENCES `cnx_municipio` (`co_municipio`),
+  ADD CONSTRAINT `fk_cnx_loc_co_prrq` FOREIGN KEY (`co_parroquia`) REFERENCES `cnx_parroquias` (`co_parroquia`),
+  ADD CONSTRAINT `fk_cnx_loc_co_region` FOREIGN KEY (`co_region`) REFERENCES `cnx_regiones` (`co_region`),
+  ADD CONSTRAINT `fk_cnx_loc_co_tipo_loc` FOREIGN KEY (`co_tipo_localidad`) REFERENCES `cnx_tipo_localidades` (`co_tipo_localidad`);
+
+--
+-- Constraints for table `cnx_municipio`
+--
+ALTER TABLE `cnx_municipio`
+  ADD CONSTRAINT `fk_cnx_munc_co_edo` FOREIGN KEY (`co_edo`) REFERENCES `cnx_estados` (`co_edo`);
+
+--
+-- Constraints for table `cnx_parroquias`
+--
+ALTER TABLE `cnx_parroquias`
+  ADD CONSTRAINT `fk_cnx_prrq_co_munc` FOREIGN KEY (`co_municipio`) REFERENCES `cnx_municipio` (`co_municipio`);
 
 --
 -- Constraints for table `cruge_authassignment`
@@ -606,8 +1433,8 @@ ALTER TABLE `cruge_authitemchild`
 -- Constraints for table `cruge_fieldvalue`
 --
 ALTER TABLE `cruge_fieldvalue`
-  ADD CONSTRAINT `fk_cruge_fieldvalue_cruge_user1` FOREIGN KEY (`iduser`) REFERENCES `cruge_user` (`iduser`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_cruge_fieldvalue_cruge_field1` FOREIGN KEY (`idfield`) REFERENCES `cruge_field` (`idfield`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_cruge_fieldvalue_cruge_field1` FOREIGN KEY (`idfield`) REFERENCES `cruge_field` (`idfield`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_cruge_fieldvalue_cruge_user1` FOREIGN KEY (`iduser`) REFERENCES `cruge_user` (`iduser`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

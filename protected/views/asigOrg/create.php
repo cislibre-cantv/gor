@@ -3,8 +3,8 @@
 /* @var $model AsigOrg */
 
 $this->breadcrumbs=array(
-	'Asig Orgs'=>array('index'),
-	'Create',
+	'Ubicacion Organizativa'=>array('index'),
+	'Crear',
 );
 
 $this->menu=array(
@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Create AsigOrg</h1>
+<h1>Crear Ubicacion Organizativa</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

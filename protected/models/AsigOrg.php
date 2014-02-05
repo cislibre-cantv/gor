@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "cnx_asig_org".
+ * This is the model class for table "base_asig_org".
  *
- * The followings are the available columns in table 'cnx_asig_org':
+ * The followings are the available columns in table 'base_asig_org':
  * @property integer $id_asig_org
  * @property integer $co_asig_org
  * @property integer $nu_docm_idnt
@@ -26,7 +26,7 @@ class AsigOrg extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'cnx_asig_org';
+		return 'base_asig_org';
 	}
 
 	/**
@@ -37,7 +37,7 @@ class AsigOrg extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('co_asig_org, nu_docm_idnt, co_org', 'required'),
+			array('nu_docm_idnt, co_org', 'required'),
 			array('co_asig_org, nu_docm_idnt, co_org', 'numerical', 'integerOnly'=>true),
 			array('usr_crea, usr_modf', 'length', 'max'=>10),
 			array('in_stat', 'length', 'max'=>1),
@@ -90,12 +90,12 @@ class AsigOrg extends CActiveRecord
 			'co_asig_org' => 'Codigo de registro',
 			'nu_docm_idnt' => 'Cédula',
 			'co_org' => 'Organización',
-			'fe_crea' => 'Fe Crea',
-			'fe_modf' => 'Fe Modf',
-			'usr_crea' => 'Usr Crea',
-			'usr_modf' => 'Usr Modf',
-			'in_stat' => 'In Stat',
-			'tx_desc' => 'Tx Desc',
+			'fe_crea' => 'Creado el',
+			'fe_modf' => 'Modificado el',
+			'usr_crea' => 'Creado por',
+			'usr_modf' => 'Modificado por',
+			'in_stat' => 'Estatus',
+			'tx_desc' => 'Observacion',
 		);
 	}
 
@@ -164,4 +164,56 @@ class AsigOrg extends CActiveRecord
                         'ActiveRecordLogableBehavior' => 'application.components.ActiveRecordLogableBehavior',
 		);
 	}
+        
+        public function beforeSave()
+        {
+
+            if (parent::beforeSave())
+            {
+                if($this->co_asig_org==null || $this->co_asig_org==0 ||  $this->co_asig_org=='')
+                    $this->co_asig_org=1;
+
+                //Busco el ultimo co_asig_org 
+                $maxCoAsigOrg = Yii::app()->db->createCommand()
+                    ->select('max(co_asig_org) as max')
+                    ->from('base_asig_org')
+                    ->queryScalar();
+
+                $newCoAsigOrg = $maxCoAsigOrg + 1;
+
+                if($this->isNewRecord)
+                {
+                    $this->usr_crea = Yii::app()->user->id;
+
+                }else{
+
+                    //busco el ultimo co_org
+                    $oldCoOrg = Yii::app()->db->createCommand()
+                                ->select('co_org')
+                                ->from('base_asig_org')
+                                ->where('co_asig_org=:co_asig_org',array(':co_asig_org'=>$this->co_asig_org))
+                                ->queryScalar();
+
+                    if($this->co_org!=$oldCoOrg){
+                        //agrego el registro actual con estatus en I
+                        $oldAsigOrg = new AsigOrg();
+                        $oldAsigOrg->co_asig_org  = $newCoAsigOrg;
+                        $oldAsigOrg->co_org = $oldCoOrg;
+                        $oldAsigOrg->nu_docm_idnt = $this->nu_docm_idnt;
+                        $oldAsigOrg->fe_crea = $this->fe_crea;
+                        $oldAsigOrg->fe_modf = $this->fe_modf;
+                        $oldAsigOrg->usr_crea = $this->usr_crea;
+                        $oldAsigOrg->in_stat = 'I';
+                        $oldAsigOrg->usr_modf = Yii::app()->user->id;
+                        $oldAsigOrg->save();
+                    }
+
+                }
+
+                return true;
+             }
+         else
+         return false;
+        }
+        
 }

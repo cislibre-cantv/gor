@@ -3,19 +3,19 @@
 /* @var $model AsigOrg */
 
 $this->breadcrumbs=array(
-	'Asig Orgs'=>array('index'),
+	'Ubicacion Organizativa'=>array('index'),
 	$model->co_asig_org=>array('view','id'=>$model->co_asig_org),
-	'Update',
+	'Actualizar',
 );
 
 $this->menu=array(
 	//array('label'=>'List AsigOrg', 'url'=>array('index')),
 	//array('label'=>'Create AsigOrg', 'url'=>array('create')),
-	array('label'=>'View AsigOrg', 'url'=>array('view', 'id'=>$model->co_asig_org)),
+	array('label'=>'Ver Ubic. Organizativa', 'url'=>array('view', 'id'=>$model->co_asig_org)),
 	//array('label'=>'Manage AsigOrg', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update AsigOrg <?php echo $model->co_asig_org; ?></h1>
+<h1>Actualizar Ubicación Organizativa <?php echo $model->co_asig_org; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

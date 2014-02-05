@@ -1,9 +1,9 @@
 <?php
-/* @var $this EmpleadosController */
-/* @var $model Empleados */
+/* @var $this TipoOrdenServicioController */
+/* @var $model TipoOrdenServicio */
 
 $this->breadcrumbs=array(
-	'Empleados'=>array('index'),
+	'Tipo Orden Servicios'=>array('index'),
 	'Gestionar',
 );
 
@@ -18,7 +18,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#empleados-grid').yiiGridView('update', {
+	$('#tipo-orden-servicio-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Empleados</h1>
+<h1>Tipo Orden Servicios</h1>
 
 <p>
 También puede escribir un operador de comparación (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -41,24 +41,21 @@ o <b>=</b>) al principio de cada uno de los valores de búsqueda para especifica
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'empleados-grid',
+	'id'=>'tipo-orden-servicio-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		//'id_usuario',
-		'nu_docm_idnt',
-		'nu_docm_idnt_supv',
-		'username',
-		'nb_pers',
-		/*
-		'email',
-		'ldap_login',
+		//'id_tipo_orden_servicio',
+		//'co_tipo_orden_servicio',
+		'nb_tipo_servicio',
+		'tx_desc',
 		'fe_crea',
-		'fe_modf',
+                'fe_modf',
+		
+		/*
 		'usr_crea',
 		'usr_modf',
 		'in_stat',
-		'tx_desc',
 		*/
 		array(
 			'class'=>'CButtonColumn',

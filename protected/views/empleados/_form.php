@@ -60,7 +60,8 @@
 		<?php echo $form->dropDownList($model,'ldap_login', CHtml::listData($options, 'ldap_login', 'descripcion') ); ?>
                 <?php echo $form->error($model,'ldap_login'); ?>
 	</div>
-              
+        
+        <?php /*
 	<div class="row">
 		<?php echo $form->labelEx($model,'usr_crea'); ?>
 		<?php echo $form->textField($model,'usr_crea',array('size'=>10,'maxlength'=>10)); ?>
@@ -72,7 +73,8 @@
 		<?php echo $form->textField($model,'usr_modf',array('size'=>10,'maxlength'=>10)); ?>
 		<?php echo $form->error($model,'usr_modf'); ?>
 	</div>
-
+        */ ?>
+        
 	<div class="row">
 		<?php echo $form->labelEx($model,'tx_desc'); ?>
 		<?php echo $form->textField($model,'tx_desc',array('size'=>60,'maxlength'=>100)); ?>

@@ -56,6 +56,18 @@
                                 array('label'=>'Organizacion'
                                         , 'url'=>array('/org/admin')
                                         , 'visible'=>!Yii::app()->user->isGuest),
+                            
+                                array('label'=>'Tipo Localidades'
+                                        , 'url'=>array('/tipoLocalidades/admin')
+                                        , 'visible'=>!Yii::app()->user->isGuest),
+                            
+                                array('label'=>'Tipo Orden Servicio'
+                                         , 'url'=>array('/tipoOrdenServicio/admin')
+                                         , 'visible'=>!Yii::app()->user->isGuest),
+                            
+                                array('label'=>'Entes/Localidades'
+                                        , 'url'=>array('/entesLocalidades/admin')
+                                        , 'visible'=>!Yii::app()->user->isGuest),
                                 
                                 array('label'=>'Ingresar'
                                         , 'url'=>Yii::app()->user->ui->loginUrl
